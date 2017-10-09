@@ -1,0 +1,1 @@
+# kcoop-theme-Shopify
