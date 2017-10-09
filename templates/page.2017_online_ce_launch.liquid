@@ -1,0 +1,69 @@
+
+
+
+
+
+
+<div id="online-ce">
+{% comment %}
+<!-- /templates/page.liquid -->
+<div class="grid">
+  <div class="grid__item large--two-thirds push--large--one-sixth">
+    <h1>{{ page.title }}</h1>
+
+    {% comment %}
+      Regular page content goes here.
+    {% endcomment %}
+    <div class="rte">
+      {{ page.content }}
+    </div>
+  </div>
+</div>
+{% endcomment %}
+
+
+
+
+
+
+
+  {{ page.content }}
+
+<div class="wrapper online-ce-container">
+    <div class="live-ce-schedules">
+		<div class="schedule-heading clearfix">
+			<span>COURSE TYPE</span>
+			<span text-align=center class="course">COURSE</span>
+			<span>PRICE</span>
+			<span></span>
+		</div>
+
+		<div class="schedule-content">
+
+          {% for product in collections.ce-courses.products %}
+		  <div class="live-content clearfix">
+            <span>{{ product.metafields.global.location }}</span>
+            <span class="course">{{ product.title }}</span>
+            <span>{{ product.metafields.global.date }}</span>
+            <span>
+              <a class="btn" href="{{ product.url | within: collection }}">Purchase</a>
+            </span>
+          </div>
+
+
+
+          {% endfor %}
+
+
+		</div>
+	</div>
+</div>
+{% include 'subscribe' %}
+
+</div>
+
+<script>
+$(document).ready(function() {
+	$('body').attr('id', 'online-ce')
+});
+</script>

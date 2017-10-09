@@ -1,0 +1,660 @@
+<!-- /templates/product.liquid -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css" />
+<style>
+/*!
+ * Start Bootstrap - New Age v3.3.7 (http://startbootstrap.com/template-overviews/new-age)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+ /*!
+ * Start Bootstrap - New Age v3.3.7 (http://startbootstrap.com/template-overviews/new-age)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+
+header {
+  position: relative;
+  width: 100%;
+  min-height: auto;
+  
+  background: url("../img/bg-pattern.png"), #7b4397;
+  /* fallback for old browsers */
+  background: url("../img/bg-pattern.png"), -webkit-linear-gradient(to left, #29afcb, #f48102);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: url("../img/bg-pattern.png"), linear-gradient(to left, #29afcb, #f48102);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: white;
+}
+header .header-content {
+  text-align: center;
+  padding: 150px 0 50px;
+  position: relative;
+}
+header .header-content .header-content-inner {
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto;
+}
+header .header-content .header-content-inner h1 {
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-size: 30px;
+}
+header .header-content .header-content-inner .list-badges {
+  margin-bottom: 25px;
+}
+header .header-content .header-content-inner .list-badges img {
+  height: 50px;
+  margin-bottom: 25px;
+}
+header .device-container {
+  max-width: 300px;
+  margin: 0 auto 100px;
+}
+header .device-container .screen img {
+  border-radius: 3px;
+}
+@media (min-width: 768px) {
+  header {
+    min-height: 100%;
+  }
+  header .header-content {
+    text-align: left;
+    padding: 0;
+    height: 70vh;
+  }
+  header .header-content .header-content-inner {
+    max-width: none;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  header .header-content .header-content-inner h1 {
+    font-size: 35px;
+  }
+  header .device-container {
+    max-width: none;
+    max-height: calc(0vh);
+    margin: 100px auto 0;
+  }
+}
+@media (min-width: 992px) {
+  header .header-content .header-content-inner h1 {
+    font-size: 50px;
+  }
+}
+section {
+  padding: 100px 0;
+}
+section h2 {
+  font-size: 50px;
+}
+section.download {
+  padding: 150px 0;
+  position: relative;
+}
+section.download h2 {
+  margin-top: 0;
+  font-size: 50px;
+}
+section.download .badges .badge-link {
+  display: block;
+  margin-bottom: 25px;
+}
+section.download .badges .badge-link:last-child {
+  margin-bottom: 0;
+}
+section.download .badges .badge-link img {
+  height: 60px;
+}
+@media (min-width: 768px) {
+  section.download .badges .badge-link {
+    display: inline-block;
+    margin-bottom: 0;
+  }
+}
+@media (min-width: 768px) {
+  section.download h2 {
+    font-size: 70px;
+  }
+}
+section.features .section-heading {
+  margin-bottom: 100px;
+}
+section.features .section-heading h2 {
+  margin-top: 0;
+}
+section.features .section-heading p {
+  margin-bottom: 0;
+}
+section.features .device-container,
+section.features .feature-item {
+  max-width: 300px;
+  margin: 0 auto;
+}
+section.features .device-container {
+  margin-bottom: 100px;
+}
+@media (min-width: 992px) {
+  section.features .device-container {
+    margin-bottom: 0;
+  }
+}
+section.features .feature-item {
+  text-align: center;
+  margin-bottom: 100px;
+}
+section.features .feature-item h3 {
+  font-size: 30px;
+}
+section.features .feature-item i {
+  font-size: 80px;
+  background: -webkit-linear-gradient(to left, #7b4397, #dc2430);
+  background: linear-gradient(to left, #7b4397, #dc2430);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@media (min-width: 992px) {
+  section.features .device-container,
+  section.features .feature-item {
+    max-width: none;
+  }
+}
+section.cta {
+  position: relative;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  background-position: center;
+  background-image: url('../img/bg-cta.jpg');
+  padding: 250px 0;
+}
+section.cta .cta-content {
+  position: relative;
+  z-index: 1;
+}
+section.cta .cta-content h2 {
+  margin-top: 0;
+  margin-bottom: 25px;
+  color: white;
+  max-width: 450px;
+  font-size: 50px;
+}
+@media (min-width: 768px) {
+  section.cta .cta-content h2 {
+    font-size: 80px;
+  }
+}
+section.cta .overlay {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+section.contact {
+  text-align: center;
+}
+section.contact h2 {
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+section.contact h2 i {
+  color: #dd4b39;
+}
+section.contact ul.list-social {
+  margin-bottom: 0;
+}
+section.contact ul.list-social li a {
+  display: block;
+  height: 80px;
+  width: 80px;
+  line-height: 80px;
+  font-size: 40px;
+  border-radius: 100%;
+  color: white;
+}
+section.contact ul.list-social li.social-twitter a {
+  background-color: #1da1f2;
+}
+section.contact ul.list-social li.social-twitter a:hover {
+  background-color: #0d95e8;
+}
+section.contact ul.list-social li.social-facebook a {
+  background-color: #3b5998;
+}
+section.contact ul.list-social li.social-facebook a:hover {
+  background-color: #344e86;
+}
+section.contact ul.list-social li.social-google-plus a {
+  background-color: #dd4b39;
+}
+section.contact ul.list-social li.social-google-plus a:hover {
+  background-color: #d73925;
+}
+footer {
+  background-color: #222222;
+  padding: 25px 0;
+  color: rgba(255, 255, 255, 0.3);
+  text-align: center;
+}
+footer p {
+  font-size: 12px;
+  margin: 0;
+}
+footer ul {
+  margin-bottom: 0;
+}
+footer ul li a {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.3);
+}
+footer ul li a:hover,
+footer ul li a:focus,
+footer ul li a:active,
+footer ul li a.active {
+  text-decoration: none;
+}
+.bg-primary {
+  background: #fdcc52;
+  background: -webkit-linear-gradient(#fdcc52, #fdc539);
+  background: linear-gradient(#fdcc52, #fdc539);
+}
+.text-primary {
+  color: #fdcc52;
+}
+.no-gutter > [class*='col-'] {
+  padding-right: 0;
+  padding-left: 0;
+}
+.btn-outline {
+  color: white;
+  border-color: white;
+  border: 1px solid;
+}
+.btn-outline:hover,
+.btn-outline:focus,
+.btn-outline:active,
+.btn-outline.active {
+  color: white;
+  background-color: #fdcc52;
+  border-color: #fdcc52;
+}
+.btn {
+  font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 300px;
+}
+.btn-xl {
+  padding: 15px 45px;
+  font-size: 11px;
+}
+::-moz-selection {
+  color: white;
+  text-shadow: none;
+  background: #222222;
+}
+::selection {
+  color: white;
+  text-shadow: none;
+  background: #222222;
+}
+img::selection {
+  color: white;
+  background: transparent;
+}
+img::-moz-selection {
+  color: white;
+  background: transparent;
+}
+body {
+  webkit-tap-highlight-color: #222222;
+}
+
+
+</style>
+
+
+
+
+  <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="header-content">
+                      <br><br>
+                                         <div style="box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.5)" class="embed-responsive embed-responsive-16by9">
+                            <iframe src="https://player.vimeo.com/video/182421565" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+  </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                  
+                    <div class="device-container">
+                        <div class="device-mockup iphone6_plus portrait white">
+                            <div class="device">
+                                <div class="screen">
+                                  
+                                  
+                              <div class="header-content-inner">
+                            <h1 itemprop="name">{{ product.title }}</h1>
+                        </div>    
+                                  
+											 
+
+      <div style="line-height: 1.25;" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+        <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+       
+             
+          <p>Do you need to train new mortgage brokers, loan officers, processors, underwriters, or assistants for any of these positions? 
+</p>
+          <p>If your answer is YES, Katalyst Kampus-Your Mortgage and Business School is your answer.</p>
+        
+        <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm" class="form-vertical">
+
+          <button type="submit" name="add" id="AddToCart" class="btn btn-lg">
+            <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
+          </button>
+<h2 class='pull-right'>$0.00</h2>
+        </form>
+
+        
+        
+        
+        
+        
+        
+        
+        
+      </div>
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+   
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="section-heading">
+                        <h2>LEARNING NEVER STOPS</h2>
+                        <p class="text-muted">Check out what you can do with course!</p>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="device-container">
+                        <div class="device-mockup iphone6_plus portrait white">
+                            <div class="device">
+                                <div class="screen">
+                                    <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
+                                    <img src="//cdn.shopify.com/s/files/1/1311/0223/t/2/assets/iphone-6-plus-gold.png" class="img-responsive" alt="">
+                              </div>
+                                <div class="button">
+                                    <!-- You can hook the "home button" to some JavaScript events or just remove it -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="feature-item">
+                                    <i class="icon-credit-card text-primary"></i>
+                                    <h3>Mortgage Companies</h3>
+                                    <p class="text-muted" style="text-align: justify;line-height: 30px;">Your course improves the skills of loan officers and raises the performance of your current talent.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="feature-item">
+                                    <i class="icon-briefcase text-primary"></i>
+                                    <h3>Mortgage Pros</h3>
+                                    <p class="text-muted"style="text-align: justify;line-height: 30px;">Learn how to incorporate your mortgage career into your life and not the other way around. We will help any “newbie” become more successful in their career faster.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="feature-item">
+                                    <i class="icon-bulb text-primary"></i>
+                                    <h3>Business Affiliates</h3>
+                                    <p class="text-muted" style="text-align: justify;line-height: 30px;">With your help, we’ll help thousands of individuals and companies THRIVE in this industry. </p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="feature-item">
+                                    <i class="icon-lock-open text-primary"></i>
+                                    <h3>CFPB</h3>
+                                    <p class="text-muted" style="text-align: justify;line-height: 30px;">Make compliance your friend by understanding how to work with the Consumer Financial Protection Bureau as a finance pro.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+   <section id="contact" class="contact bg-primary">
+        <div class="container">
+            <h2>We <i class="fa fa-heart"></i>New Loan Officers!</h2>
+          <button class='btn btn-lg'>Add to cart</button>
+        </div>
+    </section>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+      
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+      
+   <script>
+  var selectCallback = function(variant, selector) {
+    timber.productPage({
+      money_format: "{{ shop.money_format }}",
+      variant: variant,
+      selector: selector
+    });
+  };
+
+  jQuery(function($) {
+    new Shopify.OptionSelectors('productSelect', {
+      product: {{ product | json }},
+      onVariantSelected: selectCallback,
+      enableHistoryState: true
+    });
+
+    // Add label if only one product option and it isn't 'Title'. Could be 'Size'.
+    {% if product.options.size == 1 and product.options.first != 'Title' %}
+      $('.selector-wrapper:eq(0)').prepend('<label for="productSelect-option-0">{{ product.options.first | escape }}</label>');
+    {% endif %}
+
+    // Hide selectors if we only have 1 variant and its title contains 'Default'.
+    {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
+      $('.selector-wrapper').hide();
+    {% endif %}
+  });
+  
+jQuery(document).ready(function() {
+var xText = $('.selector-wrapper select').find('option:selected').text(); 
+	{% if product.tags contains "elective" %}
+      jQuery.ajaxSetup({async:false});       
+      var xyz = '8-hour-safe-ce-2016-7-hour-core-plus-1-hour-elective';
+      jQuery.getJSON('/products/'+xyz+'.js', function(product) {
+        var xImg;
+         if(product.featured_image === null){
+            xImg = '//cdn.shopify.com/s/assets/admin/no-image-grande-1cfae84eca4ba66892099dcd26e604f5801fdadb3693bc9977f476aa160931ac_thumb.gif';
+         } else {
+            xImg = product.featured_image.replace('.jpeg', '_thumb.jpeg').replace('.jpg', '_thumb.jpg').replace('.png', '_thumb.png');
+         };
+
+
+         var xPrice = product.price / 100; 
+        jQuery('.accTable').append('<tr><td><label><span class="cb"><input type="checkbox" value="'+product.variants[0].id+'" data-price="'+(product.variants[0].price / 100).toFixed(2)+'" checked /><input type="checkbox" value="'+product.variants[1].id+'" data-price="'+(product.variants[1].price / 100).toFixed(2)+'"  /></span><a target="_blank" href="/products/'+product.handle+'"><span class="img"><img src="'+xImg+'" /></span><span class="name"><strong>'+product.title+'</strong><em>$<span>'+(product.variants[0].price / 100).toFixed(2)+'</span></em> </span></span></label></td></tr>');
+        setTimeout(function(){
+          jQuery(window).trigger('resize');
+          }, 300);
+
+
+        //console.log(xPrice.toFixed(2));
+
+      });
+      jQuery.ajaxSetup({async:true});
+  	  jQuery('.accTable input').first().attr('checked', true);	
+      
+  	  jQuery.ajaxSetup({async:true});
+  	  jQuery('.accTable input').first().attr('checked', true);	
+  
+  	  jQuery('.accTable input').change(function() {
+        if (jQuery(this).is(':checked')) {
+        	//alert(jQuery(this).attr('data-price'));
+            jQuery(this).closest('label').find('em span').text(jQuery(this).attr('data-price'));
+        }
+        
+         
+        
+      });		
+  
+  
+      var origPrice = parseFloat($('#ProductPrice').text().replace('$', '')); 
+      var xPrc = '';
+
+      if (xText.indexOf('No') >= 0) {
+        xPrc = parseFloat(jQuery('.accTable .cb  input').last().attr('data-price'));
+
+        jQuery('.accTable .cb input').first().prop('checked', false);	
+        jQuery('.accTable .cb  input').last().prop('checked', true);	
+      } else {
+        xPrc = parseFloat(jQuery('.accTable .cb  input').first().attr('data-price'));
+
+        jQuery('.accTable .cb  input').first().prop('checked', true);	
+        jQuery('.accTable .cb  input').last().prop('checked', false);	
+      }
+      var subTotal = (origPrice + xPrc).toFixed(2);
+      $('.subTotal').text(subTotal);
+
+
+      $('.selector-wrapper select').change(function() {
+        xText = $(this).find('option:selected').text();
+
+        if (xText.indexOf('No') >= 0) {
+          xPrc = parseFloat(jQuery('.accTable .cb  input').last().attr('data-price'));
+
+          jQuery('.accTable .cb input').first().prop('checked', false);	
+          jQuery('.accTable .cb  input').last().prop('checked', true);	
+          jQuery('.accTable .cb input').trigger('change');
+
+        } else {
+          xPrc = parseFloat(jQuery('.accTable .cb  input').first().attr('data-price'));
+
+          jQuery('.accTable .cb  input').first().prop('checked', true);	
+          jQuery('.accTable .cb  input').last().prop('checked', false);	
+          jQuery('.accTable .cb input').trigger('change');
+          
+        }
+        origPrice = parseFloat($('#ProductPrice').text().replace('$', '')); 
+        subTotal = (origPrice + xPrc).toFixed(2);
+        $('.subTotal').text(subTotal);
+
+
+      });	
+  
+  	  jQuery('#AddToCartForm').submit(function() {
+          jQuery.ajaxSetup({async:false});
+          var abc = jQuery('#productSelect').val();
+          var def = 1;
+
+
+
+          jQuery('.accTable input:checked').each(function() {
+            console.log('add'+ $(this).val());
+            Shopify.addItem($(this).val(), 1, function() {
+              console.log('added');
+
+            });
+
+
+          });
+          console.log('add'+ abc);
+          Shopify.addItem(abc, def, function() {
+            console.log('add');
+          });
+
+          //window.location.href = '/cart/';
+          jQuery.ajaxSetup({async:true});
+          return false;
+        });  
+	
+  
+  
+    {% endif %}
+  
+   $(".noModal").fancybox({
+		maxWidth	: 300,
+		//maxHeight	: 400,
+		fitToView	: true,
+		width		: 300,
+		//height		: '70%',
+		autoHeight	: true,
+		closeClick	: true,
+		openEffect	: 'none',
+		closeEffect	: 'none', 
+     	afterShow: function() {
+          if ($('.fancybox-overlay').size() == 0) { 
+     		$('body').append('<div class="fancybox-overlay fancybox-overlay-fixed" style="display: block; width: auto; height: auto;"></div>')
+          } else {
+          
+          }  
+        }, 
+     	afterClose: function() {
+     		$('body .fancybox-overlay').remove();
+        }	
+	});
+  
+  
+  if (xText.indexOf('No') >= 0) {
+    $('.noModal').trigger('click');
+  } else {
+    
+  }
+  
+  
+  $('.selector-wrapper select').change(function() {
+    xText = $(this).find('option:selected').text();
+
+    if (xText.indexOf('No') >= 0) {
+      $('.noModal').trigger('click');
+
+    } else {
+
+    }
+
+  });  
+  
+ 
+});  
+  
+</script> 
+<div style="display: none">  
+	<a class="noModal" href="#noModal">Inline</a>
+	<div id="noModal">If you choose not to purchase the NMLS banking fee option your completed continuing education courses WILL NOT be submitted to the NMLS which could prevent you from renewing your license.</div>  
+</div>   

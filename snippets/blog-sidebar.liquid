@@ -1,0 +1,43 @@
+<!-- /snippets/blog-sidebar.liquid -->
+{% comment %}
+  Recent blog posts
+{% endcomment %}
+
+<div class="sidebar-block blog-search">
+  <form class="search" action="/search?&type=article">
+    <input type="text" placeholder="Search" name="q" value="{{ search.terms | escape }}"  />
+    <input type="submit" value="Search" />
+  </form>
+</div>
+
+
+
+<div class="sidebar-block recent-posts">
+  <h4>{{ 'blogs.sidebar.recent_articles' | t }}</h4>
+  <ul class="no-bullets">
+    {% for article in blogs[blog.handle].articles limit:6 %}
+      <li>
+        <a href="{{ article.url }}">{{ article.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+
+<div class="sidebar-block tags">
+  {% comment %}
+    Blog tags
+  {% endcomment %}
+  {% if blog.all_tags.size > 0 %}
+    <h4>Search by Tags</h4>
+    <ul class="no-bullets">
+      {% for tag in blog.all_tags %}
+        {% if current_tags contains tag %}
+        <li>{{ tag }}</li>
+        {% else %}
+        <li>{{ tag | link_to_tag: tag }}</li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+</div>

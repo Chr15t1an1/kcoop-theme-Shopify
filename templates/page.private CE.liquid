@@ -1,0 +1,46 @@
+<!-- /templates/page.liquid -->
+<div class="live-ce-banner" style="background-image: url({{ page.metafields.global.banner }}); max-height: 175px; margin-top: -54px; box-shadow: 1px 2px 5px 2px #333;">
+</div>
+
+<div class="grid">
+
+  <div class="grid__item large--two-thirds push--large--one-sixth">
+
+    {% comment %}
+      Regular page content goes here.
+    {% endcomment %}
+    <div class="rte">
+      {{ page.content }}
+    </div>
+
+  </div>
+
+</div>
+<div class="wrapper">	
+	<div class="live-ce-schedules">
+		<div class="schedule-heading clearfix">
+			<span>DATE</span>
+			<span class="course">COURSE</span>
+			<span>LOCATION</span>
+			<span></span>
+		</div>
+
+		<div class="schedule-content">
+          	
+          {% for product in collections.private-ce.products %}
+		  <div class="live-content clearfix">
+            <span>{{ product.metafields.global.date }}</span>
+            <span class="course">{{ product.title }}</span>
+            <span>{{ product.metafields.global.location }}</span>
+            <span>
+              <a class="btn" href="{{ product.url | within: collection }}">Class Details</a>
+            </span>
+          </div>	
+                    {% endfor %}
+         <div class="rte">
+     
+    </div>
+		</div>
+	</div>
+</div>
+{% include 'subscribe' %}

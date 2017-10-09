@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="{{ locale }}" dir="{{ direction }}" class="{{ checkout_html_classes }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, user-scalable=0">
+
+    <title>{{ shop.name }} - {{ page_title }}</title>
+    {{ content_for_header }}
+    {{ checkout_stylesheets }}
+    {{ checkout_scripts }}
+  </head>
+  <body>
+    <div class="banner" data-header>
+      <div class="wrap">
+        {{ content_for_logo }}
+      </div>
+    </div>
+    {{ order_summary_toggle }}
+    <div class="content" data-content>
+      <div class="wrap">
+        <div class="sidebar" role="complementary">
+          <div class="sidebar__header">
+            {{ content_for_logo }}
+          </div>
+          <div class="sidebar__content">
+            {{ content_for_order_summary }}
+
+          </div>
+        </div>
+        <div class="main" role="main">
+          <div class="main__header">
+            {{ content_for_logo }}
+            {{ breadcrumb }}
+            {{ alternative_payment_methods }}
+          </div>
+          <div class="main__content">
+            {{ content_for_layout }}
+          </div>
+          <div class="main__footer">
+            {{ content_for_footer }}
+          </div>
+        </div>
+      </div>
+    </div>
+    {{ tracking_code }}
+    {{ 'browser-support.js' | asset_url | script_tag }}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+
+
+function checkCookie() {
+    var user = getCookie("coop_cares");
+    if (user != "") {
+    $("#checkout_reduction_code").val( "CoopCares" );
+		$('.field__input-btn').click();
+    }
+}
+
+checkCookie();
+
+
+// //Hide Icons
+// $( ".icon--status-sold-out" ).hide();
+// //Change Sold out to Coming soon
+// $( ".product__status--sold-out").replaceWith('<td>Coming Soon</td>');
+// //Change inventory notice
+// $( ".section__title").replaceWith('<h2 class="section__title">Inventory Notice</h2>');
+// $( ".section__text").replaceWith('<p class="section__text">We are still waiting on approval for the Florida Class. Unapproved classes will be removed from your cart on checkout. We are sorry for the inconvenience. If you have any questions please contact us at +1 360 342 6176.</p>');
+
+
+
+
+
+
+</script>
+
+
+
+
+  </body>
+</html>

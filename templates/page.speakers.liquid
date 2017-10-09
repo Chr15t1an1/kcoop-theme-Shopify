@@ -1,0 +1,89 @@
+<div id="live-ce">
+
+<div class="live-ce-banner" style="background-image: url({{ page.metafields.global.banner }}); box-shadow: 1px 2px 5px 2px #333;">
+</div>
+<div class="wrapper">
+	<div class="live-ce-schedules">
+		<div class="schedule-heading clearfix">
+			<span>DATE</span>
+			<span class="course">COURSE</span>
+			<span style="padding-left: 0px;" >LOCATION</span>
+			<span></span>
+		</div>
+
+		<div class="schedule-content">
+
+	<!--http://stackoverflow.com/questions/6133723/sort-divs-in-jquery-based-on-attribute-data-sort-->
+
+          {% for product in collections.live-ce.products  %}
+
+            {% include 'plus_event_sorting', section: 'event_loop' %}
+
+            <div class="live-content clearfix" data-date="{{ formatted_date }}">
+              <span>{{ product.metafields.global.date }}</span>
+              <span class="course">{{ product.title }}</span>
+              <span style="text-align: center;">{{ product.metafields.global.location }}</span>
+              <span>
+                <a class="btn" href="{{ product.url | within: collection }}">Class Details</a>
+              </span>
+            </div>
+
+          {% endfor %}
+         <div class="rte">
+
+    </div>
+
+<style>
+
+
+form#hsForm_d3efdc2a-afd2-45d3-9083-22eda697c46a {
+    display: flex;
+		max-width:600px;
+		margin: 0 auto;
+}
+#hsForm_d3efdc2a-afd2-45d3-9083-22eda697c46a input.hs-button.primary.large {
+    margin-top: 28px;
+}
+fieldset.form-columns-2 {
+margin-left: 10px !important;
+}
+
+</style>
+
+<div style="margin: 0 auto;">
+<h2 style="text-align: center;">Do you want our live CE to come to your town? <br/>Submit your postal code and email to let us know.</h2>
+
+<!--[if lte IE 8]>
+<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+<![endif]-->
+<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+<script>
+  hbspt.forms.create({
+    css: '',
+    portalId: '2141168',
+    formId: 'd3efdc2a-afd2-45d3-9083-22eda697c46a'
+  });
+</script>
+<div>
+
+
+
+<hr/>
+    {{ page.content | split: '<!-- split -->' | last }}
+
+
+
+
+		</div>
+	</div>
+
+</div>
+{% include 'subscribe' %}
+
+<script>
+$(document).ready(function() {
+	$('body').attr('id', 'live-ce')
+});
+</script>
+
+{% include 'plus_event_sorting', section: 'footer' %}

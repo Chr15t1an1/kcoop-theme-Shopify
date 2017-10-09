@@ -1,0 +1,237 @@
+<!doctype html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head>
+<!-- Basic page needs ================================================== -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="google-site-verification" content="sKLEglWUUXklpTKmUywqmaTGKyu9jF4GOKoZFgSE8Io" />
+{% if settings.favicon_enable %}
+<link rel="shortcut icon" href="{{ 'favicon.png' | asset_url }}" type="image/png" />
+{% endif %}
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+
+<!-- Title and description ================================================== -->
+<title>{{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}</title>
+{% if page_description %}
+<meta name="description" content="{{ page_description | escape }}">
+{% endif %}
+
+<!-- Helpers ================================================== -->
+{% include 'social-meta-tags' %}
+<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name="theme-color" content="{{ settings.color_primary }}">
+
+<!-- CSS ================================================== -->
+{{ 'jquery.fancybox.css' | asset_url | stylesheet_tag }}
+  {{ 'timber.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'font-awesome.min.css' | asset_url | stylesheet_tag }}
+  {{ 'knowledge-coop.scss.css' | asset_url | stylesheet_tag }}
+<style>
+div#close_n {
+	font-size: 50px;
+}
+</style>
+{{ 'custom.css' | asset_url | stylesheet_tag }}
+  {{ 'kc-responsive.css' | asset_url | stylesheet_tag }}
+  {{ '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js' | script_tag }}
+
+<!-- Header hook for plugins ================================================== -->
+{{ content_for_header }}
+
+  {% comment %}
+    If you store has customer accounts disabled, you can remove the following JS file
+  {% endcomment %}
+</head>
+{% comment %}
+  Add the page template as a class for easy page or template specific styling.
+{% endcomment %}
+<body id="{% if template contains 'team' %}about-us{% else %}{{ page_title | handle }}{% endif %}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
+<div id="NavDrawer" class="drawer drawer--left">
+  <!-- begin mobile-nav -->
+  <ul class="mobile-nav">
+    <li class="mobile-nav__item mobile-nav__search"> {% include 'search-bar' %} </li>
+    {% for link in linklists.main-menu.links %}
+    {% comment %}
+    Create a dropdown menu by naming a linklist the same as a link in the parent nav
+
+    More info on dropdowns:
+    - http://docs.shopify.com/manual/your-website/navigation/create-drop-down-menu
+    {% endcomment %}
+    {% assign child_list_handle = link.title | handleize %}
+    {% if linklists[child_list_handle].links != blank %}
+    <li class="mobile-nav__item{% if link.active %} mobile-nav__item--active{% endif %}" aria-haspopup="true">
+      <div class="mobile-nav__has-sublist"> <a href="{{ link.url }}" class="mobile-nav__link">{{ link.title }}</a>
+        <div class="mobile-nav__toggle">
+          <button type="button" class="icon-fallback-text mobile-nav__toggle-open"> <span class="icon icon-plus" aria-hidden="true"></span> <span class="fallback-text">See More</span> </button>
+          <button type="button" class="icon-fallback-text mobile-nav__toggle-close"> <span class="icon icon-minus" aria-hidden="true"></span> <span class="fallback-text">{{ 'cart.general.close_cart' | t | json }}</span> </button>
+        </div>
+      </div>
+      <ul class="mobile-nav__sublist">
+        {% for childlink in linklists[child_list_handle].links %}
+        <li class="mobile-nav__item {% if childlink.active %} mobile-nav__item--active{% endif %}"> <a href="{{ childlink.url }}" class="mobile-nav__link">{{ childlink.title | escape }}</a> </li>
+        {% endfor %}
+      </ul>
+    </li>
+    {% else %}
+    <li class="mobile-nav__item{% if link.active %} mobile-nav__item--active{% endif %}"> <a href="{{ link.url }}" class="mobile-nav__link">{{ link.title }}</a> </li>
+    {% endif %}
+    {% endfor %}
+
+    {% comment %}
+    If customer accounts are enabled, provide login and create account links
+    {% endcomment %}
+    {% if shop.customer_accounts_enabled %}
+    {% if customer %}
+    <li class="mobile-nav__item"> {% if customer.first_name != blank %}
+      {% capture first_name %}{{ customer.first_name }}{% endcapture %} <a href="/account">{{ 'layout.customer.logged_in_as_html' | t: first_name: first_name }}</a> {% else %} <a href="/account">{{ 'layout.customer.account' | t }}</a> {% endif %} </li>
+    <li class="mobile-nav__item"> {{ 'layout.customer.log_out' | t | customer_logout_link }} </li>
+    {% else %}
+    <li class="mobile-nav__item"> {{ 'layout.customer.log_in' | t | customer_login_link }} </li>
+    <li class="mobile-nav__item"> {{ 'layout.customer.create_account' | t | customer_register_link }} </li>
+    {% endif %}
+    {% endif %}
+  </ul>
+  <!-- //mobile-nav -->
+</div>
+<div id="PageContainer" class="is-moved-by-drawer">
+  <header class="site-header" role="banner">
+  <div class="wrapper">
+    <div class="grid">
+      <div class="grid__item large--one-quarter"> {% comment %}
+        Use the uploaded logo from theme settings if enabled.
+        Site name gets precedence with H1 tag on homepage, div on other pages.
+        {% endcomment %}
+        {% if template == 'index' %}
+        <h1 class="site-header__logo large--left" itemscope itemtype="http://schema.org/Organization"> {% else %}
+          <div class="h1 site-header__logo large--left" itemscope itemtype="http://schema.org/Organization">
+          {% endif %}
+          {% if settings.logo_use_image %} <a href="/" itemprop="url" class="site-header__logo-link"> <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo"> </a> {% else %} <a href="/" itemprop="url">{{ shop.name }}</a> {% endif %}
+          {% if template == 'index' %} </h1>
+        {% else %} </div>
+      {% endif %}
+      <div class="responsive-menu-container">
+        <div class="responsive-menu"> <span class="bar"></span> <span class="bar"></span> <span class="bar"></span> </div>
+      </div>
+    </div>
+    <div class="grid__item large--three-quarters large--text-right">
+      <div class="top-menu"> <span>(800) 936-2128</span>
+        <ul>
+          <li> <a href="{{ settings.social_fb_link }}" target="_blank"> <i class="fa fa-facebook"></i> </a> </li>
+          <li> <a href="{{ settings.social_tw_link }}" target="_blank"> <i class="fa fa-twitter"></i> </a> </li>
+          <!--<li> <a href="{{ settings.social_yt_link }}" target="_blank"> <i class="fa fa-youtube-play"></i> </a> </li>-->
+          <li> <a href="https://www.youtube.com/channel/UCYZQRELKTZNrNt24Aj5PRsw" target="_blank"> <i class="fa fa-youtube-play"></i> </a> </li>
+          <li> <a href="{{ settings.social_ig_link }}" target="_blank"> <i class="fa fa-instagram"></i> </a> </li>
+          <li> <a href="{{ settings.social_in_link }}" target="_blank"> <i class="fa fa-linkedin"></i> </a> </li>
+        </ul>
+        {% if customer %} <a href="/account">ORDERS</a> <a style="" href="https://ce.knowledgecoop.com/premium/" target="_blank">MY COURSES</a> <span style="display:none;"> {{ 'layout.customer.log_out' | t | customer_logout_link }}</span> {% else %}
+        {{ 'LOGIN' | customer_login_link }}
+        {% endif %} </div>
+      <div class="main-nav"> {% comment %}
+        List out your main-menu linklist (default)
+
+        More info on linklists:
+        - http://docs.shopify.com/themes/liquid-variables/linklists
+        {% endcomment %}
+        <!-- begin site-nav -->
+        <ul class="site-nav" id="AccessibleNav">
+          {% for link in linklists.main-menu.links %}
+          {% comment %}
+          Create a dropdown menu by naming a linklist the same as a link in the parent nav
+
+          More info on dropdowns:
+          - http://docs.shopify.com/manual/your-website/navigation/create-drop-down-menu
+          {% endcomment %}
+          {% assign child_list_handle = link.title | handleize %}
+          {% if linklists[child_list_handle].links != blank %}
+          <li class="site-nav--has-dropdown{% if link.active %} site-nav--active{% endif %}" aria-haspopup="true">
+          <a href="{{ link.url }}" class="site-nav__link"> {{ link.title }} <span class="icon icon-arrow-down" aria-hidden="true"></span> </a>
+          <ul class="site-nav__dropdowns">
+            {% for childlink in linklists[child_list_handle].links %} <li{% if childlink.active %} class="site-nav--active"{% endif %}> <a href="{{ childlink.url }}" class="site-nav__link">{{ childlink.title | escape }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+          </li>
+          {% else %}
+          <li {% if link.active %}class="site-nav--active"{% endif %}>
+          <a href="{{ link.url }}" class="site-nav__link">{{ link.title }}</a>
+          </li>
+          {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+<main class="main-content" role="main"> {{ content_for_layout }} </main>
+
+<!-- begin site-footer -->
+<footer class="site-footer" role="contentinfo">
+  <div class="wrapper">
+    <div class="grid">
+      <div class="grid__item large--one-whole medium--one-half">
+        <h3>Ways We Help</h3>
+        <div class="footer-nav">
+
+          <!-- begin footer-nav -->
+          <ul>
+            {% for link in linklists.footer.links %}
+            {% comment %}
+            Create a dropdown menu by naming a linklist the same as a link in the parent nav
+
+            More info on dropdowns:
+            - http://docs.shopify.com/manual/your-website/navigation/create-drop-down-menu
+            {% endcomment %}
+            {% assign child_list_handle = link.title | handleize %}
+            {% if linklists[child_list_handle].links != blank %}
+            <li class="site-nav--has-dropdown{% if link.active %} site-nav--active{% endif %}" aria-haspopup="true">
+            <a href="{{ link.url }}" class="site-nav__link"> {{ link.title }} <span class="icon icon-arrow-down" aria-hidden="true"></span> </a>
+            <ul class="site-nav__dropdown">
+              {% for childlink in linklists[child_list_handle].links %} <li{% if childlink.active %} class="site-nav--active"{% endif %}> <a href="{{ childlink.url }}" class="site-nav__link">{{ childlink.title | escape }}</a>
+              </li>
+              {% endfor %}
+            </ul>
+            </li>
+            {% else %}
+            <li {% if link.active %}class="site-nav--active"{% endif %}>
+            <a href="{{ link.url }}" class="site-nav__link">{{ link.title }}</a>
+            </li>
+            {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="grid__item large--one-whole medium--one-half"> </div>
+      <div class="grid__item large--one-whole medium--one-half">
+        <h3>Connect</h3>
+        <ul class="footer-social">
+          <li> <a href="{{ settings.social_fb_link }}" target="_blank"> <i class="fa fa-facebook"></i> </a> </li>
+          <li> <a href="{{ settings.social_tw_link }}" target="_blank"> <i class="fa fa-twitter"></i> </a> </li>
+          <li> <a href="{{ settings.social_yt_link }}" target="_blank"> <i class="fa fa-youtube-play"></i> </a> </li>
+          <li> <a href="{{ settings.social_ig_link }}" target="_blank"> <i class="fa fa-instagram"></i> </a> </li>
+          <li> <a href="{{ settings.social_in_link }}" target="_blank"> <i class="fa fa-linkedin"></i> </a> </li>
+        </ul>
+      </div>
+      <div class="grid__item large--one-whole medium--one-half">
+        <div class="footer-address">
+          <h3>Contact Us</h3>
+          <p> <span>Address:</span> 14707 NE 13th Ct. Suite A102 Vancouver, WA 98685 </p>
+          <p> <span>Email:</span> <a href="mailto:info@knowledgecoop.com">info@knowledgecoop.com</a> </p>
+          <p> <span>Phone:</span> (360) 342-6176 </p>
+          <p> <span>Map:</span> <a href="https://www.google.com/maps/place/14707+NE+13th+Ct+a102,+Vancouver,+WA+98685/@45.7280862,-122.6601109,17z/data=!3m1!4b1!4m5!3m4!1s0x5495ad8de91ee3d9:0x3565d058926ee363!8m2!3d45.7280862!4d-122.6579222" target="_blank">View Map</a> </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- footer copyrights -->
+  <div class="footer-legal"> <span>Copyright 2008 - 2016</span> <a href="{{ shop.url }}">www.knowledgecoop.com</a> <a href="/pages/legal-stuff">Legal Stuff</a> <a> NMLS Course Provider #1400023</a> </div>
+</footer>
+<!-- //site-footer -->
+</div>
+</body>
+</html>

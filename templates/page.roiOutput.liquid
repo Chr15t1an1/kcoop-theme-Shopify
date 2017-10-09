@@ -1,0 +1,369 @@
+{% layout 'theme.nofollow' %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.1/vue.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+{{ 'bootstrap_wo_fonts.css' | asset_url | stylesheet_tag }}
+
+<!-- /templates/page.liquid -->
+
+<div class="container" style="background-image: url({{ page.metafields.global.banner }}); background-width: cover, max-height: 200px; margin-top: -50px;">
+  <div id="app" class="container">
+    <h1 class="text-center">The Business Case for the Coop for <span id="company_name">ACME Mortgage</span></h1>
+    <div class="row">
+      <button id="share" class="btn btn-lg pull-right"><span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>Share</button>
+      <div id="share_box_contain" class="col-xs-4">
+        <input class="form-control" id="share_box"/>
+      </div>
+    </div>
+    <div class="row">
+      <h2>Executive summary</h2>
+      <hr/>
+      <p> The Coop is an online software systems that puts the power of collective knowledge to work for your lenders.
+        Based the results of your data entered you would realize a hard costs savings <span id="savings">$ ${monthly_total_savings}</span> per month </p>
+      <h3>Risk Mitigation</h3>
+      <hr/>
+      <p> How confident would you be if you were audited today that you could provide training records, etc.
+        There are three ways the Coop can benefit your company hard costs, soft costs, and risk mitigation. </p>
+    </div>
+    <div class="row form-horizontal">
+      <h4>You inputted the following information</h4>
+      <h5>Monthly Hard Costs</h5>
+      <hr/>
+      <div class="col-xs-6">
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="per_hour_labor">Monthly Compliance training provider</label>
+          <div class="col-md-4">
+            <div class="input-group"> <span class="input-group-addon">$</span>
+              <input v-on:change="reCalc" id="training_provider" name="training_provider" type="number" placeholder="$500" class="form-control input-md"  v-model="training_provider" >
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="lms">Learning Management System</label>
+          <div class="col-md-4">
+            <div class="input-group"> <span class="input-group-addon">$</span>
+              <input v-on:change="reCalc" id="lms" name="lms" type="number" placeholder="$1000" class="form-control input-md"  v-model="lms">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="it_training_re">IT training resources</label>
+          <div class="col-md-4">
+            <div class="input-group"> <span class="input-group-addon">$</span>
+              <input v-on:change="reCalc" id="it_training_re" name="it_training_re" type="number" placeholder="$0" class="form-control input-md"  v-model="it_training_re">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="help_desk">IT help desk/ticket system</label>
+          <div class="col-md-4">
+            <div class="input-group"> <span class="input-group-addon">$</span>
+              <input v-on:change="reCalc" id="help_desk" name="help_desk" type="number" placeholder="$0" class="form-control input-md"  v-model="help_desk">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="scenario_desk">Current scenario desk solution</label>
+          <div class="col-md-4">
+            <div class="input-group"> <span class="input-group-addon">$</span>
+              <input v-on:change="reCalc" id="scenario_desk" name="scenario_desk" type="number" placeholder="$0" class="form-control input-md" v-model="scenario_desk">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="Intranet">Intranet expenses</label>
+          <div class="col-md-4">
+            <div class="input-group"> <span class="input-group-addon">$</span>
+              <input v-on:change="reCalc" id="Intranet" name="Intranet" type="number" placeholder="$0" class="form-control input-md" v-model="Intranet">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="Allregs">Allregs Subscription</label>
+          <div class="col-md-4">
+            <div class="input-group"> <span class="input-group-addon">$</span>
+              <input name="Allregs" id="Allregs" type="number" placeholder="$0" class="form-control input-md" v-model="Allregs">
+            </div>
+          </div>
+        </div>
+
+
+
+        <p>Total Hard Costs:$ ${monthly_hard_costs}</p>
+      </div>
+      <div class="col-xs-6">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/xBDT1Lqbfhc" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <hr/>
+    <div class="row form-horizontal">
+      <h5>Monthly Soft Costs</h5>
+      <hr/>
+      <div class="col-xs-6">
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="per_hour_labor">Average all-in labor cost per hour</label>
+          <div class="col-md-4">
+            <div class="input-group"> <span class="input-group-addon">$</span>
+              <input v-on:change="reCalc" id="per_hour_labor" name="per_hour_labor" type="number" placeholder="$30" class="form-control input-md" v-model="per_hour_labor">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="per_employee_per_month">Hours spent per employee per month looking for information</label>
+          <div class="col-md-4">
+            <div class="input-group">
+            <a data-placement="right" data-toggle="tooltip" title="Your team most likely spends hours looking for forms, documents, marketing materials and answers to questions that they have been answered by someone somewhere on your company intranet, email or other systems. How time per month per employee do you believe would be saved an effective knowledgebase that allows your team to quickly find any information they need?"><i style="font-size: 30px; margin: 10px;" class="fa fa-question-circle" aria-hidden="true"></i></a>
+              <input v-on:change="reCalc" id="per_employee_per_month" name="per_employee_per_month" type="number" placeholder=".5" class="form-control input-md" v-model="per_employee_per_month">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="hours_spent_answering">Hours spent answering the same questions multiple times</label>
+          <div class="col-md-4">
+            <div class="input-group">
+              <input v-on:change="reCalc" id="hours_spent_answering" name="hours_spent_answering" type="number" placeholder="1" class="form-control input-md" v-model="hours_spent_answering">
+            </div>
+          </div>
+        </div>
+        <hr/>
+        <p>Lost Productivity - $ ${lost_productivity}</p>
+      </div>
+      <div class="col-xs-6">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/xBDT1Lqbfhc" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <hr/>
+    <div class="row form-horizontal">
+    <div class="form-group hidden">
+      <label class="col-md-4 control-label" for="">Time saved per month looking for information using the Coop (%)</label>
+      <div class="col-md-4">
+        <div class="input-group">
+          <input v-on:change="reCalc" id="time_saved_per_month" name="min_time_saved" type="number" placeholder="1" class="form-control input-md" v-model="time_saved_per_month">
+        </div>
+      </div>
+    </div>
+    <div class="form-group hidden">
+      <label class="col-md-4 control-label" for="hours_saved">Hours saved per month answering the same questions multiple times (%)</label>
+      <div class="col-md-4">
+        <div class="input-group">
+          <input v-on:change="reCalc" id="hours_saved" name="hours_saved" type="number" placeholder="1" class="form-control input-md" v-model="hours_saved">
+        </div>
+      </div>
+    </div>
+      <p>Total Monthly Savings $ ${monthly_total_savings}</p>
+      <hr/>
+      <p>Coop Cost $ ${coop_cost}</p>
+      <p>Potential Hard and Soft Cost Reduction Using The Coop $ ${cost_reduction}</p>
+      <p>Net Cost of The Coop $ ${net_cost}</p>
+    </div>
+    <div class="row">
+      <h5>Risk Mitigation</h5>
+      <hr/>
+      <div class="col-xs-6">
+        <ul>
+          <li>Coop Coach customized content</li>
+          <li>Full reporting </li>
+          <li>Higher confidence for audits</li>
+          <li>Customized company specific policy videos</li>
+        </ul>
+      </div>
+      <div class="col-xs-6">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/xBDT1Lqbfhc" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <script>
+
+//Get URL PArams
+$.urlParam = function(name){
+	var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+	return results[1] || 0;
+}
+
+//Clean URL PArams
+$.Clean = function(string) {
+ var i = 0, length = string.length;
+ for (i; i < length; i++) {
+   string = string.replace("+", " ");
+ }
+ return string;
+}
+
+
+//Share button.
+$(document).ready(function(){
+  //Set Share URL
+$("#share_box").val(window.location.href);
+$( "#share_box_contain" ).hide();
+$( "#share" ).click(function() {
+$( "#share_box_contain" ).fadeToggle("slow");
+});
+
+
+//Comapny Name
+var company_name = $.urlParam('business_name');
+var company_name_clean = $.Clean(company_name);
+
+
+if (typeof company_name_clean === 'string' || company_name_clean instanceof String){
+// it's a string
+}else{
+company_name_clean = "ACME Mortgage";
+}
+
+
+
+
+$("#company_name").text(company_name_clean);
+ });
+
+////////// VUE APP
+new Vue({
+
+el: '#app',
+delimiters: ['${', '}'],
+data : {
+//Number of Employees
+  numOfEmployes: 0,
+
+
+  //Hard Costs
+  training_provider:0,
+  lms:0,
+  it_training_re:0,
+  help_desk:0,
+  scenario_desk: 0,
+  Intranet:0,
+  Allregs:0,
+
+
+
+  //Total Monthly Hard Costs
+  monthly_hard_costs:0,
+
+  //Soft Costs
+  per_hour_labor:0,
+  per_employee_per_month:0,
+  hours_spent_answering:0,
+
+  //Total Monthly Soft Costs
+  lost_productivity:0,
+
+  //Cost per Coop seat
+  Coop_seat:10,
+
+  //Total Savings
+  monthly_total_savings:0,
+
+
+  //Total Coop Cost
+  coop_cost:0,
+
+
+  // cost_reduction
+  cost_reduction:0,
+
+  //net_cost
+  net_cost:0,
+
+  //time_saved_per_month
+
+  time_saved_per_month:.25,
+
+  //hours_saved
+  hours_saved:.25,
+},
+
+
+methods: {
+  reCalc() {
+
+    this.monthly_hard_costs =parseFloat(this.training_provider)+parseFloat(this.lms)+parseFloat(this.it_training_re)+parseFloat(this.help_desk)+parseFloat(this.scenario_desk)+parseFloat(this.Intranet)+parseFloat(this.Allregs);
+    this.lost_productivity =(((parseFloat(this.per_employee_per_month)+parseFloat(this.hours_spent_answering))*parseFloat(this.per_hour_labor))*parseFloat(this.numOfEmployes));
+    this.monthly_total_savings = (((parseFloat(this.per_hour_labor) * parseFloat(this.per_employee_per_month))*parseFloat(this.time_saved_per_month))*parseFloat(this.numOfEmployes))+(((parseFloat(this.hours_spent_answering)*parseFloat(this.hours_saved))*parseFloat(this.per_hour_labor))*parseFloat(this.numOfEmployes));
+    this.coop_cost = parseFloat(this.numOfEmployes) * parseFloat(this.Coop_seat);
+
+
+
+    this.cost_reduction = parseFloat(this.monthly_total_savings) + parseFloat(this.monthly_hard_costs);
+    this.net_cost = parseFloat(this.coop_cost) - parseFloat(this.cost_reduction);
+
+
+  }
+},
+mounted() {
+
+/////Coop Var's Set
+
+    //Coop_Cost
+    this.Coop_seat = parseFloat($.urlParam('coop_price'));
+
+    this.numOfEmployes = parseFloat($.urlParam('num_of_emp'));
+
+    //Hard COsts
+    this.training_provider = parseFloat($.urlParam('training_provider'));
+    this.lms = parseFloat($.urlParam('lms'));
+    this.it_training_re = parseFloat($.urlParam('it_training_re'));
+    this.help_desk = parseFloat($.urlParam('help_desk'));
+    this.scenario_desk = parseFloat($.urlParam('scenario_desk'));
+    this.Intranet = parseFloat($.urlParam('Intranet'));
+
+    this.Allregs = parseFloat($.urlParam('Allregs'));
+
+
+
+    //Soft Costs
+    this.per_hour_labor = parseFloat($.urlParam('per_hour_labor'));
+    this.per_employee_per_month = parseFloat($.urlParam('per_employee_per_month'));
+    this.hours_spent_answering =parseFloat($.urlParam('hours_spent_answering'));
+
+    this.time_saved_per_month = parseFloat($.urlParam('time_saved_per_month'));
+    this.hours_saved = parseFloat($.urlParam('hours_saved'));
+
+
+
+
+
+    //////////////END  Coop Var's Set
+
+        this.monthly_hard_costs = parseFloat(this.training_provider)+parseFloat(this.lms)+parseFloat(this.it_training_re)+parseFloat(this.help_desk)+parseFloat(this.scenario_desk)+parseFloat(this.Intranet)+parseFloat(this.Allregs);
+        this.lost_productivity =(((parseFloat(this.per_employee_per_month)+parseFloat(this.hours_spent_answering))*parseFloat(this.per_hour_labor))*parseFloat(this.numOfEmployes));
+        this.monthly_total_savings = (((parseFloat(this.per_hour_labor) * parseFloat(this.per_employee_per_month))*parseFloat(this.time_saved_per_month))*parseFloat(this.numOfEmployes))+(((parseFloat(this.hours_spent_answering)*parseFloat(this.hours_saved))*parseFloat(this.per_hour_labor))*parseFloat(this.numOfEmployes));
+        this.coop_cost = parseFloat(this.numOfEmployes) * parseFloat(this.Coop_seat);
+
+
+
+        this.cost_reduction = parseFloat(this.monthly_total_savings) + parseFloat(this.monthly_hard_costs);
+        this.net_cost = parseFloat(this.coop_cost) - parseFloat(this.cost_reduction);
+
+
+
+}});
+
+</script>
+
+<script>
+//Enable Coop Cost Onclick
+//$('#coop_price_contain').click(function(){
+  //      $('#coop_price').prop('disabled', false);
+//});
+
+//Tool Tip
+$().ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</div>

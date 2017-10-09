@@ -1,0 +1,1056 @@
+<!-- /templates/product.liquid -->
+<style>
+.site-header {
+
+    background-color: #fff !important;
+
+}
+body {
+
+    background-color: #f7f4ef !important;
+}
+</style>
+{{ 'bootstrap_wo_fonts.css' | asset_url | stylesheet_tag }}
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+  {{ 'master-lp.css' | asset_url | stylesheet_tag }}
+
+
+
+
+  <header style="top:-25px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="header-content">
+                      <br><br>
+                        <div style="box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.5)" class="embed-responsive embed-responsive-16by9">
+                            <iframe src="https://player.vimeo.com/video/182421565" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                      	</div>
+                    </div>
+                </div>
+
+
+                <div  class="col-sm-6">
+
+                           <br><br>
+           <div class="halfer text-container first upper">
+       									 <h2 style="margin-bottom: 10px;color: white;" itemprop="name">{{ product.title }}</h2>
+        <p style="margin-top: 15px;font-size: 20px;line-height: 32px;color: white;">Do you need to train new mortgage brokers, loan officers, processors, underwriters, or assistants for any of these positions? If your answer is YES, Katalyst Kampus-Your Mortgage and Business School is your answer.</p>
+      </div>
+
+
+
+      <div style="line-height: 1.25;" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+        <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+
+
+
+         <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm" class="form-vertical">
+
+
+          <select style="display:none;" name="id" id="productSelect" class="product-single__variants">
+            {% for variant in product.variants %}
+              {% if variant.available %}
+
+                {% comment %}
+                  Note: if you use option_selection.js, your <select> tag will be overwritten, meaning what you have inside <option> will not reflect what you coded below.
+                {% endcomment %}
+                <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+
+              {% else %}
+                <option disabled="disabled">
+                  {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+                </option>
+              {% endif %}
+            {% endfor %}
+          </select>
+
+          <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
+          <span id="ProductPrice" class="h2" itemprop="price" content="{{ current_variant.price | divided_by: 100 }}">
+            {{ current_variant.price | money }}
+          </span>
+
+          {% if product.compare_at_price_max > product.price %}
+            <span class="visually-hidden">{{ 'products.general.sale_price' | t }}</span>
+            <p id="ComparePrice">
+              {{ 'products.product.compare_at' | t }} {{ current_variant.compare_at_price | money }}
+            </p>
+          {% endif %}
+
+          {% comment %}
+          <label for="Quantity" class="quantity-selector">{{ 'products.product.quantity' | t }}</label>
+          <input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector">
+          {% endcomment %}
+
+
+          {% if product.tags contains "elective" %}
+            	<div class="accTableBox">
+                <h5>Required Course</h5>
+                <table class="accTable">
+                </table>
+            	</div>
+            <h5>Subtotal: $<span data-orig-price="" class="subTotal">{{ product.price_max | money_without_currency }}</span></h5>
+          {% endif %}
+
+            <div>&nbsp;</div>
+
+          <button type="submit" name="add" id="AddToCart" class="btn btn-lg">
+            <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
+          </button>
+<h2 style="color:white" class='pull-right'>$0.00</h2>
+        </form>
+
+
+
+
+
+      </div>
+
+                    </div>
+                </div>
+            </div>
+
+    </header>
+
+
+
+    <div class="body-section section-spacer">
+      <div style="max-height:500px;" class="banner-section intro-banner tan">
+
+      <style>
+/*
+      .info_card {
+          background-color: #f7f4ef;
+          margin-bottom: 25px;
+          min-height: 300px;
+          padding: 20px;
+          border-color: rgba(255,255,255,.15);
+          border-style: solid 2px;
+          -webkit-box-shadow: 7px 9px 43px -6px rgba(0,0,0,0.75);
+          -moz-box-shadow: 7px 9px 43px -6px rgba(0,0,0,0.75);
+          box-shadow: 7px 9px 43px -6px rgba(0,0,0,0.75);
+      }
+
+
+
+      .info_card h3 {
+          text-align: center;
+          text-transform: uppercase;
+          font-size: 30px;
+          margin-bottom: 25px;
+      }
+
+      .info_card p {
+          font-size: 15px;
+
+      }
+
+
+
+
+*/
+
+      .info_card {
+    background-color: rgb(247, 244, 239);
+    min-height: 350px;
+    padding: 0px;
+    border-right: solid;
+
+}
+
+
+      .info_card h3 {
+          text-align: center;
+          text-transform: uppercase;
+          font-size: 30px;
+          margin-bottom: 25px;
+      }
+
+      .info_card p {
+          font-size: 15px;
+          text-align: justify;
+      }
+
+
+
+
+
+      #more_one{
+      color: #337ab7;
+    text-decoration: none;
+      }
+
+      #more_two{
+      color: #337ab7;
+    text-decoration: none;
+      }
+      </style>
+
+
+      <div class="row two-box-container">
+
+        <div class="col-md-6 info_card">
+        <div class="info-box">
+          <h3>I hire brand new loan officers</h3>
+          <i style="font-size: 65px;    text-align: center;display: block;margin: 15px;" class="fa fa-building-o" aria-hidden="true"></i>
+        <p> In our industry we can recruit talent and we can grow it. Generally, we need both. Both strategies are expensive and time consuming. In fact, a new Loan Officer onboarding can cost upwards of <span id="more_one">...more</span> <span id="cont_one"> $45,000! <br/>  New Loan Officer need your time and attention and you have no way of knowing if they will succeed. Katalyst Kampus will provide your new hire with the tools they need to be successful. All that's left to do is to familiarize the New Loan officer with your company processes and culture. Save time, accelerate production and see a return faster with Katalyst Kampus. </span></p>
+        </div>
+      </div>
+
+      <div class="col-md-6 info_card">
+      <div class="info-box">
+        <h3>I'm a new Loan officer</h3>
+
+        <i style="font-size: 65px;    text-align: center;display: block;margin: 15px;" class="fa fa-user-o" aria-hidden="true"></i>
+
+      <p>To launch a career as a new loan officer you need to hit the ground running. Even if you closed a loan on day one it can take 60 days for your first check.<br/> You don't have any time to waste!<span id="more_two">...more</span> <span id="cont_two">You need to cash flow to stay in the game. Our training from Kathy, a top-producing Loan Officer who is crazy passionate about helping new Loan Officers, is designed to get you closing loans as fast as you while building the business the business you dreamed of when you decided to become a loan officer!</span></p>
+
+      </div>
+      </div>
+
+
+
+      </div>
+
+
+      <hr/>
+      <script type="text/javascript">
+
+      $('#cont_one').hide();
+      $('#more_one').click(function(){
+      $('#more_one').hide();
+      $('#cont_one').show();
+      //$('.not-expanded').removeClass('not-expanded');$('#expander').hide();
+      });
+
+      $('#cont_two').hide();
+      $('#more_two').click(function(){
+      $('#more_two').hide();
+      $('#cont_two').show();
+      //$('.not-expanded').removeClass('not-expanded');$('#expander').hide();
+      });
+
+      </script>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+<!--Feedback-->
+
+<div style="background: url(https://c-cdn.knowledgecoop.com/wp-content/uploads/2017/07/poksq.jpg);
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 10px 0px 0px 0px;
+    max-width: 100000px;" class="banner-section class-skills class-skills-dynamic">
+  <div class="container three-box-container class-skills-container">
+    <div class="row">
+      <div class="col-sm-4 first">
+        <div class="info-box"><img src="https://do6eyjibs3jse.cloudfront.net/assets/cm_images/icon-video-lessons-9333fdb67255619a6b212dcf096adb170e8d8226b8d99dbd287ecea5a04e1208.svg" alt="Aaron Sorkin holds up a card during the writer's room portion of his online screenwriting MasterClass as his students write the script for an episode of The West Wing." class="info-box-icon" id="undefined">
+          <h3>SELF-PACED</h3>
+          <p>Watch, listen, and learn as Kathy teaches the essentials of becoming a sucessful loan officer.</p>
+        </div>
+      </div>
+      <div class="col-sm-4 center">
+        <div class="info-box"><img src="https://do6eyjibs3jse.cloudfront.net/assets/cm_images/icon-assignments-1029b9efd699010503e977b72ab2626b444fe90c76656c05723268c2811213eb.svg" alt="Aaron Sorkin holds up a card during the writer's room portion of his online screenwriting MasterClass as his students write the script for an episode of The West Wing." class="info-box-icon" id="undefined">
+          <h3>100% ONLINE</h3>
+          <p>The class is composed of videos, audio and supplemental materials.</p>
+        </div>
+      </div>
+      <div class="col-sm-4 last">
+        <div class="info-box"><img src="https://do6eyjibs3jse.cloudfront.net/assets/cm_images/icon-office-hours-8aea11a41502a8379881f2813cf980356f3f6addd04ec926fdf2f981661e3280.svg" alt="Aaron Sorkin holds up a card during the writer's room portion of his online screenwriting MasterClass as his students write the script for an episode of The West Wing." class="info-box-icon" id="undefined">
+          <h3>OFFICE HOURS</h3>
+          <p>You will recive feedback from the class. Kathy will also critique select student work.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--end Feedback-->
+
+
+
+
+
+
+<div style="background-color: #f7f4ef; width: 100%;margin: 0px;" class="body-section container section-spacer">
+  <div>
+    <h3 style="color:black;font-size: 50px;line-height: 150px;" class="section-title text-center">Lesson Plan</h3>
+  </div>
+  <div class="container lesson-plan-container narrow"><!--Lesson Row-->
+    <div class="row lesson-row expanded">
+      <div class="col-sm-12 chapter-wrapper">
+        <div class="row lesson-border-row"></div>
+        <div class="lesson-row-wrapper row">
+          <div class="col-xs-1 chapter-number-wrapper">
+            <h3 class="chapter-number">01</h3>
+          </div>
+          <div class="col-xs-11 chapter-title-wrapper">
+            <h3 class="chapter-title">Bones of the Loan</h3>
+            <p class="chapter-description">Students will be able to understand and reconstruct a general overview of the loan process and distinguish between the components that go into a loan, while memorizing essential vocabulary and acronyms.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row lesson-row expanded">
+      <div class="col-sm-12 chapter-wrapper">
+        <div class="row lesson-border-row"></div>
+        <div class="lesson-row-wrapper row">
+          <div class="col-xs-1 chapter-number-wrapper">
+            <h3 class="chapter-number">02</h3>
+          </div>
+          <div class="col-xs-11 chapter-title-wrapper">
+            <h3 class="chapter-title">The Application</h3>
+            <p class="chapter-description">Students will learn how to compose a full loan application and review the 30-plus disclosures that are a part of any loan, while distinguishing between disclosures for different loan types (VA, FHA, Arms, etc.), and evaluating needed client documents </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row lesson-row expanded">
+      <div class="col-sm-12 chapter-wrapper">
+        <div class="row lesson-border-row"></div>
+        <div class="lesson-row-wrapper row">
+          <div class="col-xs-1 chapter-number-wrapper">
+            <h3 class="chapter-number">03</h3>
+          </div>
+          <div class="col-xs-11 chapter-title-wrapper">
+            <h3 class="chapter-title">Credit/Debt</h3>
+            <p class="chapter-description">Students will learn to comprehend credit reports, differentiate between which loans require specific credit scores to get approved, while exploring the use of a credit analyzer to assist in guiding clients through improving their credit scores.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="divider row lesson-expander-row" id="expander">
+      <div class="separator"></div>
+      <div class="separator"></div>
+      <div class="separator"></div>
+      <div class="separator-text">
+        <p>SHOW ALL 12 LESSONS</p>
+      </div>
+    </div>
+    <div class="row lesson-row not-expanded">
+      <div class="col-sm-12 chapter-wrapper">
+        <div class="row lesson-border-row"></div>
+        <div class="lesson-row-wrapper row">
+          <div class="col-xs-1 chapter-number-wrapper">
+            <h3 class="chapter-number">04</h3>
+          </div>
+          <div class="col-xs-11 chapter-title-wrapper">
+            <h3 class="chapter-title">Asset</h3>
+            <p class="chapter-description">Students will learn which asset documents they will need for the transaction, how to source specific types of funds coming into client bank accounts, and how income and assets can affect and impact one another.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row lesson-row not-expanded">
+      <div class="col-sm-12 chapter-wrapper">
+        <div class="row lesson-border-row"></div>
+        <div class="lesson-row-wrapper row">
+          <div class="col-xs-1 chapter-number-wrapper">
+            <h3 class="chapter-number">05</h3>
+          </div>
+          <div class="col-xs-11 chapter-title-wrapper">
+            <h3 class="chapter-title">Income</h3>
+            <p class="chapter-description">Students will explore calculating the most common types of income and the documents you will need verify said income, breakdown and evaluate client’s income information from tax documents.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row lesson-row not-expanded">
+      <div class="col-sm-12 chapter-wrapper">
+        <div class="row lesson-border-row"></div>
+        <div class="lesson-row-wrapper row">
+          <div class="col-xs-1 chapter-number-wrapper">
+            <h3 class="chapter-number">06</h3>
+          </div>
+          <div class="col-xs-11 chapter-title-wrapper">
+            <h3 class="chapter-title">Real Estate Contracts</h3>
+            <p class="chapter-description">
+Students will be able to judge which parts of real estate contracts and addendums are important and what information is essential to extract from the sales contract while critically thinking about verbiage in the sales contract that could cause a problem in the loan process.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row lesson-row not-expanded">
+      <div class="col-sm-12 chapter-wrapper">
+        <div class="row lesson-border-row"></div>
+        <div class="lesson-row-wrapper row">
+          <div class="col-xs-1 chapter-number-wrapper">
+            <h3 class="chapter-number">07</h3>
+          </div>
+          <div class="col-xs-11 chapter-title-wrapper">
+            <h3 class="chapter-title">Appraisals</h3>
+            <p class="chapter-description">Students will evaluate an appraisal report while locating the most important details for the loan. They will also hear from a professional appraiser who will teach the parameters of what goes into an appraisal report.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row lesson-row not-expanded">
+      <div class="col-sm-12 chapter-wrapper">
+        <div class="row lesson-border-row"></div>
+        <div class="lesson-row-wrapper row">
+          <div class="col-xs-1 chapter-number-wrapper">
+            <h3 class="chapter-number">08</h3>
+          </div>
+          <div class="col-xs-11 chapter-title-wrapper">
+            <h3 class="chapter-title">Loan Types</h3>
+            <p class="chapter-description">Students will get a general overview of the different loan types (FHA, Conventional, VA, Rural Housing/USDA, Jumbo, construction, and reverse), while also exploring the difference between lender paid mortgage insurance, regular mortgage insurance, and funding fees. Finally, students will learn how HELOCs and/or second mortgages will affect the structure of your loan.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row lesson-row not-expanded">
+      <div class="col-sm-12 chapter-wrapper">
+        <div class="row lesson-border-row"></div>
+        <div class="lesson-row-wrapper row">
+          <div class="col-xs-1 chapter-number-wrapper">
+            <h3 class="chapter-number">09</h3>
+          </div>
+          <div class="col-xs-11 chapter-title-wrapper">
+            <h3 class="chapter-title">Title Reports & Title/Escrow Services</h3>
+            <p class="chapter-description">Students will learn to extract the most important information and apply that information to problem solving in the loan process. Students will also hear from professionals in the title/escrow industry about additional services they can provide.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row lesson-row not-expanded">
+      <div class="col-sm-12 chapter-wrapper">
+        <div class="row lesson-border-row"></div>
+        <div class="lesson-row-wrapper row">
+          <div class="col-xs-1 chapter-number-wrapper">
+            <h3 class="chapter-number">10</h3>
+          </div>
+          <div class="col-xs-11 chapter-title-wrapper">
+            <h3 class="chapter-title">Fees & the Escrow Account</h3>
+            <p class="chapter-description">Students will understand and recall all of the fees associated with the loan process and the escrow account.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row lesson-row not-expanded">
+      <div class="col-sm-12 chapter-wrapper">
+        <div class="row lesson-border-row"></div>
+        <div class="lesson-row-wrapper row">
+          <div class="col-xs-1 chapter-number-wrapper">
+            <h3 class="chapter-number">11</h3>
+          </div>
+          <div class="col-xs-11 chapter-title-wrapper">
+            <h3 class="chapter-title">Interest Rates</h3>
+            <p class="chapter-description">Students will understand and recall the components that go into an interest rate for different types of loans, and how a chosen interest rate can directly affect the fees of a loan.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row lesson-row expanded">
+      <div class="col-sm-12 chapter-wrapper">
+        <div class="row lesson-border-row"></div>
+        <div class="lesson-row-wrapper row">
+          <div class="col-xs-1 chapter-number-wrapper">
+            <h3 class="chapter-number">12</h3>
+          </div>
+          <div class="col-xs-11 chapter-title-wrapper">
+            <h3 class="chapter-title">Wrapping it up</h3>
+            <p class="chapter-description">Students will get a general overview and refresher on the main ideas of the course and test their knowledge with a final exam.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Lesson Row-->
+
+</div>
+
+
+
+
+<div class="body-section section-spacer">
+  <div style="max-height:500px;" class="banner-section intro-banner tan">
+    <div style="max-height:500px;" class="intro-banner-wrapper tan">
+      <div class="halfer text-container first upper">
+        <h2>Meet Your Instructor.</h2>
+        <p>Kathy Kemper-Zanck is the Founder, CEO and Owner of Katalyst Kampus, a nationwide  Business School. With her mission to continually impact the lives of thousands of new mortgage professionals, Kemper-Zanck is making drastic changes in the lending world with a long-overdue educational system to train the up-and-coming in the business.</p>
+      </div>
+      <div class="halfer last"><img alt="" src="{{ "kathy-web-2.jpg" | asset_url }}"></div>
+    </div>
+  </div>
+</div>
+
+
+
+<style>
+
+
+/** ====================
+ * Lista de Comentarios
+ =======================*/
+.comments-container {
+	margin: 60px auto 15px;
+	width: 768px;
+}
+
+.comments-container h1 {
+	font-size: 36px;
+	color: #283035;
+	font-weight: 400;
+}
+
+.comments-container h1 a {
+	font-size: 18px;
+	font-weight: 700;
+}
+
+.comments-list {
+	margin-top: 30px;
+	position: relative;
+}
+
+/**
+ * Lineas / Detalles
+ -----------------------*/
+.comments-list:before {
+	content: '';
+	width: 2px;
+	height: 100%;
+	background: #c7cacb;
+	position: absolute;
+	left: 32px;
+	top: 0;
+}
+
+.comments-list:after {
+	content: '';
+	position: absolute;
+	background: #c7cacb;
+	bottom: 0;
+	left: 27px;
+	width: 7px;
+	height: 7px;
+	border: 3px solid #dee1e3;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+}
+
+.reply-list:before, .reply-list:after {display: none;}
+.reply-list li:before {
+	content: '';
+	width: 60px;
+	height: 2px;
+	background: #c7cacb;
+	position: absolute;
+	top: 25px;
+	left: -55px;
+}
+
+
+.comments-list li {
+	margin-bottom: 15px;
+	display: block;
+	position: relative;
+}
+
+.comments-list li:after {
+	content: '';
+	display: block;
+	clear: both;
+	height: 0;
+	width: 0;
+}
+
+.reply-list {
+	padding-left: 88px;
+	clear: both;
+	margin-top: 15px;
+}
+/**
+ * Avatar
+ ---------------------------*/
+.comments-list .comment-avatar {
+	width: 65px;
+	height: 65px;
+	position: relative;
+	z-index: 99;
+	float: left;
+	border: 3px solid #FFF;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+	overflow: hidden;
+}
+
+.comments-list .comment-avatar img {
+	width: 100%;
+	height: 100%;
+}
+
+.reply-list .comment-avatar {
+	width: 50px;
+	height: 50px;
+}
+
+.comment-main-level:after {
+	content: '';
+	width: 0;
+	height: 0;
+	display: block;
+	clear: both;
+}
+/**
+ * Caja del Comentario
+ ---------------------------*/
+.comments-list .comment-box {
+	width: 680px;
+	float: right;
+	position: relative;
+	-webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+	-moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+	box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+}
+
+.comments-list .comment-box:before, .comments-list .comment-box:after {
+	content: '';
+	height: 0;
+	width: 0;
+	position: absolute;
+	display: block;
+	border-width: 10px 12px 10px 0;
+	border-style: solid;
+	border-color: transparent #FCFCFC;
+	top: 8px;
+	left: -11px;
+}
+
+.comments-list .comment-box:before {
+	border-width: 11px 13px 11px 0;
+	border-color: transparent rgba(0,0,0,0.05);
+	left: -12px;
+}
+
+.reply-list .comment-box {
+	width: 610px;
+}
+.comment-box .comment-head {
+	background: #FCFCFC;
+	padding: 10px 12px;
+	border-bottom: 1px solid #E5E5E5;
+	overflow: hidden;
+	-webkit-border-radius: 4px 4px 0 0;
+	-moz-border-radius: 4px 4px 0 0;
+	border-radius: 4px 4px 0 0;
+}
+
+.comment-box .comment-head i {
+	float: right;
+	margin-left: 14px;
+	position: relative;
+	top: 2px;
+	color: #A6A6A6;
+	cursor: pointer;
+	-webkit-transition: color 0.3s ease;
+	-o-transition: color 0.3s ease;
+	transition: color 0.3s ease;
+}
+
+.comment-box .comment-head i:hover {
+	color: #03658c;
+}
+
+.comment-box .comment-name {
+	color: #283035;
+	font-size: 14px;
+	font-weight: 700;
+	float: left;
+	margin-right: 10px;
+}
+
+.comment-box .comment-name a {
+	color: #283035;
+}
+
+.comment-box .comment-head span {
+	float: left;
+	color: #999;
+	font-size: 13px;
+	position: relative;
+	top: 1px;
+}
+
+.comment-box .comment-content {
+	background: #FFF;
+	padding: 12px;
+	font-size: 15px;
+	color: #595959;
+	-webkit-border-radius: 0 0 4px 4px;
+	-moz-border-radius: 0 0 4px 4px;
+	border-radius: 0 0 4px 4px;
+}
+
+.comment-box .comment-name.by-author, .comment-box .comment-name.by-author a {color: #03658c;}
+.comment-box .comment-name.by-author:after {
+	content: '';
+	background: ;
+	color: #FFF;
+	font-size: 12px;
+	padding: 3px 5px;
+	font-weight: 700;
+	margin-left: 10px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+/** =====================
+ * Responsive
+ ========================*/
+@media only screen and (max-width: 766px) {
+	.comments-container {
+		width: 480px;
+	}
+
+	.comments-list .comment-box {
+		width: 390px;
+	}
+
+	.reply-list .comment-box {
+		width: 320px;
+	}
+}
+
+
+</style>
+<hr/>
+<!-- Contenedor Principal -->
+<div class="row">
+
+<div id="" class="comments-container">
+  <h3 style="color: black;font-size: 50px;line-height: 150px;">What is in the Course?</h3>
+<hr/>
+  <ul id="comments-list" class="comments-list">
+    <li>
+      <div class="comment-main-level">
+        <!-- Avatar -->
+        <div class="comment-avatar"><img src="https://c-cdn.knowledgecoop.com/wp-content/uploads/2017/07/kc_avatar.jpg" alt=""></div>
+        <!-- Contenedor del Comentario -->
+        <div class="comment-box">
+          <div class="comment-head">
+            <h6 class="comment-name by-author"><a href="#">Knowledge Coop</a></h6>
+
+          </div>
+          <div class="comment-content">
+          <p>  What content is covered in the course?</p>
+          </div>
+        </div>
+      </div>
+      <!-- Respuestas de los comentarios -->
+      <ul class="comments-list reply-list">
+        <li>
+          <!-- Avatar -->
+          <div class="comment-avatar"><img src="https://c-cdn.knowledgecoop.com/wp-content/uploads/2017/07/kathy_avatar.jpg" alt=""></div>
+          <!-- Contenedor del Comentario -->
+          <div class="comment-box">
+            <div class="comment-head">
+              <h6 class="comment-name"><a href="#">Kathy Kemper-Zanck</a></h6>
+
+            </div>
+            <div class="comment-content">
+<p>Great Question! There is alot of informantion covered in the course. Some of the highlights are listed below.</p>
+<hr/>
+                <strong>*</strong> Calculating income</br>
+                <strong>*</strong> Loan program overviews</br>
+                <strong>*</strong> How to read credit reports, appraisals and sales contracts</br>
+                <strong>*</strong> What makes up Debt-to-Income ratios</br>
+                <strong>*</strong> Problem solving tips</br>
+                <strong>*</strong> How to create short-cuts and efficiencies</br>
+                <strong>*</strong> How to put systems in place for everything you need</br>
+                <strong>*</strong> How to fine-tune a productive database</br>
+                <strong>*</strong> Create marketing that will help you KILL it</br>
+                <strong>*</strong> Building systems of efficiencies to streamline your day, your loans, and your life </br>
+
+
+
+            </div>
+          </div>
+        </li>
+
+
+      </ul>
+    </li>
+
+
+    <li>
+      <div class="comment-main-level">
+        <!-- Avatar -->
+        <div class="comment-avatar"><img src="https://c-cdn.knowledgecoop.com/wp-content/uploads/2017/07/kc_avatar.jpg" alt=""></div>
+        <!-- Contenedor del Comentario -->
+        <div class="comment-box">
+          <div class="comment-head">
+            <h6 class="comment-name by-author"><a href="#">Knowledge Coop</a></h6>
+
+          </div>
+          <div class="comment-content">
+          <p>  What are the courses like? <p>
+          </div>
+        </div>
+      </div>
+      <!-- Respuestas de los comentarios -->
+      <ul class="comments-list reply-list">
+        <li>
+          <!-- Avatar -->
+          <div class="comment-avatar"><img src="https://c-cdn.knowledgecoop.com/wp-content/uploads/2017/07/kathy_avatar.jpg" alt=""></div>
+          <!-- Contenedor del Comentario -->
+          <div class="comment-box">
+            <div class="comment-head">
+              <h6 class="comment-name"><a href="#">Kathy Kemper-Zanck</a></h6>
+            </div>
+            <div class="comment-content">
+Our 100% online course covers 12 modules focusing on all the aspects needed to be of being a successful mortgage broker.
+The information is presented in a thorough, manageable, motivating format that is easily accessible
+Modules feature video trainings from Kathy, interviews with top mortgage professionals and links to outside resources.
+Downloadable documents and tools with most units
+Each unit includes a quiz to make sure the content fully learned and understood the content.
+A final exam with a Certificate of Completion from Katalyst Kampus issued for after a passing score is earned.
+
+            </div>
+          </div>
+        </li>
+
+
+      </ul>
+    </li>
+
+		</ul>
+	</div>
+
+</div>
+<hr/>
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
+  <script>
+$('#expander').click(function(){
+$('.not-expanded').removeClass('not-expanded');$('#expander').hide();
+});
+
+</script>
+
+
+
+
+   <script>
+  var selectCallback = function(variant, selector) {
+    timber.productPage({
+      money_format: "{{ shop.money_format }}",
+      variant: variant,
+      selector: selector
+    });
+  };
+
+  jQuery(function($) {
+    new Shopify.OptionSelectors('productSelect', {
+      product: {{ product | json }},
+      onVariantSelected: selectCallback,
+      enableHistoryState: true
+    });
+
+    // Add label if only one product option and it isn't 'Title'. Could be 'Size'.
+    {% if product.options.size == 1 and product.options.first != 'Title' %}
+      $('.selector-wrapper:eq(0)').prepend('<label for="productSelect-option-0">{{ product.options.first | escape }}</label>');
+    {% endif %}
+
+    // Hide selectors if we only have 1 variant and its title contains 'Default'.
+    {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
+      $('.selector-wrapper').hide();
+    {% endif %}
+  });
+
+jQuery(document).ready(function() {
+var xText = $('.selector-wrapper select').find('option:selected').text();
+	{% if product.tags contains "elective" %}
+      jQuery.ajaxSetup({async:false});
+      var xyz = '8-hour-safe-ce-2016-7-hour-core-plus-1-hour-elective';
+      jQuery.getJSON('/products/'+xyz+'.js', function(product) {
+        var xImg;
+         if(product.featured_image === null){
+            xImg = '//cdn.shopify.com/s/assets/admin/no-image-grande-1cfae84eca4ba66892099dcd26e604f5801fdadb3693bc9977f476aa160931ac_thumb.gif';
+         } else {
+            xImg = product.featured_image.replace('.jpeg', '_thumb.jpeg').replace('.jpg', '_thumb.jpg').replace('.png', '_thumb.png');
+         };
+
+
+         var xPrice = product.price / 100;
+        jQuery('.accTable').append('<tr><td><label><span class="cb"><input type="checkbox" value="'+product.variants[0].id+'" data-price="'+(product.variants[0].price / 100).toFixed(2)+'" checked /><input type="checkbox" value="'+product.variants[1].id+'" data-price="'+(product.variants[1].price / 100).toFixed(2)+'"  /></span><a target="_blank" href="/products/'+product.handle+'"><span class="img"><img src="'+xImg+'" /></span><span class="name"><strong>'+product.title+'</strong><em>$<span>'+(product.variants[0].price / 100).toFixed(2)+'</span></em> </span></span></label></td></tr>');
+        setTimeout(function(){
+          jQuery(window).trigger('resize');
+          }, 300);
+
+
+        //console.log(xPrice.toFixed(2));
+
+      });
+      jQuery.ajaxSetup({async:true});
+  	  jQuery('.accTable input').first().attr('checked', true);
+
+  	  jQuery.ajaxSetup({async:true});
+  	  jQuery('.accTable input').first().attr('checked', true);
+
+  	  jQuery('.accTable input').change(function() {
+        if (jQuery(this).is(':checked')) {
+        	//alert(jQuery(this).attr('data-price'));
+            jQuery(this).closest('label').find('em span').text(jQuery(this).attr('data-price'));
+        }
+
+
+
+      });
+
+
+      var origPrice = parseFloat($('#ProductPrice').text().replace('$', ''));
+      var xPrc = '';
+
+      if (xText.indexOf('No') >= 0) {
+        xPrc = parseFloat(jQuery('.accTable .cb  input').last().attr('data-price'));
+
+        jQuery('.accTable .cb input').first().prop('checked', false);
+        jQuery('.accTable .cb  input').last().prop('checked', true);
+      } else {
+        xPrc = parseFloat(jQuery('.accTable .cb  input').first().attr('data-price'));
+
+        jQuery('.accTable .cb  input').first().prop('checked', true);
+        jQuery('.accTable .cb  input').last().prop('checked', false);
+      }
+      var subTotal = (origPrice + xPrc).toFixed(2);
+      $('.subTotal').text(subTotal);
+
+
+      $('.selector-wrapper select').change(function() {
+        xText = $(this).find('option:selected').text();
+
+        if (xText.indexOf('No') >= 0) {
+          xPrc = parseFloat(jQuery('.accTable .cb  input').last().attr('data-price'));
+
+          jQuery('.accTable .cb input').first().prop('checked', false);
+          jQuery('.accTable .cb  input').last().prop('checked', true);
+          jQuery('.accTable .cb input').trigger('change');
+
+        } else {
+          xPrc = parseFloat(jQuery('.accTable .cb  input').first().attr('data-price'));
+
+          jQuery('.accTable .cb  input').first().prop('checked', true);
+          jQuery('.accTable .cb  input').last().prop('checked', false);
+          jQuery('.accTable .cb input').trigger('change');
+
+        }
+        origPrice = parseFloat($('#ProductPrice').text().replace('$', ''));
+        subTotal = (origPrice + xPrc).toFixed(2);
+        $('.subTotal').text(subTotal);
+
+
+      });
+
+  	  jQuery('#AddToCartForm').submit(function() {
+          jQuery.ajaxSetup({async:false});
+          var abc = jQuery('#productSelect').val();
+          var def = 1;
+
+
+
+          jQuery('.accTable input:checked').each(function() {
+            console.log('add'+ $(this).val());
+            Shopify.addItem($(this).val(), 1, function() {
+              console.log('added');
+
+            });
+
+
+          });
+          console.log('add'+ abc);
+          Shopify.addItem(abc, def, function() {
+            console.log('add');
+          });
+
+          //window.location.href = '/cart/';
+          jQuery.ajaxSetup({async:true});
+          return false;
+        });
+
+
+
+    {% endif %}
+
+   $(".noModal").fancybox({
+		maxWidth	: 300,
+		//maxHeight	: 400,
+		fitToView	: true,
+		width		: 300,
+		//height		: '70%',
+		autoHeight	: true,
+		closeClick	: true,
+		openEffect	: 'none',
+		closeEffect	: 'none',
+     	afterShow: function() {
+          if ($('.fancybox-overlay').size() == 0) {
+     		$('body').append('<div class="fancybox-overlay fancybox-overlay-fixed" style="display: block; width: auto; height: auto;"></div>')
+          } else {
+
+          }
+        },
+     	afterClose: function() {
+     		$('body .fancybox-overlay').remove();
+        }
+	});
+
+
+  if (xText.indexOf('No') >= 0) {
+    $('.noModal').trigger('click');
+  } else {
+
+  }
+
+
+  $('.selector-wrapper select').change(function() {
+    xText = $(this).find('option:selected').text();
+
+    if (xText.indexOf('No') >= 0) {
+      $('.noModal').trigger('click');
+
+    } else {
+
+    }
+
+  });
+
+
+});
+
+</script>
+<div style="display: none">
+	<a class="noModal" href="#noModal">Inline</a>
+	<div id="noModal">If you choose not to purchase the NMLS banking fee option your completed continuing education courses WILL NOT be submitted to the NMLS which could prevent you from renewing your license.</div>
+</div>

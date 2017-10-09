@@ -1,0 +1,253 @@
+{% layout 'theme.nofollow' %}
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+{{ 'bootstrap_wo_fonts.css' | asset_url | stylesheet_tag }}
+<style>
+#left{
+padding-top:70px;
+}
+</style>
+<!-- /templates/page.liquid -->
+<div class="container" style="background-image: url({{ page.metafields.global.banner }}); background-width: cover, max-height: 200px; margin-top: -50px;">
+
+  <!--Start-->
+  <div class="row container">
+    <h1 class="text-center">ROI CALCULATOR</h1>
+    <hr/>
+    <p>This calculator simulates the potential return on investment that you could realize by managing NMLS training and internal communication with Coop software.</p>
+    <p>Enter your current data and run the analysis to calculate your potential return.</p>
+    <p> Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse potenti. Etiam sed dignissim ipsum, eu vestibulum leo. Sed interdum malesuada felis at tristique. Quisque ornare sagittis neque in sagittis. Nunc viverra posuere purus, eget molestie augue placerat non. Donec eget molestie magna, non pellentesque ligula. Praesent auctor felis nec nibh maximus, in porta mauris iaculis. Vestibulum sit amet vulputate lorem. Nullam et mollis ligula. Pellentesque in elementum dolor. Pellentesque quis augue et augue accumsan rutrum. Vivamus aliquam nisi ac tempor ultricies.</p>
+  </div>
+
+
+
+
+
+
+
+
+
+  <div class="container">
+    <div class="col-md-12">
+      <form class="form-horizontal" method="get" action="/pages/coop-roi-report">
+        <fieldset>
+          <div class="row">
+            <div class="col-md-6">
+              <h2 class="" for="">Business Name</h2>
+              <div class="form-group">
+                <hr/>
+                <div class="col-md-8">
+                  <input name="business_name" type="text" placeholder="Acme Co" class="form-control input-md">
+                </div>
+              </div>
+              <hr/>
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="training_provider">Number of Employees </label>
+                <div class="col-md-4">
+                  <div class="input-group">
+                    <input name="num_of_emp" type="number" placeholder="100" value="100" class="form-control input-md">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="coop_price">Coop Price </label>
+                <div class="col-md-4">
+                  <div class="input-group"> <span class="input-group-addon">$</span>
+                    <input name="coop_price" type="number" value="9" class="form-control input-md">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6"></div>
+          </div>
+
+
+
+          <div class="row">
+            <div class="col-md-6">
+              <h2>Monthly Hard Costs</h2>
+              <hr/>
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="training_provider">Monthly Compliance training provider </label>
+                <div class="col-md-4">
+                  <div class="input-group"> <span class="input-group-addon">$</span>
+                    <input name="training_provider" type="number" placeholder="$500" value="500" class="form-control input-md">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="lms">Learning Management System</label>
+                <div class="col-md-4">
+                  <div class="input-group"> <span class="input-group-addon">$</span>
+                    <input name="lms" type="number" placeholder="$1000" class="form-control input-md">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="it_training_re">IT training resources</label>
+                <div class="col-md-4">
+                  <div class="input-group"> <span class="input-group-addon">$</span>
+                    <input name="it_training_re" type="number" placeholder="$0" class="form-control input-md">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="help_desk">IT help desk/ticket system</label>
+                <div class="col-md-4">
+                  <div class="input-group"> <span class="input-group-addon">$</span>
+                    <input name="help_desk" type="number" placeholder="$0" class="form-control input-md">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="scenario_desk">Current scenario desk solution</label>
+                <div class="col-md-4">
+                  <div class="input-group"> <span class="input-group-addon">$</span>
+                    <input name="scenario_desk" type="number" placeholder="$0" class="form-control input-md">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="Intranet">Intranet expenses</label>
+                <div class="col-md-4">
+                  <div class="input-group"> <span class="input-group-addon">$</span>
+                    <input name="Intranet" type="number" placeholder="$0" class="form-control input-md">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="Allregs">Allregs Subscription</label>
+                <div class="col-md-4">
+                  <div class="input-group"> <span class="input-group-addon">$</span>
+                    <input name="Allregs" type="number" placeholder="$0" class="form-control input-md">
+                  </div>
+                </div>
+              </div>
+
+
+
+            </div>
+
+
+
+            <div class="col-md-6">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/xBDT1Lqbfhc" frameborder="0" allowfullscreen></iframe>
+              </div>
+            </div>
+
+
+
+
+
+          </div>
+
+
+
+
+<!---ppppp--->
+
+
+
+          <div class="row">
+          <div class="col-md-6">
+
+          <h2>Monthly Soft Costs</h2>
+          <hr/>
+          <!-- Text input-->
+
+
+
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="per_hour_labor">Average all-in labor cost per hour</label>
+            <div class="col-md-4">
+              <div class="input-group"> <span class="input-group-addon">$</span>
+                <input name="per_hour_labor" type="number" placeholder="$30" value="30" class="form-control input-md">
+              </div>
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="per_employee_per_month">Hours spent per employee per month looking for information
+              </button>
+            </label>
+            <div class="col-md-4">
+              <input name="per_employee_per_month" type="number" value="1"  step="0.01" placeholder=".5" class="form-control input-md">
+              <a data-placement="right" data-toggle="tooltip" title="Your team most likely spends hours looking for forms, documents, marketing materials and answers to questions that they have been answered by someone somewhere on your company intranet, email or other systems. How time per month per employee do you believe would be saved an effective knowledgebase that allows your team to quickly find any information they need?"><i style="font-size: 30px; margin: 10px;" class="fa fa-question-circle" aria-hidden="true"></i></a>
+              </div>
+          </div>
+
+
+
+
+
+
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="hours_spent_answering">Hours spent answering the same questions multiple times</label>
+            <div class="col-md-4">
+              <input name="hours_spent_answering" value="1"  type="number" placeholder="1" class="form-control input-md">
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="">Time saved per month looking for information using the Coop (%)</label>
+            <div class="col-md-4">
+              <div class="input-group">
+                <input v-on:change="reCalc" id="time_saved_per_month" value="1" name="time_saved_per_month" type="number" step="0.01" placeholder="1" class="form-control input-md" v-model="time_saved_per_month">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="hours_saved">Hours saved per month answering the same questions multiple times (%)</label>
+            <div class="col-md-4">
+              <div class="input-group">
+                <input v-on:change="reCalc" id="hours_saved" value="3" name="hours_saved" type="number" step="0.01" placeholder="1" class="form-control input-md" v-model="hours_saved">
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+          <hr/>
+          <button type="submit" class="btn btn-lg">Run Analysis</button>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+  <div class="col-md-6">
+    <div class="embed-responsive embed-responsive-16by9">
+      <iframe class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/xBDT1Lqbfhc" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  </fieldset>
+  </form>
+
+  <!--Out-->
+
+</div>
+</div>
+<script>
+//Enable Coop Cost Onclick
+$('#coop_price_contain').click(function(){
+        $('#coop_price').prop('disabled', false);
+});
+
+//Tool Tip
+$().ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

@@ -1,0 +1,34 @@
+<!-- /templates/blog.liquid -->
+{% comment %}
+
+  Loop through a defined number of articles with the 'paginate' tag.
+  Don't forget to close the tag after your loop.
+
+{% endcomment %}
+
+{% paginate blog.articles by 1 %}
+<h2>What do people say about The Coop?</h2> 
+<div class="testiBoxWrap"> 	
+<div class="grid">
+	{% for article in blog.articles %}		
+  	<div class="grid__item large--one-whole text-center">
+		<div class="testimonial clearfix">
+			<p>
+				<i>"{{ article.content | strip_html  }}"</i>
+			</p>
+			<div>
+				<span class="td">
+                  {{ article | img_url: 'small' | img_tag: article.title }}
+                </span>
+                <span class="td"><span>{{ article.title }}</span>
+                <span>{{ article.excerpt }}</span></span>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+</div>  
+  
+  
+</div>
+<!-- testiBoxWrap -->  
+{% endpaginate %}

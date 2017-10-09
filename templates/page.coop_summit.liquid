@@ -1,0 +1,501 @@
+<!-- /templates/page.liquid -->
+<style>
+
+#main_content {
+    font-family: Roboto;
+    font-weight: 100 !important;
+
+}
+
+.main-content {
+    display: block;
+    margin-top: -20px;
+    padding-bottom:0px;
+}
+
+h4 {
+font-size: 35px;
+margin-bottom:7px;
+font-weight: 100;
+}
+h5 {
+font-size: 25px;
+font-weight: 100;
+}
+hr {
+	height: 15px;
+	background-color: #16486d;
+  margin: 0px;
+}
+
+.transition,#fbody p,#fbody ul li i:before,#fbody ul li i:after { transition: all 0.25s ease-in-out; }
+.flipIn,#fbody h1,#fbody ul li { animation: flipdown 0.5s ease both; }
+.no-select,#fbody h2 { -webkit-tap-highlight-color: transparent; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+#fbody { min-height: 0; display: inline-block; position: relative; left: 50%; margin: 90px 0; transform: translate(-50%, 0); box-shadow: 0 10px 0 0 #29afcb inset; background-color: #fefffa; max-width: 850px; padding: 30px; }
+@media (max-width: 550px) { #fbody { box-sizing: border-box; transform: translate(0, 0); max-width: 100%; min-height: 100%; margin: 0; left: 0; } } #fbody h2 { font-size: 26px; line-height: 34px; font-weight: 300; letter-spacing: 1px; display: block; background-color: #fefffa; margin: 0; cursor: pointer; }
+#fbody p { color: rgba(48, 69, 92, 0.8); font-size: 17px; line-height: 26px; letter-spacing: 1px; position: relative; overflow: hidden; max-height: 800px; opacity: 1; transform: translate(0, 0); margin-top: 14px; z-index: 2; }
+#fbody ul { list-style: none; perspective: 900; padding: 0; margin: 0; }
+#fbody ul li { position: relative; padding: 0; margin: 0; padding-bottom: 4px; padding-top: 18px; border-top: 1px dotted #dce7eb; } #fbody ul li:nth-of-type(1) { animation-delay: 0.5s; } #fbody ul li:nth-of-type(2) { animation-delay: 0.75s; }
+#fbody ul li:nth-of-type(3) { animation-delay: 1s; } #fbody ul li:last-of-type { padding-bottom: 0; }
+#fbody ul li i { position: absolute; transform: translate(-6px, 0); margin-top: 16px; right: 0; }
+#fbody ul li i:before,#fbody ul li i:after { content: ""; position: absolute; background-color: #29afcb; width: 3px; height: 9px; }
+#fbody ul li i:before { transform: translate(-2px, 0) rotate(45deg); } #fbody ul li i:after { transform: translate(2px, 0) rotate(-45deg); }
+#fbody ul li input[type=checkbox] { position: absolute; cursor: pointer; width: 100%; height: 100%; z-index: 1; opacity: 0; } #fbody ul li input[type=checkbox]:checked ~ p { margin-top: 0; max-height: 0; opacity: 0; transform: translate(0, 50%); }
+#fbody ul li input[type=checkbox]:checked ~ i:before { transform: translate(2px, 0) rotate(45deg); }
+#fbody ul li input[type=checkbox]:checked ~ i:after { transform: translate(-2px, 0) rotate(-45deg); } @keyframes flipdown { 0% { opacity: 0; transform-origin: top center; transform: rotateX(-90deg); } 5% { opacity: 1; } 80% { transform: rotateX(8deg); } 83% { transform: rotateX(6deg); } 92% { transform: rotateX(-3deg); } 100% { transform-origin: top center; transform: rotateX(0deg); } }
+
+#fbody{
+-webkit-box-shadow: -5px 7px 80px -6px rgba(0,0,0,0.75);
+-moz-box-shadow: -5px 7px 80px -6px rgba(0,0,0,0.75);
+box-shadow: -5px 7px 80px -6px rgba(0,0,0,0.75);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.grid {
+	margin: 0px;
+}
+.banner-image {
+	background: url(//cdn.shopify.com/s/files/1/1311/0223/t/2/assets/blue_small_bg_coopsum.jpg?7176798942312825012 ) bottom center no-repeat, #395c75;
+	background-size: cover;
+	min-height: 500px;
+	color: #fff;
+	position: relative;
+}
+.banner-image h1 {
+	float: right;
+margin: 27px 50px;
+	    font-size: 80px;
+  font-weight: 800 !important;
+}
+.banner-image h2 {
+	float: right;
+margin: 27px 50px;
+	font-size: 40px;
+	clear: both;
+  text-align: right;
+}
+.banner-image button {
+	float: left;
+	position: absolute;
+	bottom: 55px;
+	left: 5%;
+	max-width: 66%;
+}
+.row {
+	margin: 5px 15px;
+	clear: both;
+	display: block;
+}
+.section {
+position: relative;
+    display: block;
+    min-height: 500px;
+    margin-bottom: 15px;
+    padding-top: 30px;
+
+}
+
+.section h3 {
+	text-align: center;
+  font-size: 47px;
+}
+.embed-responsive .embed-responsive-item, .embed-responsive embed, .embed-responsive iframe, .embed-responsive object, .embed-responsive video {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
+}
+.embed-responsive {
+	position: relative;
+	display: block;
+	height: 0;
+	padding: 0;
+	overflow: hidden;
+}
+.embed-responsive-16by9 {
+	padding-bottom: 56.25%;
+}
+.speaker_image {
+}
+.bluebg {
+	background-color: #e4eef2;
+}
+
+.bluebg button {
+    position: absolute;
+    right: 5%;
+    padding: 10px 30px;
+}
+
+#fbody button {
+    font-size: 20px;
+    box-shadow: none;
+}
+.map {
+}
+.right_section {
+}
+.hr_info {
+}
+.hotel_description {
+}
+.hotel_img {
+float:left;
+border-right: solid rgba(0, 0, 0, 0.38);
+border-width: 2px;
+margin-right: 10px;
+width: 149px;
+padding: 10px;
+}
+.hotel_card {
+display: block;
+border: solid rgba(0, 0, 0, 0.38);
+border-width: 2px;
+min-height: 150px;
+padding: 1px;
+margin-bottom: 40px;
+
+
+-webkit-box-shadow: -5px 7px 80px -6px rgba(0,0,0,0.75);
+-moz-box-shadow: -5px 7px 80px -6px rgba(0,0,0,0.75);
+box-shadow: -5px 7px 80px -6px rgba(0,0,0,0.75);
+position: relative;
+}
+.hotel_card button {
+width: 100%;
+height: 25px;
+position: absolute;
+left:0;
+bottom: 0;
+font-size: 15px;
+border-radius: 0px;
+}
+#section_2 button {
+	display: block;
+	margin: auto;
+}
+button {
+	color: #fff;
+  font-size: 45px;
+	background-color: #f48102;
+  text-transform: uppercase;
+	padding: 1px 15px;
+  border-radius: 6px;
+  -webkit-box-shadow: -5px 7px 80px -6px rgba(0,0,0,0.75);
+-moz-box-shadow: -5px 7px 80px -6px rgba(0,0,0,0.75);
+box-shadow: -5px 7px 80px -6px rgba(0,0,0,0.75);
+}
+
+button:hover{
+	background-color: #ffa23b;
+}
+
+
+#section_2 hr{
+height: 5px;
+    background-color: #000;
+    margin: auto;
+    max-width: 75%;
+    margin-top: 25px;
+}
+
+#section_2 p {
+font-size: 30px;
+    text-align: center;
+    margin: auto;
+    margin-top: 30px;
+    max-width: 70%;
+    margin-bottom: 45px;
+}
+
+
+hr.auth_line {
+	max-width: 60px;
+	height: 5px;
+	margin: 0px;
+}
+
+
+#section_2 > div > div:nth-child(3){
+    padding-top: 60px;
+}
+
+#fbody img {
+    width: 50px;
+    float: right;
+    margin-right: 40px;
+    background-color: #f48102;
+    padding: 10px;
+    border-radius: 6px;
+}
+#fbody img:hover {
+	background-color: #ffa23b;
+}
+
+
+
+@media (max-width: 650px) {
+.banner-image h2 {
+display:none;
+}
+
+#map{
+display:none;
+
+}
+
+
+}
+
+
+</style>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<script src="https://use.fontawesome.com/0bee7ae685.js"></script>
+<link rel="stylesheet" href="bower_components/css-ripple-effect/dist/ripple.min.css">
+
+<div id="main_content" class="grid">
+<!--Main container-->
+
+<!--section 1-->
+
+  <div class="banner-image">
+
+      <h1>COOP SUMMIT</h1>
+      <h2>Building a Bridge Between <br/>
+        Compliance and Sales<br/><br/>
+        May 15th-17th 2017</h2>
+      <a href="//www.knowledgecoop.com/products/coop-summit-2017"><button>Register</button></a>
+
+  </div>
+
+
+<!--section 2-->
+
+<div id="section_2" class="row section">
+  <div class="grid__item">
+    <div class="row">
+      <h3>GET THE MOST ROI FROM YOUR COOP</h3>
+    </div>
+    <div class="row">
+      <div class="grid__item large--one-half push--large--one-quarter">
+
+        <!-- 16:9 aspect ratio -->
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" src="https://fast.wistia.net/embed/iframe/bpbf1dv5nt?videoFoam=true"></iframe>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+    <a style="font-size: 30px;" target="_blank" style="" href="https://drive.google.com/file/d/0B62s-UKrQI1GdTYzMXR4aVVUdHc/view"><button>Brochure</button></a>
+    <p>Sales and compliance operating independently is old school. The Coop is bridging the gap at Coop Summit 2017.</p>
+
+      <a href="//www.knowledgecoop.com/products/coop-summit-2017"><button>Register</button></a>
+    </div>
+
+
+    <div class="row">
+<hr/>
+      <p>You know there is more you could be getting out of your Coop, you just don’t know what it is. Come with us on a three day exploration of how our community gets the most out of The Coop, how Industry Leaders are leveraging the technology, and how to get the most return on your relationship with the Coop.</p>
+    </div>
+  </div>
+</div>
+<hr/>
+<!--section 3-->
+  <div id="section_3" class="section">
+    <div class="grid__item">
+      <h3>SPEAKERS</h3>
+
+          <div class="grid__item large--one-quarter medium--one-third"> <img class="speaker_image" src="https://cdn.shopify.com/s/files/1/1311/0223/files/Ken_2016_Website_Photo.png?4608893684879288710"/>
+            <h4>
+            Ken Perry
+            <h4>
+            <hr class="auth_line"/>
+            <h5>
+            President and Founder
+            <h5>
+          </div>
+          <div class="grid__item large--one-quarter medium--one-third"> <img class="speaker_image" src="https://cdn.shopify.com/s/files/1/1311/0223/files/Anthony_Miller_CEO_Website_Photo.png?13517307602878111104"/>
+            <h4>
+            Anthony Miller
+            <h4>
+            <hr class="auth_line"/>
+            <h5>
+          Chief Executive Officer
+            <h5>
+          </div>
+          <div class="grid__item large--one-quarter medium--one-third"> <img class="speaker_image" src="https://cdn.shopify.com/s/files/1/1311/0223/files/Heather_Leach_Website_Photo.png?15973236779582718486"/>
+            <h4>
+            Heather Leach
+            <h4>
+            <hr class="auth_line"/>
+            <h5>
+          Vice President of Compliance
+            <h5>
+          </div>
+          <div class="grid__item large--one-quarter medium--one-third"> <img class="speaker_image" src="https://cdn.shopify.com/s/files/1/1311/0223/t/2/assets/KathyK.png?8205051541757021151"/>
+            <h4>
+          Kathy Kemper-Zanck
+            <h4>
+            <hr class="auth_line"/>
+            <h5>
+            Owner of Katalyst Kampus
+            <h5>
+          </div>
+
+    </div>
+  </div>
+<hr/>
+  <!--section 4-->
+
+  <div id="section_4" class="section bluebg">
+    <h3>EVENT INFORMATION</h3>
+    <div class="grid">
+      <div id="map" class="grid__item one-half">
+        <div class="map">
+          <!--api--AIzaSyA5Eiv6Keb1ZnWj2W7WpG5oaQRqGcJPYmc-->
+          <iframe
+    width="600"
+    height="450"
+    frameborder="0" style="border:0"
+    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA5Eiv6Keb1ZnWj2W7WpG5oaQRqGcJPYmc&q=Mercy+Corps+Northwest,portland+oregon" allowfullscreen> </iframe>
+        </div>
+      </div>
+      <div class="grid__item one-half">
+        <div class="right_section">
+          <div>
+            <h4>Registration</h4>
+            <hr class="auth_line"/>
+            <h5>Now Available!</h5>
+          </div>
+          <div>
+            <h4>Schedule</h4>
+            <hr class="auth_line"/>
+            <h5><strong>Monday :</strong> May 15th 2017 8am - 5pm</h5>
+            <h5><strong>Tuesday :</strong> May 16th 2017 8am - 5pm</h5>
+            <h5><strong>Wednesday :</strong> May 17th 2017 8am - 3pm</h5>
+          </div>
+          <a href="//www.knowledgecoop.com/products/coop-summit-2017"><button>Register</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--section 5-->
+  <hr/>
+  <div class="section">
+    <h3>HOTELS</h3>
+
+<div class="row">
+    <div class="grid__item push--large--one-sixth large--one-third">
+    <div class="hotel_card"> <img class="hotel_img" src="//cdn.shopify.com/s/files/1/1311/0223/t/2/assets/EmbassySuites_Stacked_Black_HR.jpg?17158088005365625644"/>
+      <h5>Embassy Suites</h5>
+      <h6 class="hotel_description"> Embassy Suites by Hilton is
+        a chain of upscale all-suite
+        hotels trademarked by Hilton.</h6>
+    <a target="_blank" href="http://www.hilton.com/search/es/us/or/portland/0/00000000000/0/0/0/0/20?wt.srch=1" > <button>Book</button></a>
+    </div>
+    </div>
+
+    <div class="grid__item push--large--one-sixth large--one-third">
+    <div class="hotel_card"> <img class="hotel_img" src="https://cdn1.buuteeq.com/upload/14553/rose-horz-fullcolor.png?ver=1.9.61216.760"/>
+      <h5>Hotel Rose</h5>
+      <h6 class="hotel_description"> Right in the heart of it all you’ll
+ find Hotel Rose, a funky, fun and
+ “oh-so-Portland” boutique hotel.</h6>
+    <a target="_blank" href="http://www.hotelroseportland.com/?_vsrefdom=hotelrose-ppc&gclid=CM3C2-LoztECFUtNfgod3S0PgQ"><button>Book</button></a>
+    </div>
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="grid__item push--large--one-sixth large--one-third">
+    <div class="hotel_card"> <img class="hotel_img" src="https://www.travelportland.com/wp-content/uploads/2012/06/Hilton-Portland_logo_OK-300x192.jpg"/>
+      <h5>Hilton Portland </h5>
+      <h6 class="hotel_description"> Located in the heart of the city,
+10 miles from Portland Airport.
+Walk a block from the hotel
+to the MAX Light Rail system.</h6>
+      <a target="_blank" href="http://www.hilton.com/search/es/us/or/portland/0/00000000000/0/0/0/0/20?wt.srch=1"><button>Book</button></a>
+    </div>
+    </div>
+
+    <div class="grid__item push--large--one-sixth large--one-third">
+    <div class="hotel_card"> <img class="hotel_img" src="https://dru-cdn.zipcar.com/sites/default/files/hotel_lucia_logo.jpg"/>
+      <h5>Hotel Lucia</h5>
+      <h6 class="hotel_description"> A Portland hotel which pushes the
+ boundaries of style, creativity
+and comfort.</h6>
+      <a target="_blank" href="http://hotellucia.com/?gclid=CIWDzsvoztECFQx6fgod8j8GGA"><button>Book</button></a>
+    </div>
+    </div>
+</div>
+
+
+
+  </div>
+<hr/>
+  <!--section 5-->
+
+  <div class="section">
+    <h3>TRANSPORTATION</h3>
+    <div id="fbody">
+
+      <ul>
+        <li>
+          <input type="checkbox" checked="checked" />
+          <i></i>
+          <h2>Uber</h2>
+          <p>Uber Technologies Inc. is an American  worldwide online transportation network
+            company headquartered in San Francisco, California. Download the app on iOS or Android.<br/>
+          <a target="_blank" href="https://play.google.com/store/apps/details?id=com.ubercab&hl=en" > <img src="https://image.flaticon.com/icons/png/512/61/61120.png"> </a>
+        <a target="_blank" href="https://itunes.apple.com/us/app/uber/id368677368" >  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/1000px-Apple_logo_black.svg.png"></a>
+        </p>
+        </li>
+        <li>
+          <input type="checkbox" checked="checked" />
+
+          <h2>MAX Light Rail</h2>
+          <p>MAX (Metropolitan Area Express) Light Rail connects Portland City Center with Beaverton, Clackamas, Gresham, Hillsboro, Milwaukie, North/Northeast Portland and the Portland International Airport.<br><a target="_blank" href="http://trimet.org/max/"><button>MAX Light Rail</button></a></p>
+        </li>
+        <li>
+          <input type="checkbox" checked="checked" />
+          <i></i>
+          <h2>Portland Streetcar</h2>
+          <p>Portland Streetcar began service July 20, 2001 with a 2.4-mile alignment (4.8-miles round trip) from Portland State University to NW 23rd Avenue. Now, after 15 years, 5 extensions, and over 49 million riders, Portland Streetcar operates three lines around 16-miles of track in Portland's Central City.<br><a target="_blank" href="https://portlandstreetcar.org/"><button>Portland Streetcar</button></a></p>
+        </li>
+        <li>
+          <input type="checkbox" checked="checked" />
+          <i></i>
+          <h2>TriMet Bus</h2>
+          <p>TriMet provides bus, light rail and commuter rail transit services in the Portland, Oregon, metro area. We connect people with their community, while easing traffic congestion and reducing air pollution — making the Portland area a better place to live.<br><a target="_blank" href="https://trimet.org/bus/"><button>TriMet</button></a</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+
+</div>
+<hr/>
+
+
+<!--Main container-->
+{{ page.content }}

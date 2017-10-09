@@ -1,0 +1,26 @@
+<div id="about-us">
+<div class="about-head-background" style="background-image: url({{ page.metafields.global.banner }});">
+	<div class="wrapper">
+		<h2>{{ page.title }}</h2>
+	</div>
+</div>
+
+
+
+
+<div class="wrapper">
+  	{{ page.content }}
+	
+
+
+
+</div>
+
+{% include 'subscribe' %}
+</div>  
+
+<script>
+$(document).ready(function() {
+	$('body').attr('id', 'about-us')
+});  
+</script>  

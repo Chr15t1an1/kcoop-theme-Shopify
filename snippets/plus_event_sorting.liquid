@@ -1,0 +1,49 @@
+{% case section %}
+
+  {% when 'event_loop' %}
+  
+    {% comment %}
+      * Convert metafield date to DD/MM/YY format
+      * Convert new date to milliseconds format
+    {% endcomment %}
+  
+    {% assign formatted_date = null %}
+    {%- if product.metafields.global.date -%}
+      {% assign date_pieces = product.metafields.global.date | strip | split: '/' %}
+      {% capture new_date %}{{ date_pieces[1] }}/{{ date_pieces[0] }}/{{ date_pieces[2] }}{% endcapture %}
+      {% assign formatted_date = new_date | date: "%s" | times: 1000 %}
+    {%- endif -%}
+
+  {% when 'footer' %}
+  
+    {% comment %}
+      * Loop through each event and create new javascript date object from 
+        milliseconds in date attribute.
+      * Sort and output events according to date.
+    {% endcomment %}
+
+    <script>
+      $(document).on('DOMContentLoaded', function() {
+        
+        var $eventContainer = $('.schedule-content');
+        var $events = $eventContainer.children('.live-content');
+
+         $events.sort(function(a,b){
+           var firstDate = new Date(parseInt($(a).attr("data-date")));
+           var nextDate = new Date(parseInt($(b).attr("data-date")));
+
+           if(firstDate > nextDate) {
+             return 1;
+           }
+           if(firstDate < nextDate) {
+             return -1;
+           }
+           return 0;
+         });
+
+         $events.detach().prependTo($eventContainer);
+        
+      });
+    </script>
+
+{% endcase %}
