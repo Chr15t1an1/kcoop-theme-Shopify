@@ -46,9 +46,9 @@
     {{ tracking_code }}
     {{ 'browser-support.js' | asset_url | script_tag }}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
 <script>
-
-
 function getCookie(cname) {
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
@@ -76,19 +76,6 @@ function checkCookie() {
 }
 
 checkCookie();
-
-
-// //Hide Icons
-// $( ".icon--status-sold-out" ).hide();
-// //Change Sold out to Coming soon
-// $( ".product__status--sold-out").replaceWith('<td>Coming Soon</td>');
-// //Change inventory notice
-// $( ".section__title").replaceWith('<h2 class="section__title">Inventory Notice</h2>');
-// $( ".section__text").replaceWith('<p class="section__text">We are still waiting on approval for the Florida Class. Unapproved classes will be removed from your cart on checkout. We are sorry for the inconvenience. If you have any questions please contact us at +1 360 342 6176.</p>');
-
-
-
-
 
 
 </script>
