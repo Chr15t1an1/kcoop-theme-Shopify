@@ -1,0 +1,85 @@
+{{ 'speaking-lp.css' | asset_url | stylesheet_tag }}
+
+
+<style>
+.main-content {
+  padding-bottom:0px;
+  margin-top: 0px;
+
+}
+
+</style>
+
+
+
+		<div class="hero-image">
+		  <div class="hero-text">
+		    <h1 style="">BOOK KEN PERRY FOR 2018</h1>
+		    <a href="#convert_section" onclick="hero_button()" ><button>BOOK NOW</button></a>
+		  </div>
+		</div>
+
+
+<div id="cycle_section" class="">
+<p>A unique speaking experience covering industry topics like:
+	<ul id="feature_filter">
+	<li style="display:block;">Cyber Security</li>
+	<li>ECOA</li>
+	<li>HMDA</li>
+	<li>Ethics</li>
+	<li>FCRA</li>
+	<li>Fair Lending</li>
+	</ul>
+</p>
+</div>
+
+<hr/>
+
+
+
+
+<div id="text_section">
+<img src="https://c-cdn.knowledgecoop.com/wp-content/uploads/2017/12/ken_pic.jpg"/>
+
+<p>Ken founded The Knowledge Coop in 2003 with one goal in mind: <span class="itl">To create training that would change the way the mortgage industry did business.</span></p>
+<p>Having spent time as a loan originator and accidentally committing fraud on his first day on the job, he knew there had to be a better way. Combining his passion for knowledge with his industry humor, Ken has forged a path in the industry to create edutainment that is changing how people think. Ken takes that passion on the road with speaking events all over the U.S.</p>
+</div>
+
+
+<div id="convert_section">
+<h3>Book Ken Perry</h3>
+
+	<form action="http://localhost:8005/api/form-process/kenSpeakingLp" method="post" id="form_speaking_lp">
+    <label for="fname">Name</label>
+    <input type="text" id="name" name="name" placeholder="Your name..">
+
+    <label for="lname">Company</label>
+    <input type="text" id="company" name="company" placeholder="Achme">
+
+		<label for="lname">Phone</label>
+		<input type="text" id="phone" name="phone" placeholder="Phone Number">
+
+		<label for="lname">Email</label>
+    <input type="text" id="email" name="email" placeholder="Contact Email">
+
+    <input onclick="submit_button()" type="submit" value="Submit">
+  </form>
+
+<div class="embed-container">
+<div id="player"></div>
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/additional-methods.js"></script>
+{{ 'speaking-lp.js' | asset_url | script_tag }}
