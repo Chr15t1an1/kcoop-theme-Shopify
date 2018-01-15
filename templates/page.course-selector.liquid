@@ -20,11 +20,123 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser-polyfill.min.js"></script>
 
 
+<!--Overlay-->
+
+
+
+<style>
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+    color: #fff;
+}
+
+.overlay-content {
+    position: relative;
+    top: 150px;
+    width: 80%;
+    text-align: center;
+    margin-top: 30px;
+    margin: auto;
+}
+
+.overlay h2 {
+  font-size: 24px;
+}
+
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+
+
+.overlay-content ul {
+    list-style: none;
+}
+
+.hs_error_rollup {
+    display: none;
+}
+</style>
+
+
+<div id="myNav" class="overlay">
+  <div class="overlay-content">
+    <h1>Our 2018 classes are being created as you read this.</h1>
+     <h2>To be notified when our classes are ready, enter your email below.<h2/>
+
+   <!--[if lte IE 8]>
+   <script charset="utf-8" type="text/javascript" src="https://js.hsforms.net/forms/v2-legacy.js"></script>
+   <![endif]-->
+   <script charset="utf-8" type="text/javascript" src="https://js.hsforms.net/forms/v2.js"></script>
+   <script>
+     hbspt.forms.create({
+       css: '',
+       portalId: '2141168',
+       formId: '9bf0b91e-f09b-434b-a02b-8ad25c26c8be'
+     });
+   </script>
+
+
+
+  </div>
+</div>
+
+
+<script>
+function openNav() {
+    document.getElementById("myNav").style.width = "100%";
+}
+
+function closeNav() {
+    document.getElementById("myNav").style.width = "0%";
+}
+
+
+openNav()
 
 
 
 
+ga('send', {
+  hitType: 'event',
+  eventCategory: 'online_ce',
+  eventAction: 'ce_selector_pageload',
+  eventLabel: 'ce_selector_pageload_with_overlay'
+});
 
 
-
+</script>
 <!--Overlay-->
