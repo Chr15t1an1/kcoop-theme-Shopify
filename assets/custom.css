@@ -591,3 +591,110 @@ body input[type="submit"]:hover {
 }
 
 /* END cart customizations */
+
+
+
+/* Start Live CE Header CSS  */
+
+.hero-image-live-ce {
+    background-image: url(https://c-cdn.knowledgecoop.com/wp-content/uploads/2017/12/desk-full.jpg) !important;
+    /* height: 500px; */
+    /* background-position: center; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+		background-position: right top !important;
+		margin-bottom: 30px;
+}
+.hero-text-live-ce {
+  text-align: center;
+  position: absolute;
+  top: 47%;
+  left: 36%;
+  transform: translate(-49%, -50%);
+  color: white;
+}
+
+.hero-text-live-ce h1{
+  font-size: 4pc;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  -webkit-text-stroke-width: .5px;
+   -webkit-text-stroke-color: black;
+}
+
+
+
+@media only screen and (max-width: 700px) {
+
+
+        .hero-text-live-ce h1{
+          font-size: 3pc;
+          font-family: 'Roboto', sans-serif;
+          font-weight: 300;
+          transform: translate(0%, 30%);
+          padding: 0px 10px;
+        }
+
+
+        .hero-image-live-ce {
+          background-image: url(https://c-cdn.knowledgecoop.com/wp-content/uploads/2017/12/moble.jpg)!important;
+          height: 300px;
+          /* background-position: center; */
+          background-repeat: no-repeat;
+          background-size: cover;
+          position: relative;
+          -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+          filter: grayscale(100%);
+
+      }
+
+
+      .hero-text-live-ce {
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        color: white;
+        width: 100%;
+        height: 100%;
+        border-radius: 0px;
+      }
+}
+
+
+@media only screen and (max-width: 900px) {
+
+
+
+	.hero-text-live-ce h1{
+		font-size: 3pc;
+		font-family: 'Roboto', sans-serif;
+		font-weight: 300;
+		transform: translate(0%, 20%);
+		padding: 0px 10px;
+	}
+
+
+
+}
+
+
+
+@media only screen and (min-width: 1550px)  {
+        .hero-text-live-ce h1{
+          font-size: 8pc;
+          font-family: 'Roboto', sans-serif;
+          font-weight: 300;
+          margin-bottom: 2px;
+        }
+}
+
+
+}
+
+
+
+/* END Live CE Header CSS  */
