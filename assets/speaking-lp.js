@@ -1,4 +1,7 @@
 
+
+
+
 ///////// URL PArams.
 
 function getAllUrlParams(url) {
@@ -69,8 +72,26 @@ function getAllUrlParams(url) {
 
 ///////// Check for Msgs
 
+$( document ).ready(function() {
+if(getAllUrlParams().msg = "undefined"){
 
+  ga('send', {
+    hitType: 'event',
+    eventCategory: 'ken_speaking_lp',
+    eventAction: 'pageload',
+    eventLabel: 'pageload_sucess'
+  });
+  console.log("pageload");
+
+
+}
+
+});
 // Is it the thank you page?
+$( document ).ready(function() {
+
+$('#ieNotif').width( "60%" );
+
 
 if(getAllUrlParams().msg == "ty"){
 $("#ieNotif > h3").replaceWith( "<h2>Thank You.</h2>" );
@@ -78,9 +99,19 @@ $("#ieNotif > p").replaceWith( "<p>We will be in touch soon.</p>" );
 $("#ieNotif > a.btn.btn-danger").hide();
 $("#ieNotif > a.btn.btn-success").hide();
 $("#notif_sub").hide();
+
+ga('send', {
+  hitType: 'event',
+  eventCategory: 'ken_speaking_lp',
+  eventAction: 'contact_form',
+  eventLabel: 'contact_form_sucess'
+});
+
 $("#ieNotif").fadeIn();
 
 }
+});
+$( document ).ready(function() {
 
 
 // Is it the error page.
@@ -90,12 +121,20 @@ $("#ieNotif > p").replaceWith( "<p>Sorry about that.<br/> If this issue persists
 $("#ieNotif > a.btn.btn-danger").hide();
 $("#ieNotif > a.btn.btn-success").hide();
 $("#notif_sub").hide();
+
+ga('send', {
+  hitType: 'event',
+  eventCategory: 'ken_speaking_lp',
+  eventAction: 'contact_form',
+  eventLabel: 'contact_form_error'
+});
+
 $("#ieNotif").fadeIn();
 
 }
 
 
-
+});
 
 
 ///////// Form Validation
@@ -205,8 +244,9 @@ setInterval(next, 2000);
 
 
 
-//Youtube Video Import and tracking.
 
+
+//Youtube Video Import and tracking.
 var tag = document.createElement('script');
 tag.src = "http://www.youtube.com/player_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -223,6 +263,14 @@ function onYouTubePlayerAPIReady() {
 }
 });
 }
+
+
+setTimeout( function(){
+  onYouTubePlayerAPIReady();
+  }  , 1000 );
+
+
+
 function onPlayerReady(event) {
 /// event.target.playVideo();
 }
@@ -231,12 +279,27 @@ function onPlayerReady(event) {
 function onPlayerStateChange(event) {
     if (event.data ==YT.PlayerState.PLAYING)
     {
-      ga('send','_trackEvent', 'Videos', 'Play', player.getVideoUrl());
+  //    ga('send','_trackEvent', 'Videos', 'Play', player.getVideoUrl());
+
+      ga('send', {
+        hitType: 'event',
+        eventCategory: 'ken_speaking_lp',
+        eventAction: 'Video',
+        eventLabel: 'play_video'
+      });
+
       console.log("Play");
     }
     if (event.data ==YT.PlayerState.ENDED)
     {
-      ga('send','_trackEvent', 'Videos', 'Watch to End', player.getVideoUrl());
+      //ga('send','_trackEvent', 'Videos', 'Watch to End', player.getVideoUrl());
+      ga('send', {
+        hitType: 'event',
+        eventCategory: 'ken_speaking_lp',
+        eventAction: 'Video',
+        eventLabel: 'watch_video_to_end'
+      });
+
       console.log("watch-till-end");
     }
   }
