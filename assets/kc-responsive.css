@@ -215,19 +215,37 @@
 		margin-top:0
 	}
 }
+
+
+/* Changed rule to reduce height and bring listings above fold.
+Also added margin to bottom
+ */
+
 @media (min-width:1200px) {
+	.live-ce-banner {
+		height:350px;
+		background:url() no-repeat 50% 50%;
+		background-size:100%;
+		position: relative
+	margin-bottom: 25px;
+	}
+}
+
+
+/* @media (min-width:1200px) {
 	.live-ce-banner {
 		height:500px;
 		background:url() no-repeat 50% 50%;
 		background-size:100%;
 		position: relative
 	}
-}
+} */
+
 
 /*Mobile only styles AM Edits*/
 
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
-  
+
 	.hs-form fieldset {
     	float: none;
     	margin-left: 0px !important;
@@ -238,10 +256,10 @@
     	margin-top: 24px;
     	margin-left: -6px;
 	}
-    
+
 	body .hs-button.primary {
     	margin-top:11px;
     	margin-left: -16px;
     	margin-bottom: -15px;
-	} 
+	}
 }

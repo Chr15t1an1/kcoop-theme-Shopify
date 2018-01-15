@@ -613,6 +613,8 @@ a img:hover{
 
 /* Speakers - adjust padding & margin of nav and content container if it has a banner */
 #live-ce {
+	
+
 	.main-content{
 		margin-top: 0;
 	}
@@ -690,6 +692,8 @@ margin-bottom: 0;
 		}
 		span.course{
 	    	width: 35%;
+				// Changed line height for live ce description.
+				line-height: 1 !important;
 	    }
 
 	    span:last-child{
