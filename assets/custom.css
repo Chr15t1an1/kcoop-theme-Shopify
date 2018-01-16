@@ -685,7 +685,7 @@ body input[type="submit"]:hover {
 
 @media only screen and (min-width: 1550px)  {
         .hero-text-live-ce h1{
-          font-size: 8pc;
+          font-size: 6pc;
           font-family: 'Roboto', sans-serif;
           font-weight: 300;
           margin-bottom: 2px;
