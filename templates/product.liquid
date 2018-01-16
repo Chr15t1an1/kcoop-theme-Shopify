@@ -20,7 +20,7 @@
   {% endcomment %}
   {% assign current_variant = product.selected_or_first_available_variant %}
 
-  
+
 
   <div class="grid product-single">
     <div class="grid__item large--one-half text-center">
@@ -108,18 +108,18 @@
           <input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector">
           {% endcomment %}
 
-          
+
           {% if product.tags contains "elective" %}
             	<div class="accTableBox">
                 <h5>Required Course</h5>
                 <table class="accTable">
-                </table>  
+                </table>
             	</div>
             <h5>Subtotal: $<span data-orig-price="" class="subTotal">{{ product.price_max | money_without_currency }}</span></h5>
           {% endif %}
-		  
-            <div>&nbsp;</div>	
-            
+
+            <div>&nbsp;</div>
+
           <button type="submit" name="add" id="AddToCart" class="btn">
             <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
           </button>
@@ -157,7 +157,22 @@
   </div>
 
   <!-- related products -->
-  {% include 'related-products' %}
+
+<!-- If product belogs to live CE hide related products  -->
+<!-- https://ecommerce.shopify.com/c/ecommerce-design/t/if-product-in-collection-show-this-141032 -->
+
+  {% assign found = false %}
+  {% for c in product.collections %}
+    {% if c.handle == "live-ce" %}
+      {% assign found = true %}
+    {% endif %}
+  {% endfor %}
+
+  {% if found == false %}
+    {% include 'related-products' %}
+  {% endif %}
+
+  <!-- End related products -->
 
 
 </div>
@@ -204,11 +219,11 @@
       $('.selector-wrapper').hide();
     {% endif %}
   });
-  
+
 jQuery(document).ready(function() {
-var xText = $('.selector-wrapper select').find('option:selected').text(); 
+var xText = $('.selector-wrapper select').find('option:selected').text();
 	{% if product.tags contains "elective" %}
-      jQuery.ajaxSetup({async:false});       
+      jQuery.ajaxSetup({async:false});
       var xyz = '8-hour-safe-ce-2016-7-hour-core-plus-1-hour-elective';
       jQuery.getJSON('/products/'+xyz+'.js', function(product) {
         var xImg;
@@ -219,7 +234,7 @@ var xText = $('.selector-wrapper select').find('option:selected').text();
          };
 
 
-         var xPrice = product.price / 100; 
+         var xPrice = product.price / 100;
         jQuery('.accTable').append('<tr><td><label><span class="cb"><input type="checkbox" value="'+product.variants[0].id+'" data-price="'+(product.variants[0].price / 100).toFixed(2)+'" checked /><input type="checkbox" value="'+product.variants[1].id+'" data-price="'+(product.variants[1].price / 100).toFixed(2)+'"  /></span><a target="_blank" href="/products/'+product.handle+'"><span class="img"><img src="'+xImg+'" /></span><span class="name"><strong>'+product.title+'</strong><em>$<span>'+(product.variants[0].price / 100).toFixed(2)+'</span></em> </span></span></label></td></tr>');
         setTimeout(function(){
           jQuery(window).trigger('resize');
@@ -230,35 +245,35 @@ var xText = $('.selector-wrapper select').find('option:selected').text();
 
       });
       jQuery.ajaxSetup({async:true});
-  	  jQuery('.accTable input').first().attr('checked', true);	
-      
+  	  jQuery('.accTable input').first().attr('checked', true);
+
   	  jQuery.ajaxSetup({async:true});
-  	  jQuery('.accTable input').first().attr('checked', true);	
-  
+  	  jQuery('.accTable input').first().attr('checked', true);
+
   	  jQuery('.accTable input').change(function() {
         if (jQuery(this).is(':checked')) {
         	//alert(jQuery(this).attr('data-price'));
             jQuery(this).closest('label').find('em span').text(jQuery(this).attr('data-price'));
         }
-        
-         
-        
-      });		
-  
-  
-      var origPrice = parseFloat($('#ProductPrice').text().replace('$', '')); 
+
+
+
+      });
+
+
+      var origPrice = parseFloat($('#ProductPrice').text().replace('$', ''));
       var xPrc = '';
 
       if (xText.indexOf('No') >= 0) {
         xPrc = parseFloat(jQuery('.accTable .cb  input').last().attr('data-price'));
 
-        jQuery('.accTable .cb input').first().prop('checked', false);	
-        jQuery('.accTable .cb  input').last().prop('checked', true);	
+        jQuery('.accTable .cb input').first().prop('checked', false);
+        jQuery('.accTable .cb  input').last().prop('checked', true);
       } else {
         xPrc = parseFloat(jQuery('.accTable .cb  input').first().attr('data-price'));
 
-        jQuery('.accTable .cb  input').first().prop('checked', true);	
-        jQuery('.accTable .cb  input').last().prop('checked', false);	
+        jQuery('.accTable .cb  input').first().prop('checked', true);
+        jQuery('.accTable .cb  input').last().prop('checked', false);
       }
       var subTotal = (origPrice + xPrc).toFixed(2);
       $('.subTotal').text(subTotal);
@@ -270,25 +285,25 @@ var xText = $('.selector-wrapper select').find('option:selected').text();
         if (xText.indexOf('No') >= 0) {
           xPrc = parseFloat(jQuery('.accTable .cb  input').last().attr('data-price'));
 
-          jQuery('.accTable .cb input').first().prop('checked', false);	
-          jQuery('.accTable .cb  input').last().prop('checked', true);	
+          jQuery('.accTable .cb input').first().prop('checked', false);
+          jQuery('.accTable .cb  input').last().prop('checked', true);
           jQuery('.accTable .cb input').trigger('change');
 
         } else {
           xPrc = parseFloat(jQuery('.accTable .cb  input').first().attr('data-price'));
 
-          jQuery('.accTable .cb  input').first().prop('checked', true);	
-          jQuery('.accTable .cb  input').last().prop('checked', false);	
+          jQuery('.accTable .cb  input').first().prop('checked', true);
+          jQuery('.accTable .cb  input').last().prop('checked', false);
           jQuery('.accTable .cb input').trigger('change');
-          
+
         }
-        origPrice = parseFloat($('#ProductPrice').text().replace('$', '')); 
+        origPrice = parseFloat($('#ProductPrice').text().replace('$', ''));
         subTotal = (origPrice + xPrc).toFixed(2);
         $('.subTotal').text(subTotal);
 
 
-      });	
-  
+      });
+
   	  jQuery('#AddToCartForm').submit(function() {
           jQuery.ajaxSetup({async:false});
           var abc = jQuery('#productSelect').val();
@@ -313,12 +328,12 @@ var xText = $('.selector-wrapper select').find('option:selected').text();
           //window.location.href = '/cart/';
           jQuery.ajaxSetup({async:true});
           return false;
-        });  
-	
-  
-  
+        });
+
+
+
     {% endif %}
-  
+
    $(".noModal").fancybox({
 		maxWidth	: 300,
 		//maxHeight	: 400,
@@ -328,27 +343,27 @@ var xText = $('.selector-wrapper select').find('option:selected').text();
 		autoHeight	: true,
 		closeClick	: true,
 		openEffect	: 'none',
-		closeEffect	: 'none', 
+		closeEffect	: 'none',
      	afterShow: function() {
-          if ($('.fancybox-overlay').size() == 0) { 
+          if ($('.fancybox-overlay').size() == 0) {
      		$('body').append('<div class="fancybox-overlay fancybox-overlay-fixed" style="display: block; width: auto; height: auto;"></div>')
           } else {
-          
-          }  
-        }, 
+
+          }
+        },
      	afterClose: function() {
      		$('body .fancybox-overlay').remove();
-        }	
+        }
 	});
-  
-  
+
+
   if (xText.indexOf('No') >= 0) {
     $('.noModal').trigger('click');
   } else {
-    
+
   }
-  
-  
+
+
   $('.selector-wrapper select').change(function() {
     xText = $(this).find('option:selected').text();
 
@@ -359,13 +374,13 @@ var xText = $('.selector-wrapper select').find('option:selected').text();
 
     }
 
-  });  
-  
- 
-});  
-  
-</script> 
-<div style="display: none">  
+  });
+
+
+});
+
+</script>
+<div style="display: none">
 	<a class="noModal" href="#noModal">Inline</a>
-	<div id="noModal">If you choose not to purchase the NMLS banking fee option your completed continuing education courses WILL NOT be submitted to the NMLS which could prevent you from renewing your license.</div>  
-</div>  
+	<div id="noModal">If you choose not to purchase the NMLS banking fee option your completed continuing education courses WILL NOT be submitted to the NMLS which could prevent you from renewing your license.</div>
+</div>
