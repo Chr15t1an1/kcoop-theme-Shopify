@@ -25,7 +25,7 @@
 			<span></span>
 		</div>
 
-		<div class="schedule-content">
+		<div id="schedule-content-id" class="schedule-content">
 
 	<!--http://stackoverflow.com/questions/6133723/sort-divs-in-jquery-based-on-attribute-data-sort-->
 
@@ -33,7 +33,7 @@
 
             {% include 'plus_event_sorting', section: 'event_loop' %}
 
-            <div class="live-content clearfix" data-date="{{ formatted_date }}">
+            <div id="live-content-id" class="live-content clearfix" data-date="{{ formatted_date }}">
               <span>{{ product.metafields.global.date }}</span>
               <span class="course">{{ product.title }}</span>
               <span style="text-align: center;">{{ product.metafields.global.location }}</span>
@@ -46,6 +46,42 @@
          <div class="rte">
 
     </div>
+
+
+<div style="display:none;">
+
+
+	<div class="live-ce-schedules">
+		<div class="schedule-heading clearfix">
+			<span>DATE</span>
+			<span class="course">COURSE</span>
+			<span style="padding-left: 0px;" >LOCATION</span>
+			<span></span>
+		</div>
+
+		<div class="schedule-content"> 
+
+	<!--http://stackoverflow.com/questions/6133723/sort-divs-in-jquery-based-on-attribute-data-sort-->
+
+						<div class="live-content clearfix" >
+							<span></span>
+							<span class="course"></span>
+							<span style="text-align: center;"></span>
+							<span>
+								<a class="btn" href="">Register Now</a>
+							</span>
+						</div>
+
+
+
+
+
+</div>
+
+
+</div>
+
+
 
 <style>
 
