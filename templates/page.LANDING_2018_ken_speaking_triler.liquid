@@ -1,0 +1,442 @@
+{{ 'bootstrap_wo_fonts.css' | asset_url | stylesheet_tag }}
+
+
+<style>
+
+.main-content{
+  margin-top: 0px;
+}
+
+
+.btn {
+  display: inline-block;
+      background: #F48102;
+      padding: 8px 18px;
+      color: #fff;
+      border-radius: 5px;
+      line-height: normal;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 1px;
+      border-color: #F48102;
+      border-radius: 5px;
+    background-color: #F48102;
+    padding: 9px 39px;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+    color: white;
+    font-weight: 700;
+
+
+}
+
+
+
+
+
+
+
+/*
+/ Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+  #row-1 {
+    margin-left: 50px;
+
+  }
+
+  #col-2-in-row-1{
+      margin-top: 50px;
+  }
+
+ }
+
+
+
+ 
+
+
+
+
+</style>
+<div class="row">
+  <div class="container">
+    <div class="col-md-8 col-md-offset-2">
+      <h1 style="font-size: 2em;">Ken Perry's 2018 Speaking Trailer</h1>
+      <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
+        <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/W3p9XlH7qTQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="fb-follow" data-href="https://www.facebook.com/KnowledgeCoop/" data-width="250" data-height="150" data-layout="standard" data-size="small" data-show-faces="true"></div>
+
+
+<div class="row">
+
+  <div class="container" id="" style="margin-top: 30px;">
+
+    <div id="row-1" class="row">
+        <div class="col-md-4 col-md-offset-2">
+            <script src="https://apis.google.com/js/platform.js"></script>
+            <div class="g-ytsubscribe" data-channelid="UCYZQRELKTZNrNt24Aj5PRsw" data-layout="full" data-count="default"></div>
+        </div>
+
+
+        <div id="col-2-in-row-1" class="col-md-4">
+        <iframe src="https://www.facebook.com/plugins/follow.php?href=https%3A%2F%2Fwww.facebook.com%2FKnowledgeCoop%2F&width=250&height=80&layout=standard&size=small&show_faces=true&appId=916805128482045" width="250" height="80" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+        </div>
+    </div>
+
+    <h2 id="header-copy" style="margin-bottom: 40px;text-align: center;font-size: 4em;">See you Live</h2>
+    <a id="header-link" href="https://www.knowledgecoop.com/pages/live-ce"><button style="display:block;margin: auto;padding:15px 35px;margin-bottom: 30px;font-size:1.5em;" class="btn center-block">Register Now</button></a>
+  </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<script>
+
+function getAllUrlParams(url) {
+
+  // get query string from url (optional) or window
+  var queryString = url ? url.split('?')[1] : window.location.search.slice(1);
+
+  // we'll store the parameters here
+  var obj = {};
+
+  // if query string exists
+  if (queryString) {
+
+    // stuff after # is not part of query string, so get rid of it
+    queryString = queryString.split('#')[0];
+
+    // split our query string into its component parts
+    var arr = queryString.split('&');
+
+    for (var i=0; i<arr.length; i++) {
+      // separate the keys and the values
+      var a = arr[i].split('=');
+
+      // in case params look like: list[]=thing1&list[]=thing2
+      var paramNum = undefined;
+      var paramName = a[0].replace(/\[\d*\]/, function(v) {
+        paramNum = v.slice(1,-1);
+        return '';
+      });
+
+      // set parameter value (use 'true' if empty)
+      var paramValue = typeof(a[1])==='undefined' ? true : a[1];
+
+      // (optional) keep case consistent
+      paramName = paramName.toLowerCase();
+      paramValue = paramValue.toLowerCase();
+
+      // if parameter name already exists
+      if (obj[paramName]) {
+        // convert value to array (if still string)
+        if (typeof obj[paramName] === 'string') {
+          obj[paramName] = [obj[paramName]];
+        }
+        // if no array index number specified...
+        if (typeof paramNum === 'undefined') {
+          // put the value on the end of the array
+          obj[paramName].push(paramValue);
+        }
+        // if array index number specified...
+        else {
+          // put the value at that index number
+          obj[paramName][paramNum] = paramValue;
+        }
+      }
+      // if param name doesn't exist yet, set it
+      else {
+        obj[paramName] = paramValue;
+      }
+    }
+  }
+
+  return obj;
+}
+
+
+
+
+var citys = {
+    'ank': {header:'See you Live in Anchorage', link:'https://www.knowledgecoop.com/products/anchorage-amba-napmw-sponsored-live-ce?utm_source=hs_email&utm_medium=squeeze_page&utm_campaign=2018_livece_marketing&utm_content=squeezepage_ak'},
+    'med': {header:'See you Live in Medford', link:'https://www.knowledgecoop.com/products/medford-or-2017-8-hour-live-ce?utm_source=hs_email&utm_medium=squeeze_page&utm_campaign=2018_livece_marketing&utm_content=squeezepage_med'},
+    'ben': {header:'See you Live in Bend', link:'https://www.knowledgecoop.com/products/bend-or-2018-8-hour-live-ce?utm_source=hs_email&utm_medium=squeeze_page&utm_campaign=2018_livece_marketing&utm_content=squeezepage_ben'},
+    'hon': {header:'See you Live in Honolulu', link:'https://www.knowledgecoop.com/products/honolulu-hi-2018-8-hour-live-ce?utm_source=hs_email&utm_medium=squeeze_page&utm_campaign=2018_livece_marketing&utm_content=squeezepage_hon'},
+    'wil': {header:'See you Live in Wilsonville', link:'https://www.knowledgecoop.com/products/wilsonville-or-2017-8-hour-live-ce-a?utm_source=hs_email&utm_medium=squeeze_page&utm_campaign=2018_livece_marketing&utm_content=squeezepage_wil'},
+    'fif': {header:'See you Live in Fife', link:'https://www.knowledgecoop.com/products/fife-wa-8-hour-live-ce-1-hour-wa-sponsored-by-psmla?utm_source=hs_email&utm_medium=squeeze_page&utm_campaign=2018_livece_marketing&utm_content=squeezepage_fif'},
+};
+
+
+///Dynamic Page
+
+if(getAllUrlParams().event){
+    try {
+        if (citys[getAllUrlParams().event]) {
+          var city = citys[getAllUrlParams().event] ;
+          $( "#header-copy" ).text(city['header']);
+          $( "#header-link" ).attr("href", city['link'])
+        }else {
+          console.log("false");
+        };
+    }
+    catch(err) {
+
+    }
+}else {
+  console.log("false");
+}
+</script>
+
+
+
+
+
+<script>
+
+
+
+// Helper function to get cookies by name
+function getCookie(name) {
+  var value = "; " + document.cookie;
+  var parts = value.split("; " + name + "=");
+  if (parts.length == 2) return parts.pop().split(";").shift();
+}
+
+
+
+// Helper function to set cookies by name
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+//
+//
+// function check_for_cartNotif_Cookie() {
+//     var cc_cartcheck_val = getCookie("_cc_shopify_privateCE_cartcheck");
+//     if (cc_cartcheck_val != "") {
+//
+//     } else {
+//
+//       // if empty set cookie to not notified
+//
+//       setCookie('_cc_shopify_privateCE_cartcheck', 0, 7);
+//
+//
+//
+//         // username = prompt("Please enter your name:", "");
+//         // if (username != "" && username != null) {
+//         //     setCookie("username", username, 365);
+//         // }
+//     }
+// }
+
+
+function check_for_cartNotif_Cookie() {
+
+  ///Check cookie
+ var cc_cartcheck_val = getCookie("_cc_shopify_privateCE_cartcheck");
+
+//Ceck if empy
+ if(cc_cartcheck_val !== null && cc_cartcheck_val !== '') {
+    // do something - - Not empty
+    if (cc_cartcheck_val === "0") {
+      console.log(cc_cartcheck_val+" set to 0");
+      return false;
+    }else if (cc_cartcheck_val === "1") {
+      console.log(cc_cartcheck_val+" set to 1");
+      return true;
+    }else {
+      console.log(cc_cartcheck_val+" set to something other-Resetting Cookie");
+      setCookie('_cc_shopify_privateCE_cartcheck', 0, 7);
+    }
+
+ }else {
+   // empty
+     setCookie('_cc_shopify_privateCE_cartcheck', 0, 7);
+     return false;
+ }
+
+
+}
+
+
+
+function cc_check_cartForPrivateCE() {
+
+  // Variable to Hold The JSON cart request
+  var responceJson;
+  //Get Cart
+  $.getJSON( "/cart.js", function( json ) {
+  // console.log( json );
+  responceJson = json;
+
+  });
+
+  return responceJson;
+
+
+}
+
+
+
+
+
+// cookieName = _cc_shopify_privateCE_cartcheck
+// cookieValue = 0
+// cookieLifetime_inDays = 7
+
+
+
+
+// // Variable to Hold The JSON cart request
+// var responceJson;
+
+
+
+
+// Shorthand for $( document ).ready()
+$(function() {
+
+
+//
+if (!check_for_cartNotif_Cookie()) {
+
+  console.log("User cookie is 0 running cart check");
+
+  // });
+}else {
+    console.log("User cookie is 1 meaning user has acknolaged the dialog");
+}
+
+
+
+
+// //Get Cart
+// var cartRequest=$.getJSON( "/cart.js", function( json ) {
+// // console.log( json );
+// responceJson = json;
+// });
+
+
+
+});
+
+
+
+
+
+
+
+
+//   ///Check cookie
+//  var cc_cartcheck_val = getCookie("_cc_shopify_privateCE_cartcheck");
+//
+// //Ceck if empy
+//  if(cc_cartcheck_val !== null && cc_cartcheck_val !== '') {
+//     // do something - - Not empty
+//     if (cc_cartcheck_val === 0) {
+//       console.log(cc_cartcheck_val+" set to 0");
+//       return false;
+//     }else if (cc_cartcheck_val === 1) {
+//       console.log(cc_cartcheck_val+" set to 1");
+//       return true;
+//     }else {
+//       console.log(cc_cartcheck_val+" set to something other-Resetting Cookie");
+//       setCookie('_cc_shopify_privateCE_cartcheck', 0, 7);
+//     }
+//
+//  }else {
+//    // empty
+//      setCookie('_cc_shopify_privateCE_cartcheck', 0, 7);
+//      return false;
+//  }
+
+
+  //If not set
+  // Set cookie
+
+
+// ???Ifset
+
+// if it is 1 exit
+
+// If it is 0 Check cart
+
+
+
+
+
+
+
+//     //Get Cart
+//     var cartRequest=$.getJSON( "/cart.js", function( json ) {
+//    // console.log( json );
+//    responceJson = json;
+//   });
+//
+//
+// });
+
+
+
+
+
+
+
+
+//Check for cookie status.
+
+
+
+
+      //Grab responce as a string
+      // cartString = cartRequest.responseText;
+      //
+      // //Turns string  into object
+      // cartObject = JSON.parse(cartString);
+      //
+      // numberOfItems = cartObject.item_count;
+      // cartTotal = cartObject.total_price;
+      //
+      //
+      //
+      // #### Check if numberOfItems is greater than 2 && if Cart total = $0
+      //
+      //
+      // ####if yes
+      //
+      // ##loop through line items and check if line item has more than 1 quantity
+      //
+      // #If yes check if ID belongs to private collection
+      //
+      // ## If yes -- check with user that they understand they have multiple of a free product
+      //
+      // ///If no skip
+
+
+
+</script>
