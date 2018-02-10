@@ -107,3 +107,8 @@ function cc_shop_checkCart(){
   $( document ).ready(cc_shop_checkCart);
 
   $( document ).ajaxStart(cc_shop_checkCart);
+
+  $("#AddToCart").click(function(){
+    cc_shop_checkCart();
+
+  });
