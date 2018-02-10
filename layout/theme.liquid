@@ -3,7 +3,9 @@
 <!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
+<style>
 
+</style>
 
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -89,7 +91,24 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+{{ 'cc_notification-style.css' | asset_url | stylesheet_tag }}
+{{ 'cc_notification.js' | asset_url | script_tag }}
+
+
+<!-- Pauses any css animations till the dom is loaded p1 -->
+<style>
+.js-loading *,
+.js-loading *:before,
+.js-loading *:after {
+  animation-play-state: paused !important;
+}
+</style>
+
+
+
 </head>
+
+
 
 
 
@@ -98,6 +117,17 @@
   Add the page template as a class for easy page or template specific styling.
 {% endcomment %}
 <body id="{% if template contains 'team' %}about-us{% else %}{{ page_title | handle }}{% endif %}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
+<!-- Pauses any css animations till the dom is loaded p2 -->
+  <script>
+  document.body.classList.add('js-loading');
+  window.addEventListener("DOMContentLoaded", showPage);
+  function showPage() {
+    document.body.classList.remove('js-loading');
+  }
+  </script>
+
+
+
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5ZCH5G"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -494,6 +524,41 @@
     <!-- //site-footer -->
   </div>
 
+  <!-- Multi-Product-Notification -->
+
+  <div id="cc__fancy_notification">
+    <!-- <div class="profile"><img src="http://www.fillmurray.com/130/130"/>
+        <div class="text">
+          <div class="name">Bill Murray</div>
+          <div class="meta">Click me!</div>
+        </div>
+      </div> -->
+      <div class="overlay">
+        <div class="cc__notif__modal">
+          <div class="title">Checking In! <svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1490 1322q0 40-28 68l-136 136q-28 28-68 28t-68-28l-294-294-294 294q-28 28-68 28t-68-28l-136-136q-28-28-28-68t28-68l294-294-294-294q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 294 294-294q28-28 68-28t68 28l136 136q28 28 28 68t-28 68l-294 294 294 294q28 28 28 68z"/></svg></div>
+          <div class="body">
+            <!-- <div class="img" style="background-image: url(http://www.fillmurray.com/180/180);"></div> -->
+            <div class="text">
+              <p><strong>It looks like you have multiple free products in your cart.</strong><br/></p>
+
+  <p>If you only want one you can update your quantity by clicking the cart button.<br/><br/>
+
+  Otherwise, close this notification and we will let you get back to what you are doing.</p>
+  <a id="cc__cartbutton" href="/cart" class="btn"><span>CART</span></a>
+  <a id="cc__closebutton" href="#" style="float: right;background: #9E9E9E;" class="btn"><span>CLOSE</span></a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
   {% comment %}
     List out your main-menu linklist (default)
  {{ 'fastclick.min.js' | asset_url | script_tag }}
@@ -653,10 +718,6 @@ CheckForNotif();
 </script>
 
 <!--END Internet Explorer Notification Script-->
-
-
-
-
 
 
 
