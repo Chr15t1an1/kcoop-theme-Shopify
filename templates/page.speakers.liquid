@@ -44,26 +44,13 @@
                 <a class="btn" href="{{ product.url | within: collection }}">Register Now</a>
               </span>
             </div>
-
           {% endfor %}
-
-
-
-
-
 	</div>
-
 	</div>
-
          <div class="rte">
-
     			</div>
 
-
-
-
-
-					<div style="display:none;">
+					<div style="margin-bottom: 50px;">
 							<blockquote>Classes with dates and venues still being confirmed.</blockquote>
 								<div id="cc-live-ce-comming-soon" class="live-ce-schedules">
 									<div class="schedule-heading clearfix">
@@ -79,12 +66,54 @@
 
 													<div class="live-content clearfix" >
 														<span>TBD</span>
-														<span>Fife, WA - 8 Hour Live CE + 1 Hour WA -Sponsored by PSMLA</span>
-														<span style="text-align: center;">Fife, WA</span>
+														<span class="course" >Eugene,OR- 2018 8 Hour Live CE</span>
+														<span style="text-align: center;">Eugene, OR</span>
 														<span>
-															<a id="" onclick="launchDialog(11111)" class="open-popup-link btn">Get Updates!</a>
+															<a id="" onclick="launchDialog(8805491149)" class="open-popup-link btn">Get Updates!</a>
 														</span>
 													</div>
+
+
+
+													<div class="live-content clearfix" >
+														<span>TBD</span>
+														<span class="course" >Boise,ID- 2018 8 Hour Live CE</span>
+														<span style="text-align: center;">Boise, ID</span>
+														<span>
+															<a id="" onclick="launchDialog(8814847309)" class="open-popup-link btn">Get Updates!</a>
+														</span>
+													</div>
+
+
+
+													<div class="live-content clearfix" >
+														<span>TBD</span>
+														<span class="course" >Spokane,WA- 2018 8 Hour Live CE</span>
+														<span style="text-align: center;">Spokane, WA</span>
+														<span>
+															<a id="" onclick="launchDialog(8804957709)" class="open-popup-link btn">Get Updates!</a>
+														</span>
+													</div>
+
+
+													<div class="live-content clearfix" >
+														<span>TBD</span>
+														<span class="course" >Wilsonville, OR - 2018 8 Hour Live CE (B)</span>
+														<span style="text-align: center;">Wilsonville, OR</span>
+														<span>
+															<a id="" onclick="launchDialog(9050793421)" class="open-popup-link btn">Get Updates!</a>
+														</span>
+													</div>
+
+													<div class="live-content clearfix" >
+														<span>TBD</span>
+														<span class="course" >Wilsonville, OR - 2018 8 Hour Live CE (C)</span>
+														<span style="text-align: center;">Wilsonville, OR</span>
+														<span>
+															<a id="" onclick="launchDialog(9050807757)" class="open-popup-link btn">Get Updates!</a>
+														</span>
+													</div>
+
 
 
 							    </div>
@@ -101,7 +130,7 @@
 
 // A $( document ).ready() block.
 $( document ).ready(function() {
-$("#cc__fancy_notification > div > div > div.body").html('<div class="text"><form id="contact_form" class="form-inline" action="" method="post"><div class="form-group mx-sm-3 mb-2"><label for="inputPassword2" class="sr-only">Email</label><input name="email_home" type="email" class="form-control" id="email_1" placeholder="abc@xyz.com" required="required"><input id="eventId" type="hidden" name="event" value=""></div><button type="submit" class="btn btn-primary mb-2">Download</button></form><a id="cc__closebutton" href="#" style=""><span>CLOSE</span></a></div>');
+$("#cc__fancy_notification > div > div > div.body").html('<div class="text"><form id="contact_form" class="form-inline" action="" method="post"><div class="form-group mx-sm-3 mb-2"><label for="inputPassword2" class="sr-only">Email</label><input name="email_home" type="email" class="form-control" id="email_1" placeholder="abc@xyz.com" required="required"><input id="eventId" type="hidden" name="event" value=""></div><button type="submit" class="btn btn-primary mb-2">Subscribe</button></form><a id="cc__closebutton" href="#" style=""><span>CLOSE</span></a></div>');
 
 
 
@@ -160,6 +189,9 @@ $(function() {
 	// formInstance = $(form.target);
 
 		d = $("#contact_form").serialize();
+
+
+
 
 		$.post("https://sandbox.christiancampbell.us/",d, function(data, status){
         console.log("Data: " + data + "\nStatus: " + status);
