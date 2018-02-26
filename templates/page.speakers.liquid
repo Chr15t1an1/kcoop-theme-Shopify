@@ -191,10 +191,8 @@ $(function() {
 		d = $("#contact_form").serialize();
 
 
+		$.post("https://form.knowledgecoop.com/api/form-process/livece",d, function(data, status){
 
-
-		$.post("https://sandbox.christiancampbell.us/",d, function(data, status){
-        console.log("Data: " + data + "\nStatus: " + status);
 
 				$('#cc__fancy_notification').css('pointer-events','none');
 				$('.cc__notif__modal').addClass('fade');
@@ -204,7 +202,7 @@ $(function() {
 					$('.cc__notif__modal').removeClass('fade');
 				}, 600);
 
-
+console.log("Data: " + data + "\nStatus: " + status); 
 
 		});
 
