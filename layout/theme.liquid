@@ -3,9 +3,9 @@
 <!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
-<!-- <style>
+<style>
 
-</style> -->
+</style>
 
   <!-- Google Tag Manager -->
   <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -25,7 +25,7 @@
   <link rel="shortcut icon" href="{{ 'favicon.png' | asset_url }}" type="image/png" />
   {% endif %}
 
-  <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css' rel="stylesheet" media="print">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
 
   <!-- Title and description ================================================== -->
   <title>
@@ -44,42 +44,19 @@
 
 
   <!-- CSS ================================================== -->
-  <!-- {{ 'jquery.fancybox.css' | asset_url | stylesheet_tag }}
+  {{ 'jquery.fancybox.css' | asset_url | stylesheet_tag }}
   {{ 'timber.scss.css' | asset_url | stylesheet_tag }}
   {{ 'font-awesome.min.css' | asset_url | stylesheet_tag }}
   {{ 'knowledge-coop.scss.css' | asset_url | stylesheet_tag }}
- -->
-
-
-
-  <link href="{{ 'jquery.fancybox.css' | asset_url }}" rel='stylesheet' type='text/css' rel="stylesheet">
-  <link href="{{ 'timber.scss.css' | asset_url }}" rel='stylesheet' type='text/css' rel="stylesheet" >
-  <link href="{{ 'font-awesome.min.css' | asset_url }}" rel='stylesheet' type='text/css' rel="stylesheet" >
-  <link href="{{ 'knowledge-coop.scss.css' | asset_url }}" rel='stylesheet' type='text/css' rel="stylesheet">
-  <link href="{{ 'custom.css' | asset_url }}" rel='stylesheet' type='text/css' rel="stylesheet" >
-  <link href="{{ 'kc-responsive.css' | asset_url }}" rel='stylesheet' type='text/css' rel="stylesheet">
-  <link href="{{ 'cc_notification-style.css' | asset_url }}" rel='stylesheet' type='text/css' rel="stylesheet">
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-
   <style>
   div#close_n {
       font-size: 50px;
   }
-  .fw-container{display: none;}
-
-  .js-loading *,
-  .js-loading *:before,
-  .js-loading *:after {
-    animation-play-state: paused !important;
-  }
-  .async-hide { opacity: 0 !important}
   </style>
 
 
 
-  <!-- <style>.async-hide { opacity: 0 !important} </style> -->
+  <style>.async-hide { opacity: 0 !important} </style>
   <script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
   h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
   (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
@@ -89,18 +66,16 @@
 
 
 
-  <!-- {{ 'custom.css' | asset_url | stylesheet_tag }}
-  {{ 'kc-responsive.css' | asset_url | stylesheet_tag }} -->
+  {{ 'custom.css' | asset_url | stylesheet_tag }}
+  {{ 'kc-responsive.css' | asset_url | stylesheet_tag }}
 
   <!-- Header hook for plugins ================================================== -->
   {{ content_for_header }}
   {% include 'oldIE-js' %}
 
-  <!-- {{ '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js' | script_tag }} -->
-  <!-- {{ 'api.jquery.js' | shopify_asset_url | script_tag }} -->
-  <!-- {{ 'modernizr.min.js' | asset_url | script_tag }} -->
-
-
+  {{ '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js' | script_tag }}
+  {{ 'api.jquery.js' | shopify_asset_url | script_tag }}
+  {{ 'modernizr.min.js' | asset_url | script_tag }}
 
   {% comment %}
     If you store has customer accounts disabled, you can remove the following JS file
@@ -110,26 +85,24 @@
   {% endif %}
 
 
-  <!-- {{ 'knowledge-coop.js' | asset_url | script_tag }} -->
+  {{ 'knowledge-coop.js' | asset_url | script_tag }}
 
 
 
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<!-- {{ 'cc_notification-style.css' | asset_url | stylesheet_tag }} -->
-
-
-<!--{{ 'cc_notification.js' | asset_url | script_tag }} -->
+{{ 'cc_notification-style.css' | asset_url | stylesheet_tag }}
+{{ 'cc_notification.js' | asset_url | script_tag }}
 
 
 <!-- Pauses any css animations till the dom is loaded p1 -->
-<!-- <style>
+<style>
 .js-loading *,
 .js-loading *:before,
 .js-loading *:after {
   animation-play-state: paused !important;
 }
-</style> -->
+</style>
 
 
 
@@ -160,6 +133,15 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
+
+
+
+
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MWD65TT"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
   <div id="NavDrawer" class="drawer drawer--left">
     <div class="drawer__header">
@@ -466,13 +448,10 @@
 
           <div class="grid__item large--one-whole medium--one-half">
              <h3>Recent Posts</h3>
-            <div id="cc_feed_wind"></div>
 
 
 
-<!-- start feedwind code -->
- <script type="text/javascript" src="https://feed.mikle.com/js/fw-loader.js" data-fw-param="67122/"></script>
- <!-- end feedwind code -->
+          	<!-- start feedwind code --> <script type="text/javascript" src="https://feed.mikle.com/js/fw-loader.js" data-fw-param="32621/"></script> <!-- end feedwind code -->
           </div>
 
           <div class="grid__item large--one-whole medium--one-half">
@@ -576,41 +555,6 @@
 
 
 
-    <!--END Internet Explorer Notification Script-->
-
-
-    <script src="{{ 'cc_notification.js'| asset_url }}" async></script>
-
-    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" async></script> -->
-    <!-- <script src="{{ 'api.jquery.js'| asset_url }}" async></script> -->
-    <script src="{{ 'modernizr.min.js'| asset_url }}" async></script>
-    <script src="{{ 'knowledge-coop.js'| asset_url }}" async></script>
-    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js" async></script>
-    <script src="{{ 'jquery.fancybox.pack.js' | asset_url }}" async></script>
-    <script src="{{ 'handlebars.min.js' | asset_url }}" async></script>
-    <script src="{{ 'ajax-cart.js' | asset_url }}" async></script>
-    <script src="{{ 'fastclick.min.js' | asset_url }}" async></script>
-    <script src="{{ 'timber.js' | asset_url }}" async></script>
-
-
-
-
-
-
-    <!-- <script type="text/javascript" src="https://feed.mikle.com/js/fw-loader.js" data-fw-param="67122/" async></script> -->
-
-    <script>
-    // function CCfeedwind() {
-    // document.addEventListener("DOMContentLoaded", function(event) {
-    //   alert('yo');
-    //   $('.fw-container').appendTo( "#cc_feed_wind" );
-    //   $('.fw-container').fadeIn();
-    // // }
-    // });
-
-    </script>
-
-
 
 
 
@@ -622,7 +566,7 @@
       - http://docs.shopify.com/themes/liquid-variables/linklists
   {% endcomment %}
 
-  <!-- {{ 'timber.js' | asset_url | script_tag }} -->
+  {{ 'timber.js' | asset_url | script_tag }}
 
   {% comment %}
     Template-specific js
@@ -634,7 +578,7 @@
       });
     {% endif %}
   </script>
-<!-- {{ 'fastclick.min.js' | asset_url | script_tag }} -->
+{{ 'fastclick.min.js' | asset_url | script_tag }}
 
   {% comment %}
     Ajaxify your cart with this plugin.
@@ -642,12 +586,10 @@
       - http://shopify.com/timber#ajax-cart
   {% endcomment %}
   {% if settings.ajax_cart_method == "drawer" %}
-    <!-- {{ 'handlebars.min.js' | asset_url | script_tag }} -->
+    {{ 'handlebars.min.js' | asset_url | script_tag }}
     {% include 'ajax-cart-template' %}
-    <!-- {{ 'ajax-cart.js' | asset_url | script_tag }} -->
+    {{ 'ajax-cart.js' | asset_url | script_tag }}
     <script>
-
-window.addEventListener("load", function(event) {
       jQuery(function($) {
         ajaxCart.init({
           formSelector: '#AddToCartForm',
@@ -663,17 +605,11 @@ window.addEventListener("load", function(event) {
         // Bind to 'afterCartLoad.ajaxCart' to run any javascript after the cart has loaded in the DOM
         timber.RightDrawer.open();
       });
-
-
-  });
-
     </script>
   {% endif %}
-  <!-- {{ 'jquery.fancybox.pack.js' | asset_url | script_tag }} -->
+  {{ 'jquery.fancybox.pack.js' | asset_url | script_tag }}
    <script>
-
-window.addEventListener("load", function(event) {
-        // $(document).ready(function() {
+      $(document).ready(function() {
 	$(".various").fancybox({
 		maxWidth	: 800,
 		maxHeight	: 600,
@@ -712,13 +648,13 @@ var google_custom_params = window.google_tag_params;
 var google_remarketing_only = true;
 /* ]]> */
 </script>
-<!-- <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script> -->
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+
+
 
 <!-- Internet Explorer Notification Script-->
 <script>
-
-window.addEventListener("load", function(event) {
-
 function hideNotif() {
     $('#ieNotif').hide();
     var now = new Date();
@@ -779,9 +715,14 @@ function CheckForNotif() {
 
 CheckForNotif();
 
-});
-
 </script>
+
+<!--END Internet Explorer Notification Script-->
+
+
+
+
+
 
 
 <noscript>
