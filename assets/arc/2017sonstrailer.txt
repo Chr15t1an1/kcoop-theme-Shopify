@@ -1,0 +1,24 @@
+<style><!--
+.site-footer { padding: 50px 0 0; clear: both; } #hsForm_e52cccd2-9579-4f3a-8fb5-0a9dd6860e2e{ display:flex; margin-left: 30%; } .hs_submit{ margin-top: 7px; } .video-subscription-container{ display:none; }
+--></style>
+<h1 style="text-align: center; margin-bottom: 2px;">2017 Sons of Compliance Trailer</h1>
+<div class="wistia_responsive_padding" style="padding: 30% 0 0 0; position: relative;">
+<div class="wistia_responsive_wrapper" style="height: 60%; position: absolute; top: 0; width: 80%; padding-left: 20%;"><iframe src="//fast.wistia.net/embed/iframe/81jcduwquf?videoFoam=true" title="Wistia video player" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" oallowfullscreen="" msallowfullscreen="" width="100%" height="100%"></iframe></div>
+</div>
+<script src="//fast.wistia.net/assets/external/E-v1.js" async=""></script>
+<p> </p>
+<p style="text-align: center; margin-bottom: 0px;"><b>Enter your email and we will notify you when your 2017 online CE is done baking.</b></p>
+<script charset="utf-8" type="text/javascript" src="https://js.hsforms.net/forms/v2.js"></script><script>// <![CDATA[
+hbspt.forms.create({ css: '', portalId: '2141168', formId: 'e52cccd2-9579-4f3a-8fb5-0a9dd6860e2e' });
+// ]]></script>
+<hr />
+<p style="text-align: center;"><strong>What to expect from The Sons in your 2017 online CE</strong></p>
+<ul>
+<li style="font-weight: 400; text-align: left;"><span style="font-weight: 400;">This year our 8-hour course takes a crack at envisioning a new mortgage industry by analysing the status quo. </span></li>
+<li style="font-weight: 400; text-align: left;"><span style="font-weight: 400;">We will identify some of the issues and struggles real companies have had with rapid growth and how they led to damage to their company culture and even consumer harm</span></li>
+<li style="font-weight: 400; text-align: left;"><span style="font-weight: 400;">We will explore creating a plan for a new industry that reaches out to all groups to equally provide credit to everyone who qualifies</span></li>
+<li style="font-weight: 400; text-align: left;"><span style="font-weight: 400;">The Sons of Compliance will be back to help bring these points and many others home. As usual, plan to be entertained while you get educated!</span></li>
+</ul>
+<hr />
+<h2 style="text-align: center;">Check out what the sons were up to in 2016</h2>
+<div style="height: 60%; width: 80%; padding-left: 20%;"><iframe width="560" height="315" src="https://www.youtube.com/embed/I1PIlSoqRz8" frameborder="0" allowfullscreen=""></iframe></div>
