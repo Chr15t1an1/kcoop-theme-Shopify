@@ -138,6 +138,7 @@ box-sizing: border-box;         /* Opera/IE 8+ */
 }
 .main-content {
 clear: both;
+overflow: auto;
 }
 #about-us .about-head-background {
 background-size: cover;
