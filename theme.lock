@@ -2,4 +2,16 @@
 assets/grunt_bundle_output.min.css:
   development: 2018-02-28T16:46:37-08:00   ccb1039008df61b5164c2ce851e4ff97
 layout/theme.liquid:
-  development: 2018-02-28T22:13:47-08:00   5e762fe38d8011c75e9bfe280b56b235
+  development: 2018-02-28T23:00:50-08:00   294ba89861ad1a35351782c123a5a8de
+layout/theme.login.liquid:
+  development: 2018-02-28T23:05:20-08:00   89750958ccd3b37e6e8b238464f413bf
+layout/theme.noFastClick.liquid:
+  development: 2018-02-28T23:07:00-08:00   fabac6ffee10698a5924458ddd2bfa15
+layout/theme.nofollow.liquid:
+  development: 2018-02-28T23:07:48-08:00   baf5a7fbe269977a0ae9f0889f77b015
+templates/page.coop-cares.liquid:
+  development: 2018-02-28T23:11:43-08:00   1883760e3281532baf0c77efd1781c3d
+templates/page.roiInput.liquid:
+  development: 2018-02-28T23:09:25-08:00   05cb29766ee3b6d5e1e1fe9cc4a55422
+templates/page.roiOutput.liquid:
+  development: 2018-02-28T23:09:01-08:00   14eaa75db83c4684dfdaa1103202c796
