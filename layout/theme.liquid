@@ -3,19 +3,6 @@
 <!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
-<style>
-
-</style>
-
-  <!-- Google Tag Manager -->
-  <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-P5ZCH5G');</script> -->
-  <!-- End Google Tag Manager -->
-
-
   <!-- Basic page needs ================================================== -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -24,8 +11,6 @@
   {% if settings.favicon_enable %}
   <link rel="shortcut icon" href="{{ 'favicon.png' | asset_url }}" type="image/png" />
   {% endif %}
-
-  <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
 
   <!-- Title and description ================================================== -->
   <title>
@@ -44,25 +29,22 @@
 
 
   <!-- CSS ================================================== -->
-  {{ 'jquery.fancybox.css' | asset_url | stylesheet_tag }}
   {{ 'timber.scss.css' | asset_url | stylesheet_tag }}
-  <!-- {{ 'font-awesome.min.css' | asset_url | stylesheet_tag }} -->
   {{ 'knowledge-coop.scss.css' | asset_url | stylesheet_tag }}
-
-
-<!-- {{ 'knowledge-coop.scss.css' | asset_url | stylesheet_tag }} -->
-
-
 
   <style>
   div#close_n {
       font-size: 50px;
   }
+  .async-hide { opacity: 0 !important}
+
+  .js-loading *,
+  .js-loading *:before,
+  .js-loading *:after {
+    animation-play-state: paused !important;
+  }
   </style>
 
-
-
-  <style>.async-hide { opacity: 0 !important} </style>
   <script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
   h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
   (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
@@ -70,14 +52,18 @@
   {'GTM-MVFP6CP':true});</script>
 
 
-
-
-  {{ 'custom.css' | asset_url | stylesheet_tag }}
-  {{ 'kc-responsive.css' | asset_url | stylesheet_tag }}
+  {{ 'grunt_kc-responsive_custom.min.css' | asset_url | stylesheet_tag }}
 
   <!-- Header hook for plugins ================================================== -->
   {{ content_for_header }}
   {% include 'oldIE-js' %}
+
+
+
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 
   {{ '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js' | script_tag }}
   {{ 'api.jquery.js' | shopify_asset_url | script_tag }}
@@ -95,20 +81,12 @@
 
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-{{ 'cc_notification-style.css' | asset_url | stylesheet_tag }}
+
 {{ 'cc_notification.js' | asset_url | script_tag }}
 
 
 <!-- Pauses any css animations till the dom is loaded p1 -->
-<style>
-.js-loading *,
-.js-loading *:before,
-.js-loading *:after {
-  animation-play-state: paused !important;
-}
-</style>
 
 
 
@@ -812,10 +790,15 @@ CheckForNotif();
 
 <!--END Internet Explorer Notification Script-->
 
+{{ 'cc_notification-style.min.css' | asset_url | stylesheet_tag }}
 
-<!--
-<noscript id="deferred-styles">
-     <link rel="stylesheet" type="text/css" href="{{ '#000ery.fancybox.css' | asset_url}}"/>
+{{ 'jquery.fancybox.min.css' | asset_url | stylesheet_tag }}
+
+<!-- <noscript id="deferred-styles"> -->
+
+      <!-- <link rel="stylesheet" type="text/css" href="{{ 'cc_notification-style.min.css' | asset_url | stylesheet_tag }}"/> -->
+     <!-- <link rel="stylesheet" type="text/css" href=""/>
+
    </noscript>
    <script>
      var loadDeferredStyles = function() {
