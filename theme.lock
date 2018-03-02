@@ -14,7 +14,7 @@ assets/jquery.fancybox.min.css:
 assets/speaking-lp.min.css:
   development: 2018-03-01T14:07:16-08:00   565c999f09a15670f15696f2b2625ea1
 layout/theme.liquid:
-  development: 2018-03-02T07:39:29-08:00   b7b6b62d01d73eda2ec9b9083f55b442
+  development: 2018-03-02T08:05:46-08:00   9cb5730576585e87c9a959683ec91fdf
 layout/theme.login.liquid:
   development: 2018-03-01T12:15:45-08:00   e484ca347c865d27037beca7430d908e
 layout/theme.noFastClick.liquid:
