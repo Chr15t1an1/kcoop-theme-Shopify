@@ -31,6 +31,11 @@
   <!-- CSS ================================================== -->
   {{ 'timber.scss.css' | asset_url | stylesheet_tag }}
   {{ 'knowledge-coop.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'grunt_kc-responsive_custom.min.css' | asset_url | stylesheet_tag }}
+
+  {{ 'cc_notification-style.min.css' | asset_url | stylesheet_tag }}
+  {{ 'jquery.fancybox.min.css' | asset_url | stylesheet_tag }}
+
 
   <style>
   div#close_n {
@@ -52,43 +57,11 @@
   {'GTM-MVFP6CP':true});</script>
 
 
-  {{ 'grunt_kc-responsive_custom.min.css' | asset_url | stylesheet_tag }}
+
 
   <!-- Header hook for plugins ================================================== -->
   {{ content_for_header }}
   {% include 'oldIE-js' %}
-
-
-
-
-  <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-
-  {{ '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js' | script_tag }}
-  {{ 'api.jquery.js' | shopify_asset_url | script_tag }}
-  {{ 'modernizr.min.js' | asset_url | script_tag }}
-
-  {% comment %}
-    If you store has customer accounts disabled, you can remove the following JS file
-  {% endcomment %}
-  {% if template contains 'customers' %}
-    {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
-  {% endif %}
-
-
-  {{ 'knowledge-coop.js' | asset_url | script_tag }}
-
-
-
-
-
-{{ 'cc_notification.js' | asset_url | script_tag }}
-
-
-<!-- Pauses any css animations till the dom is loaded p1 -->
-
-
 
 </head>
 
@@ -110,17 +83,10 @@
   }
   </script>
 
-
-
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5ZCH5G"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-
-
-
-
-
 
 
 
@@ -142,7 +108,6 @@
       {% for link in linklists.main-menu.links %}
         {% comment %}
           Create a dropdown menu by naming a linklist the same as a link in the parent nav
-
           More info on dropdowns:
             - http://docs.shopify.com/manual/your-website/navigation/create-drop-down-menu
         {% endcomment %}
@@ -221,12 +186,6 @@
     </div>
   {% endif %}
 
-
-
-
-
-
-
   <div id="PageContainer" class="is-moved-by-drawer">
     <header class="site-header" role="banner">
       <div class="wrapper">
@@ -256,9 +215,6 @@
               </div>
             {% endif %}
 
-
-
-
             <div class="responsive-menu-container">
               <div class="responsive-menu">
                 <span class="bar"></span>
@@ -266,43 +222,10 @@
                 <span class="bar"></span>
               </div>
             </div>
-
           </div>
-
           <div class="grid__item large--three-quarters large--text-right">
             <div class="top-menu">
               <span>(800) 936-2128</span>
-
-              <!-- <ul>
-                <li>
-                  <a href="{{ settings.social_fb_link }}" target="_blank">
-
-                    <i class="fa fa-facebook"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="{{ settings.social_tw_link }}" target="_blank">
-                    <i class="fa fa-twitter"></i>
-                  </a>
-                </li> -->
-                <!--<li> <a href="{{ settings.social_yt_link }}" target="_blank"> <i class="fa fa-youtube-play"></i> </a> </li>-->
-                <!-- <li> <a href="https://www.youtube.com/channel/UCYZQRELKTZNrNt24Aj5PRsw" target="_blank"> <i class="fa fa-youtube-play"></i> </a> </li>
-                <li>
-                  <a href="{{ settings.social_ig_link }}" target="_blank">
-                    <i class="fa fa-instagram"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="{{ settings.social_in_link }}" target="_blank">
-                    <i class="fa fa-linkedin"></i>
-                  </a>
-                </li>
-
-
-                <li> <a href="https://plus.google.com/+TheKnowledgeCoopVancouver" target="_blank"> <i class="fa fa-google-plus"></i> </a> </li>
-
-              </ul> -->
-
 
               <ul>
                 <li>
@@ -317,7 +240,6 @@
                     <svg width="16" height="16" viewBox="0 0 129 105" xmlns="http://www.w3.org/2000/svg" style="margin:0 auto"><path d="M129.04475 12.741c-5.051 2.173-10.104 3.53-15.153 4.075 5.703-3.422 9.56-8.256 11.57-14.502-5.216 3.095-10.783 5.213-16.703 6.354-5.215-5.54-11.623-8.311-19.228-8.311-7.278 0-13.483 2.566-18.617 7.699-5.133 5.133-7.699 11.338-7.699 18.616 0 1.955.217 3.965.652 6.029-10.755-.543-20.844-3.245-30.268-8.106-9.424-4.862-17.422-11.339-23.994-19.432-2.39 4.073-3.585 8.5-3.585 13.28 0 4.508 1.059 8.691 3.178 12.547 2.118 3.856 4.97 6.979 8.555 9.369-4.237-.163-8.202-1.277-11.895-3.341v.326c0 6.355 1.996 11.935 5.988 16.743 3.992 4.808 9.03 7.835 15.113 9.084-2.281.597-4.59.896-6.925.896-1.521 0-3.178-.136-4.97-.406 1.684 5.268 4.78 9.599 9.288 12.994 4.508 3.396 9.614 5.146 15.317 5.256-9.559 7.494-20.449 11.242-32.67 11.242-2.336 0-4.454-.107-6.355-.325 12.221 7.875 25.691 11.812 40.411 11.812 9.342 0 18.114-1.479 26.314-4.439 8.203-2.96 15.209-6.925 21.021-11.896 5.811-4.969 10.822-10.686 15.031-17.15 4.209-6.463 7.345-13.211 9.41-20.245 2.064-7.035 3.096-14.081 3.096-21.143 0-1.521-.027-2.661-.082-3.422 5.161-3.746 9.561-8.282 13.2-13.604z" fill="#ffff" fill-rule="evenodd"/></svg>
                   </a>
                 </li>
-                <!--<li> <a href="{{ settings.social_yt_link }}" target="_blank"> <i class="fa fa-youtube-play"></i> </a> </li>-->
                 <li>
                   <a style="display: flex;align-items: center;" href="https://www.youtube.com/channel/UCYZQRELKTZNrNt24Aj5PRsw" target="_blank">
                      <!-- <i class="fa fa-youtube-play"></i>  -->
@@ -345,21 +267,17 @@
 
                  {% if customer %}
                 <a href="/account">ORDERS</a>
-
                 <a style="" href="https://ce.knowledgecoop.com/premium/" target="_blank">MY COURSES</a>
                 <span style="display:none;"> {{ 'layout.customer.log_out' | t | customer_logout_link }}</span>
 	             {% else %}
 	              {{ 'LOGIN' | customer_login_link }}
                {% endif %}
-
-              {% if cart.item_count > 0 %}<a href="/cart" class="site-header__cart-toggle js-drawer-open-right" aria-controls="CartDrawer" aria-expanded="false"><span>CART {% if cart.item_count > 0 %}{{ cart.item_count }}{% endif %}</span></a>{% endif %}
-
-
+              {% if cart.item_count > 0 %}<a href="/cart" class="site-header__cart-toggle js-drawer-open-right" aria-controls="CartDrawer" aria-expanded="false"><span>CART {% if cart.item_count > 0 %}{{ cart.item_count }}{% endif %}</span></a>
+              {% endif %}
             </div>
             <div class="main-nav">
               {% comment %}
                 List out your main-menu linklist (default)
-
                 More info on linklists:
                   - http://docs.shopify.com/themes/liquid-variables/linklists
               {% endcomment %}
@@ -368,7 +286,6 @@
                 {% for link in linklists.main-menu.links %}
                   {% comment %}
                     Create a dropdown menu by naming a linklist the same as a link in the parent nav
-
                     More info on dropdowns:
                       - http://docs.shopify.com/manual/your-website/navigation/create-drop-down-menu
                   {% endcomment %}
@@ -396,51 +313,28 @@
               </ul>
             </div>
           </div>
-
-
         </div>
-
       </div>
     </header>
 
 
 
-        <!-- Internet Explorer Notification -->
-        <div class="row">
-        <div id="ieNotif" class="notification" style="display:none;width: 90%; margin:auto; height: auto; border: solid 7px #33afc9; text-align: center; padding: 20px; background-color: rgb(244, 129, 2); color: #fff;"> <!-----><a onclick="hideNotif()"><span class="notif_close" style="float: right;font-size: 25px;"><i class="fa fa-times" aria-hidden="true"></i></span></a>
-        <h3>Dear Internet Explorer User - Important Message </h3>
-        <p>Some versions of Internet Explorer are not compatible with our shopping cart software. To ensure full functionality while on our site, please switch to one of our recommended browsers.</p>
-        <a target="_blank" style="color: #fff;background-color: #d9534f;border-color: #d43f3a;" href="https://www.mozilla.org/en-US/firefox/" class="btn btn-danger">
-         Fire Fox</a> <span id="notif_sub">Or</span> <a target="_blank" style="color: #fff;background-color: #5cb85c;border-color: #4cae4c;" href="https://www.google.com/chrome/browser/desktop/index.html" class="btn btn-success"> Google Chrome</a>
-        </div>
-        <hr style="margin-top: 20px;margin-bottom: 20px;border: 0;border-top: 1px solid rgba(238, 238, 238, 0);"/>
-        </div>
-
-        <!-- End Internet Explorer Notification -->
-
-
     <main class="main-content" role="main">
-
       {{ content_for_layout }}
-
     </main>
 
     <!-- begin site-footer -->
     <footer class="site-footer" role="contentinfo">
       <div class="wrapper">
-
         <div class="grid">
-
           <div class="grid__item large--one-whole medium--one-half">
             <h3>Ways We Help</h3>
             <div class="footer-nav">
-
               <!-- begin footer-nav -->
               <ul>
                 {% for link in linklists.footer.links %}
                   {% comment %}
                     Create a dropdown menu by naming a linklist the same as a link in the parent nav
-
                     More info on dropdowns:
                       - http://docs.shopify.com/manual/your-website/navigation/create-drop-down-menu
                   {% endcomment %}
@@ -466,27 +360,15 @@
                   {% endif %}
                 {% endfor %}
               </ul>
-
             </div>
           </div>
-
           <div class="grid__item large--one-whole medium--one-half">
              <h3>Recent Posts</h3>
-
 <!-- start feedwind code --> <script  type="text/javascript" src="https://feed.mikle.com/js/fw-loader.js" data-fw-param="67122/"></script> <!-- end feedwind code -->
-
-
-
-
-            <!-- start feedwind code -->
-             <!-- <script type="text/javascript" src="https://feed.mikle.com/js/fw-loader.js" data-fw-param="32621/"></script>  -->
-             <!-- end feedwind code -->
           </div>
-
           <div class="grid__item large--one-whole medium--one-half">
             <h3>Connect</h3>
             <ul class="footer-social">
-              <!-- <ul> -->
                 <li>
                   <a style="display: flex;align-items: center;" href="{{ settings.social_fb_link }}" target="_blank">
                     <!-- Facebook -->
@@ -524,39 +406,7 @@
                 </a>
               </li>
               </ul>
-
-
-
-
-              <!-- <li>
-                  <a href="{{ settings.social_fb_link }}" target="_blank">
-                    <i class="fa fa-facebook"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="{{ settings.social_tw_link }}" target="_blank">
-                    <i class="fa fa-twitter"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="{{ settings.social_yt_link }}" target="_blank">
-                    <i class="fa fa-youtube-play"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="{{ settings.social_ig_link }}" target="_blank">
-                    <i class="fa fa-instagram"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="{{ settings.social_in_link }}" target="_blank">
-                    <i class="fa fa-linkedin"></i>
-                  </a>
-                </li>
-                <li> <a href="https://plus.google.com/+TheKnowledgeCoopVancouver" target="_blank"> <i class="fa fa-google-plus"></i> </a> </li>
-            </ul> -->
           </div>
-
           <div class="grid__item large--one-whole medium--one-half">
             <div class="footer-address">
               <h3>Contact Us</h3>
@@ -574,70 +424,91 @@
               </p>
               <p>
                 <span>Map:</span>
-                <a href="https://www.google.com/maps/place/14707+NE+13th+Ct+a102,+Vancouver,+WA+98685/@45.7280862,-122.6601109,17z/data=!3m1!4b1!4m5!3m4!1s0x5495ad8de91ee3d9:0x3565d058926ee363!8m2!3d45.7280862!4d-122.6579222" target="_blank">View Map</a>
+                <a href="https://www.google.com/maps/place/1902+SE+6th+Ave,+Camas,+WA+98607/data=!4m2!3m1!1s0x5495bcf92aa428cb:0x2631c94a14f19def?sa=X&ved=0ahUKEwiJlsX4zszZAhVGLKwKHd1VDewQ8gEIJjAA" target="_blank">View Map</a>
               </p>
             </div>
           </div>
-
         </div>
-
       </div>
-
       <!-- footer copyrights -->
       <div class="footer-legal">
-        <span>Copyright 2008 - 2016</span>
+        <span>Copyright 2008 - 2018</span>
         <a href="{{ shop.url }}">www.knowledgecoop.com</a>
         <a href="/pages/legal-stuff">Legal Stuff</a>
         <a> NMLS Course Provider #1400023</a>
       </div>
-
     </footer>
     <!-- //site-footer -->
   </div>
-
   <!-- Multi-Product-Notification -->
-
   <div id="cc__fancy_notification">
-    <!-- <div class="profile"><img src="http://www.fillmurray.com/130/130"/>
-        <div class="text">
-          <div class="name">Bill Murray</div>
-          <div class="meta">Click me!</div>
-        </div>
-      </div> -->
       <div class="overlay">
         <div class="cc__notif__modal">
           <div class="title">Checking In! <svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1490 1322q0 40-28 68l-136 136q-28 28-68 28t-68-28l-294-294-294 294q-28 28-68 28t-68-28l-136-136q-28-28-28-68t28-68l294-294-294-294q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 294 294-294q28-28 68-28t68 28l136 136q28 28 28 68t-28 68l-294 294 294 294q28 28 28 68z"/></svg></div>
           <div class="body">
-            <!-- <div class="img" style="background-image: url(http://www.fillmurray.com/180/180);"></div> -->
             <div class="text">
               <p><strong>It looks like you have multiple free products in your cart.</strong><br/></p>
-
   <p>If you only want one you can update your quantity by clicking the cart button.<br/><br/>
-
   Otherwise, close this notification and we will let you get back to what you are doing.</p>
   <a id="cc__cartbutton" href="/cart" class="btn"><span>CART</span></a>
   <a id="cc__closebutton" href="#" style="float: right;background: #9E9E9E;" class="btn"><span>CLOSE</span></a>
-
             </div>
           </div>
         </div>
       </div>
     </div>
+    <!-- Internet Explorer Notification -->
+    <div class="row">
+    <div id="ieNotif" class="notification" style="display:none;width: 90%; margin:auto; height: auto; border: solid 7px #33afc9; text-align: center; padding: 20px; background-color: rgb(244, 129, 2); color: #fff;"> <!-----><a onclick="hideNotif()"><span class="notif_close" style="float: right;font-size: 25px;"><i class="fa fa-times" aria-hidden="true"></i></span></a>
+    <h3>Dear Internet Explorer User - Important Message </h3>
+    <p>Some versions of Internet Explorer are not compatible with our shopping cart software. To ensure full functionality while on our site, please switch to one of our recommended browsers.</p>
+    <a target="_blank" style="color: #fff;background-color: #d9534f;border-color: #d43f3a;" href="https://www.mozilla.org/en-US/firefox/" class="btn btn-danger">
+     Fire Fox</a> <span id="notif_sub">Or</span> <a target="_blank" style="color: #fff;background-color: #5cb85c;border-color: #4cae4c;" href="https://www.google.com/chrome/browser/desktop/index.html" class="btn btn-success"> Google Chrome</a>
+    </div>
+    <hr style="margin-top: 20px;margin-bottom: 20px;border: 0;border-top: 1px solid rgba(238, 238, 238, 0);"/>
+    </div>
+    <!-- End Internet Explorer Notification -->
 
 
 
 
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css' media="none" onload="if(media!='all')media='all'">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-
-
+    <!-- {{ '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js' | script_tag }} -->
+    <!-- {{ 'api.jquery.js' | shopify_asset_url | script_tag }} -->
+    {{ 'modernizr.min.js' | asset_url | script_tag }}
+    {% comment %}
+      If you store has customer accounts disabled, you can remove the following JS file
+    {% endcomment %}
+    {% if template contains 'customers' %}
+      {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
+    {% endif %}
+    {{ 'jquery.fancybox.pack.js' | asset_url | script_tag }}
+    {{ 'knowledge-coop.js' | asset_url | script_tag }}
+    {{ 'cc_notification.js' | asset_url | script_tag }}
   {% comment %}
     List out your main-menu linklist (default)
  {{ 'fastclick.min.js' | asset_url | script_tag }}
     More info on linklists:
       - http://docs.shopify.com/themes/liquid-variables/linklists
   {% endcomment %}
-
   {{ 'timber.js' | asset_url | script_tag }}
+  {{ 'fastclick.min.js' | asset_url | script_tag }}
+  <noscript><div style="display:inline;"><img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/877710089/?value=0&amp;guid=ON&amp;script=0"/></div></noscript>
+  <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+
+  <!-- Start of Async HubSpot Analytics Code -->
+    <script type="text/javascript">
+      (function(d,s,i,r) {
+        if (d.getElementById(i)){return;}
+        var n=d.createElement(s),e=d.getElementsByTagName(s)[0];
+        n.id=i;n.src='//js.hs-analytics.net/analytics/'+(Math.ceil(new Date()/r)*r)+'/2141168.js';
+        e.parentNode.insertBefore(n, e);
+      })(document,"script","hs-analytics",300000);
+    </script>
+  <!-- End of Async HubSpot Analytics Code -->
+
 
   {% comment %}
     Template-specific js
@@ -649,8 +520,6 @@
       });
     {% endif %}
   </script>
-{{ 'fastclick.min.js' | asset_url | script_tag }}
-
   {% comment %}
     Ajaxify your cart with this plugin.
     Documentation:
@@ -659,7 +528,7 @@
   {% if settings.ajax_cart_method == "drawer" %}
     {{ 'handlebars.min.js' | asset_url | script_tag }}
     {% include 'ajax-cart-template' %}
-    {{ 'ajax-cart.js' | asset_url | script_tag }}
+    <!-- {{ 'ajax-cart.js' | asset_url | script_tag }} -->
     <script>
       jQuery(function($) {
         ajaxCart.init({
@@ -678,7 +547,7 @@
       });
     </script>
   {% endif %}
-  {{ 'jquery.fancybox.pack.js' | asset_url | script_tag }}
+
    <script>
       $(document).ready(function() {
 	$(".various").fancybox({
@@ -698,20 +567,6 @@
 });
     </script>
 
-<!-- Start of Async HubSpot Analytics Code -->
-  <script type="text/javascript">
-    (function(d,s,i,r) {
-      if (d.getElementById(i)){return;}
-      var n=d.createElement(s),e=d.getElementsByTagName(s)[0];
-      n.id=i;n.src='//js.hs-analytics.net/analytics/'+(Math.ceil(new Date()/r)*r)+'/2141168.js';
-      e.parentNode.insertBefore(n, e);
-    })(document,"script","hs-analytics",300000);
-  </script>
-<!-- End of Async HubSpot Analytics Code -->
-  <!-- Google Code for Remarketing Tag -->
-<!--------------------------------------------------
-Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. See more information and instructions on how to setup the tag on: http://google.com/ads/remarketingsetup
---------------------------------------------------->
 <script type="text/javascript">
 /* <![CDATA[ */
 var google_conversion_id = 877710089;
@@ -719,10 +574,6 @@ var google_custom_params = window.google_tag_params;
 var google_remarketing_only = true;
 /* ]]> */
 </script>
-<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
-</script>
-
-
 
 <!-- Internet Explorer Notification Script-->
 <script>
@@ -785,20 +636,13 @@ function CheckForNotif() {
 }
 
 CheckForNotif();
-
 </script>
-
 <!--END Internet Explorer Notification Script-->
 
-{{ 'cc_notification-style.min.css' | asset_url | stylesheet_tag }}
-
-{{ 'jquery.fancybox.min.css' | asset_url | stylesheet_tag }}
 
 <!-- <noscript id="deferred-styles"> -->
-
       <!-- <link rel="stylesheet" type="text/css" href="{{ 'cc_notification-style.min.css' | asset_url | stylesheet_tag }}"/> -->
      <!-- <link rel="stylesheet" type="text/css" href=""/>
-
    </noscript>
    <script>
      var loadDeferredStyles = function() {
@@ -815,11 +659,5 @@ CheckForNotif();
    </script> -->
 
 
-
-<noscript>
-<div style="display:inline;">
-<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/877710089/?value=0&amp;guid=ON&amp;script=0"/>
-</div>
-</noscript>
  </body>
 </html>
