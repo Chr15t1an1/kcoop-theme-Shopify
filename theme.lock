@@ -23,6 +23,8 @@ layout/theme.noFastClick.liquid:
   development: 2018-02-28T23:07:00-08:00   fabac6ffee10698a5924458ddd2bfa15
 layout/theme.nofollow.liquid:
   development: 2018-02-28T23:07:48-08:00   baf5a7fbe269977a0ae9f0889f77b015
+templates/page.LANDING_2018_ken_speaking_triler.liquid:
+  development: 2018-03-20T16:38:59-07:00   cadf6c47158d7a7f535d47b4f9a6ec18
 templates/page.coop-cares.liquid:
   development: 2018-02-28T23:23:34-08:00   89578338d93ca0df0ae61c8d708b3f12
 templates/page.coop_summit.liquid:
@@ -34,6 +36,6 @@ templates/page.roiInput.liquid:
 templates/page.roiOutput.liquid:
   development: 2018-03-01T09:03:32-08:00   e97f7f5fca19e9a401e8b902934e9dd4
 templates/page.speakers.liquid:
-  development: 2018-03-19T08:48:59-07:00   640310aafd71f6067da4448f8e09a089
+  development: 2018-03-21T13:56:31-07:00   7b14ff123fbd48516410fe50628eb8e7
 templates/page.team.liquid:
   development: 2018-03-01T09:04:04-08:00   daa1ab907ad99c0c0a9549621d869478
