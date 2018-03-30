@@ -20,7 +20,7 @@ layout/theme.liquid:
 layout/theme.login.liquid:
   development: 2018-03-01T12:15:45-08:00   e484ca347c865d27037beca7430d908e
 layout/theme.noFastClick.liquid:
-  development: 2018-02-28T23:07:00-08:00   fabac6ffee10698a5924458ddd2bfa15
+  development: 2018-03-27T15:59:08-07:00   e1799e2a0c899e7a138477acb7159d28
 layout/theme.nofollow.liquid:
   development: 2018-02-28T23:07:48-08:00   baf5a7fbe269977a0ae9f0889f77b015
 templates/page.LANDING_2018_ken_speaking_triler.liquid:
