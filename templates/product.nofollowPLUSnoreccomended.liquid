@@ -157,16 +157,7 @@
     {{ product.description }}
   </div>
 
-  {% assign found = false %}
-  {% for c in product.collections %}
-    {% if c.handle == "live-ce" %}
-      {% assign found = true %}
-    {% endif %}
-  {% endfor %}
 
-  {% if found == false %}
-    {% include 'related-products' %}
-  {% endif %}
 </div>
 
 {% comment %}

@@ -39,3 +39,9 @@ templates/page.speakers.liquid:
   development: 2018-03-21T13:56:31-07:00   7b14ff123fbd48516410fe50628eb8e7
 templates/page.team.liquid:
   development: 2018-03-01T09:04:04-08:00   daa1ab907ad99c0c0a9549621d869478
+templates/product.liquid:
+  development: 2018-04-03T09:18:39-07:00   6ca5e6ba95adb3843c2f6fd5c4ad210d
+templates/product.noFollow.liquid:
+  development: 2018-04-03T09:21:47-07:00   a2e89ef4b5f54bf5c934a6e7aa25210c
+templates/product.nofollowPLUSnoreccomended.liquid:
+  development: 2018-04-03T15:43:07-07:00   1d855a0cb0393afaf82a59fabda74eb2
