@@ -176,25 +176,22 @@ function fedInCart() {
 
 
 
-function addToCart(courses) {
-        Shopify.queue = []
-        for (var c of courses) {
-            Shopify.queue.push({
-                quantity: 1,
-                variantId: c.variantId
-            })
-        }
-        Shopify.moveAlong = function () {
-            if (Shopify.queue.length) {
-                var request = Shopify.queue.shift();
-                Shopify.addItem(request.variantId, request.quantity, Shopify.moveAlong);
-            } else {
-                document.location.href = '/cart';
+
+        function addToCart(courses) {
+                  for (var i = 0; i < cart.length; i++) {
+                    var vId = cart[i].variantId;
+                  jQuery.post('/cart/add.js', {
+                              quantity: 1,
+                              id: vId
+                            });
+                }
+                // // this.setState({isSubmitting: true})
+                // Shopify.moveAlong();
             }
-        }
-        this.setState({isSubmitting: true})
-        Shopify.moveAlong();
-    }
+
+        // // this.setState({isSubmitting: true})
+        // Shopify.moveAlong();
+    // }
 
 
 

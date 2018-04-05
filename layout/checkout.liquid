@@ -9,6 +9,29 @@
     {{ content_for_header }}
     {{ checkout_stylesheets }}
     {{ checkout_scripts }}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
+
+<style>
+
+#email_reminder-error{
+  color: #ff6d6d;
+  line-height: 2.5em;
+  display: block;
+}
+@media screen and (min-width: 992px) {
+  #email_reminder {
+        width: 65% !important;
+  }
+}
+
+
+
+</style>
+
+
+
+
   </head>
   <body>
     <div class="banner" data-header>
@@ -45,7 +68,6 @@
     </div>
     {{ tracking_code }}
     {{ 'browser-support.js' | asset_url | script_tag }}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
 
 
@@ -81,7 +103,119 @@ checkCookie();
 </script>
 
 
+<!-- CE Not Ready Notif -->
+<script>
+if ($(".product__status--sold-out")[0]){
+    // Do something if class exists
+    $('.section__title').text('Important!');
 
+    $('.section__text').text('Some of the classes you need are still awaiting NMLS approval.\
+    Input your email and we will send you an email with your classes when they are ready.');
+
+    $( '<div>\
+    <form id="contact_form" class="" action="" method="post" novalidate="novalidate">\
+    <input style="border-radius: 5px;\
+    background-color: #fff;\
+    margin-top: 7px;\
+    border: 2px solid #00b1cd;\
+    color: #857d7d;\
+    font-weight: 700;\
+    text-align: center;\
+    width: 100%;\
+    padding-top: 6px;\
+    padding-bottom: 6px;\
+    margin-bottom: 20px;\
+    margin-top: 20px;" name="email" type="email" class="" id="email_reminder" placeholder="Email" required="required">\
+    <input id="itemsInCart" type="hidden" name="event" value="549873123363">\
+    <button type="submit" class="btn btn-primary">Notify Me</button>\
+    </form>\
+    </div>' ).appendTo( ".section__text" );
+
+
+}
+
+
+
+// section__text
+// section__title
+
+// Some of the classes you need are still awaiting NMLS approval.
+// We understand waiting is no fun.
+//
+// Input your email and we will send you an email with your classes when they go live.
+// <input/>
+// <button>Tell me when my classes are ready</button>
+
+
+//Capture Cart Data.
+$(document).ready(function(){
+var items = '';
+$.getJSON( "/cart.js",  function(data) {
+        // console.log(data.items);
+        for (var i = 0; i < data.items.length; i++) {
+        items = items.concat(data.items[i]['variant_id']+',');
+        console.log(data.items[i]['variant_id']);
+        }
+        $('#itemsInCart').val(items);
+         });
+
+});
+</script>
+
+
+
+
+
+
+<script>
+// Wait for the DOM to be ready
+$(function() {
+  // Initialize form validation on the registration form.
+  // It has the name attribute "registration"
+  $("#contact_form").validate({
+    // Specify validation rules
+    rules: {
+      // The key name on the left side is the name attribute
+      // of an input field. Validation rules are defined
+      // on the right side
+      email: {
+        required: true,
+        // Specify that email should be validated
+        // by the built-in "email" rule
+        email: true
+      },
+
+    },
+    // Specify validation error messages
+    messages: {
+      email: "Please enter a valid email address"
+    },
+    // Make sure the form is submitted to the destination defined
+    // in the "action" attribute of the form when valid
+    submitHandler: function(form) {
+	// formInstance = $(form.target);
+d = $("#contact_form").serialize();
+console.log(d);
+$('#contact_form').fadeOut();
+    //
+		// $.post("https://form.knowledgecoop.com/api/form-process/livece",d, function(data, status){
+				// $('#cc__fancy_notification').css('pointer-events','none');
+				// $('.cc__notif__modal').addClass('fade');
+// console.log("Data: " + data + "\nStatus: " + status);
+		// });
+
+      return false;
+
+    }
+  });
+});
+
+
+
+</script>
+
+
+</script>
 
   </body>
 </html>
