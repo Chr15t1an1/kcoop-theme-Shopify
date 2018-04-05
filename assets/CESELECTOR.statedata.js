@@ -51,7 +51,9 @@ const stateMap = {
     WV: 'West Virginia',
     WI: 'Wisconsin',
     WY: 'Wyoming',
-    PR:'Puerto Rico'
+    PR:'Puerto Rico',
+    GU:'Guam',
+    VI:'Virgin Islands'
 }
 
 
@@ -74,7 +76,7 @@ const requirements = {
     CO: {stateCE:'1co',requiredHours:8,require8Hr:false},
     CT: {stateCE:'1ct',requiredHours:8,require8Hr:false},
     DC: {stateCE:'1dc',requiredHours:8,require8Hr:false},
-    FL: {stateCE:'',requiredHours:8,require8Hr:false},
+    FL: {stateCE:'1fl',requiredHours:8,require8Hr:false},
     GA: {stateCE:'1ga',requiredHours:8,require8Hr:false},
     HI: {stateCE:'1hi',requiredHours:8,require8Hr:false},
     ID: {stateCE:'1id',requiredHours:8,require8Hr:false},
@@ -82,7 +84,8 @@ const requirements = {
     MD: {stateCE:'1md',requiredHours:8,require8Hr:false},
     MA: {stateCE:'1ma',requiredHours:8,require8Hr:false},
     MO: {stateCE:'1mo',requiredHours:8,require8Hr:false},
-    NV: {stateCE:'3nv',requiredHours:8,require8Hr:false},
+    // NV: {stateCE:'3nv',requiredHours:8,require8Hr:false},
+    NV: {stateCE:'',requiredHours:8,require8Hr:false},
     NM: {stateCE:'1nm',requiredHours:8,require8Hr:false},
     NC: {stateCE:'1nc',requiredHours:8,require8Hr:false},
     PA: {stateCE:'1pa',requiredHours:8,require8Hr:false},
@@ -110,7 +113,7 @@ const requirements = {
     ND: {stateCE:'',requiredHours:8,require8Hr:false},
     OH: {stateCE:'',requiredHours:8,require8Hr:false},
     OK: {stateCE:'',requiredHours:8,require8Hr:false},
-    SC: {stateCE:'',requiredHours:8,require8Hr:false},
+    SC: {stateCE:'1sc',requiredHours:8,require8Hr:false},
     SD: {stateCE:'',requiredHours:8,require8Hr:false},
     TN: {stateCE:'',requiredHours:8,require8Hr:false},
     TX: {stateCE:'',requiredHours:8,require8Hr:false},
@@ -118,7 +121,11 @@ const requirements = {
     VA: {stateCE:'',requiredHours:8,require8Hr:false},
     WI: {stateCE:'',requiredHours:8,require8Hr:false},
     WY: {stateCE:'',requiredHours:8,require8Hr:false},
-    PR: {stateCE:'',requiredHours:8,require8Hr:false}
+    PR: {stateCE:'',requiredHours:8,require8Hr:false},
+    GU: {stateCE:'',requiredHours:8,require8Hr:false},
+    VI: {stateCE:'',requiredHours:8,require8Hr:false}
+
+
 }
 
 
@@ -325,6 +332,12 @@ const allCourses = {
     '1wv': {
         name: 'West Virginia 1 Hour Online CE',
         variantId: 23554357121,
+        hours: 1,
+    }
+    ,
+    '1sc': {
+        name: 'South Carolina 1 Hour Online CE',
+        variantId: 6839943495715,
         hours: 1,
     }
 }

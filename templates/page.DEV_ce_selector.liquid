@@ -113,7 +113,9 @@ $('#select-to').selectize({
         {state: 'West Virginia'},
         {state: 'Wisconsin'},
         {state: 'Wyoming'},
-        {state: 'Puerto Rico'}
+        {state: 'Puerto Rico'},
+        {state: 'Guam'},
+        {state: 'Virgin Islands'}
     ],
     render: {
         item: function(item, escape) {
@@ -174,7 +176,7 @@ $( "#target" ).submit(function( event ) {
   addRemainingHours(userRequirements);
   addToCart(cart);
 
-  setTimeout(function(){ window.location = "/cart"; }, 1700);
+  setTimeout(function(){ window.location = "/cart"; }, 1200);
 });
 
 </script>

@@ -6,7 +6,7 @@ assets/CESELECTOR.select.css:
 assets/CESELECTOR.sifter.js:
   development: 2018-04-04T17:33:52-07:00   fa8c8e0f46e73806fb167bdecb4f1780
 assets/CESELECTOR.statedata.js:
-  development: 2018-04-04T17:33:53-07:00   252bc97116c4619d29f19596d4520f53
+  development: 2018-04-04T23:56:02-07:00   a5240fae0d154f4a75dbd1c3092e944e
 assets/cc_notification-style.min.css:
   development: 2018-03-19T09:52:38-07:00   932330721dcfc0027b7976a300a51693
 assets/cc_notification.js:
@@ -36,7 +36,7 @@ layout/theme.nofollow.liquid:
 layout/theme.slim.liquid:
   development: 2018-04-04T23:03:55-07:00   c3bbd224ca3998468aa4a96089f37c05
 templates/page.DEV_ce_selector.liquid:
-  development: 2018-04-04T23:29:23-07:00   caa4024f3bb5ac498fef484d0f1877a3
+  development: 2018-04-04T23:56:21-07:00   c15b4a6e2c7bac7ac97f9726b6896ca1
 templates/page.LANDING_2018_ken_speaking_triler.liquid:
   development: 2018-03-20T16:38:59-07:00   cadf6c47158d7a7f535d47b4f9a6ec18
 templates/page.LANDING_nate_guild_lp_2_26_20018.liquid:
