@@ -1,40 +1,39 @@
 {% layout 'theme.slim' %}
 <!-- /templates/page.liquid -->
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 <!-- <link href="select.css" rel="stylesheet"> -->
-<link href="{{ 'CESELECTOR.select.css' | asset_url }}" rel="stylesheet">
 
-<script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-
-
-{{ '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js' | script_tag }}
-{{ 'api.jquery.js' | shopify_asset_url | script_tag }}
-
-
-  <!-- <script src="sifter.js"></script>
-  <script src="statedata.js"></script>
-  <script src="ce_logic.js"></script> -->
-
-
-  {{ 'CESELECTOR.sifter.js' | asset_url | script_tag }}
-  {{ 'CESELECTOR.statedata.js' | asset_url | script_tag }}
-  {{ 'CESELECTOR.ce_logic.js' | asset_url | script_tag }}
-
-
-<a onclick="location.reload();">Clear</a>
-  <form id="target" method="POST" enctype="" action="">
-          <select id="select-to" name="select_multiple_numbers" multiple="multiple">
-          </select>
-          <input id="formSubmit" type="submit">
- </form>
+<div class='row'>
+<div class='container'>
+<h1>Mortgage Loan Officer Continuing Education Selector Tool</h1>
+<p>Start by searching and selecting the states you are licenced in. After you hit submit, we will calculate the minimum hours required by the NMLS for you to stay licenced.</p>
+</div>
+</div>
 
 
 
+<div style="min-height: 200px;" class="row">
+  <div class='container'>
+  <a id="clearBtn" onclick="location.reload();">Clear</a>
+  </div>
+
+  <div style="" class="container">
+    <form class="col-sm-8 col-sm-offset-2 col-xs-12" id="target" method="POST" enctype="" action="">
+            <select id="select-to" name="select_multiple_numbers" multiple="multiple">
+            </select>
+            <input id="formSubmit" type="submit">
+   </form>
+  </div>
+</div>
 
 
+
+<div class='row'>
+<div class='container'>
+
+<blockquote>Classes with dates and venues still being confirmed.</blockquote>
+</div>
+</div>
 
 <!-- //Select Search -->
 <script>

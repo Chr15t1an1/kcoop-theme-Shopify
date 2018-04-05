@@ -33,15 +33,34 @@
       <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css' media="none" onload="if(media!='all')media='all'">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
-
+{{ 'bootstrap_wo_fonts.css' | asset_url | stylesheet_tag }}
   <!-- CSS ================================================== -->
   {{ 'timber.scss.css' | asset_url | stylesheet_tag }}
+
   {{ 'knowledge-coop.scss.css' | asset_url | stylesheet_tag }}
   {{ 'grunt_kc-responsive_custom.min.css' | asset_url | stylesheet_tag }}
 
   {{ 'cc_notification-style.min.css' | asset_url | stylesheet_tag }}
   {{ 'jquery.fancybox.min.css' | asset_url | stylesheet_tag }}
 
+  <link href="{{ 'CESELECTOR.select.css' | asset_url }}" rel="stylesheet">
+
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  {{ '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js' | script_tag }}
+  {{ 'api.jquery.js' | shopify_asset_url | script_tag }}
+
+
+    <!-- <script src="sifter.js"></script>
+    <script src="statedata.js"></script>
+    <script src="ce_logic.js"></script> -->
+
+
+    {{ 'CESELECTOR.sifter.js' | asset_url | script_tag }}
+    {{ 'CESELECTOR.statedata.js' | asset_url | script_tag }}
+    {{ 'CESELECTOR.ce_logic.js' | asset_url | script_tag }}
 
   <style>
   div#close_n {
@@ -54,6 +73,49 @@
   .js-loading *:after {
     animation-play-state: paused !important;
   }
+#clearBtn{
+  float: right;
+    font-size: x-large;
+    color: #007bff;
+}
+
+#clearBtn:hover{
+    font-size: x-large;
+    color: #007bff82;
+    text-decoration: underline;
+}
+
+  #formSubmit{
+
+    background: #F48102;
+    padding: 8px 18px;
+    color: #fff;
+    border-radius: 5px;
+
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+  .label {
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 1em;
+    font-weight: normal;
+    line-height: 1;
+    color: #000;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: left;
+    border-radius: .25em;
+}
+
+hr {
+    clear: both;
+    border-top: solid #e5e5e500;
+    border-width: 1px 0 0;
+    margin: 30px 0;
+    height: 0;
+}
   </style>
 
   <script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
