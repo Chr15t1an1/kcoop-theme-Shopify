@@ -36,7 +36,7 @@ layout/theme.nofollow.liquid:
 layout/theme.slim.liquid:
   development: 2018-04-04T23:03:55-07:00   c3bbd224ca3998468aa4a96089f37c05
 templates/page.DEV_ce_selector.liquid:
-  development: 2018-04-04T23:56:21-07:00   c15b4a6e2c7bac7ac97f9726b6896ca1
+  development: 2018-04-05T00:10:47-07:00   ca1ca7caa227a31fb274916b4ff94269
 templates/page.LANDING_2018_ken_speaking_triler.liquid:
   development: 2018-03-20T16:38:59-07:00   cadf6c47158d7a7f535d47b4f9a6ec18
 templates/page.LANDING_nate_guild_lp_2_26_20018.liquid:
