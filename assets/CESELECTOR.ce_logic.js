@@ -38,7 +38,6 @@ temp_hours_array.push(userRequirements[key]['requiredHours']);
 
 function addStateCE(usrRequirements) {
   Object.keys(usrRequirements).forEach(function(key) {
-
   if (allCourses[usrRequirements[key]['stateCE']]) {
   // console.log(usrRequirements[key]['stateCE']);
   cart.push(allCourses[usrRequirements[key]['stateCE']]);
@@ -178,15 +177,29 @@ function fedInCart() {
 
 
         function addToCart(courses) {
+
+                  payload = '';
+
                   for (var i = 0; i < cart.length; i++) {
                     var vId = cart[i].variantId;
-                  jQuery.post('/cart/add.js', {
-                              quantity: 1,
-                              id: vId
-                            });
+                    payload = payload+'updates['+vId+']=1&';
+
+                  // jQuery.post('/cart/add.js', {
+                  //             quantity: 1,
+                  //             id: vId
+                  //           });
+
                 }
-                // // this.setState({isSubmitting: true})
+                console.log(payload);
+
+                // jQuery.post('/cart/update.js', {updates: {payload}});
+                // $.post('/cart/update.js', {updates: {payload}});
+                // jQuery.post('/cart/update.js', {updates: {payload}});
+                // this.setState({isSubmitting: true})
                 // Shopify.moveAlong();
+
+                jQuery.post('/cart/update.js', payload);
+
             }
 
         // // this.setState({isSubmitting: true})

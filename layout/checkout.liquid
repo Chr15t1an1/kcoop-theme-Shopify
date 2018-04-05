@@ -16,8 +16,14 @@
 
 #email_reminder-error{
   color: #ff6d6d;
-  line-height: 2.5em;
-  display: block;
+    line-height: 2.5em;
+    /* display: block; */
+    /* position: fixed; */
+    text-align: center;
+    position: absolute;
+    left: 5px;
+    /* top: 50px; */
+
 }
 @media screen and (min-width: 992px) {
   #email_reminder {
@@ -125,7 +131,7 @@ if ($(".product__status--sold-out")[0]){
     padding-top: 6px;\
     padding-bottom: 6px;\
     margin-bottom: 20px;\
-    margin-top: 20px;" name="email" type="email" class="" id="email_reminder" placeholder="Email" required="required">\
+    margin-top: 35px;" name="email" type="email" class="" id="email_reminder" placeholder="Email" required="required">\
     <input id="itemsInCart" type="hidden" name="event" value="549873123363">\
     <button type="submit" class="btn btn-primary">Notify Me</button>\
     </form>\
