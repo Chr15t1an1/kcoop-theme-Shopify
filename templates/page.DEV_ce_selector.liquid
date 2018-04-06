@@ -3,6 +3,8 @@
 <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 <!-- <link href="select.css" rel="stylesheet"> -->
 
+
+ACTIVLY UNDER CONSTRUCTION
 <div class='row'>
 <div class='container col-xs-10 col-xs-offset-1 container'>
 <h1 style='font-size: 3em;'>Mortgage Loan Officer Continuing Education Selector Tool</h1>
@@ -102,7 +104,8 @@ $('#select-to').selectize({
         {state: 'Oregon'},
         {state: 'Pennsylvania'},
         {state: 'Rhode Island'},
-        {state: 'South Carolina'},
+        {state: 'South Carolina-DCA'},
+        {state: 'South Carolina-BFI'},
         {state: 'South Dakota'},
         {state: 'Tennessee'},
         {state: 'Texas'},
@@ -174,9 +177,9 @@ $( "#target" ).submit(function( event ) {
   processForm($('#select-to').val());
   addStateCE(userRequirements);
   addRemainingHours(userRequirements);
-  addToCart(cart);
+  // addToCart(cart);
 
-  setTimeout(function(){ window.location = "/cart"; }, 1200);
+  // setTimeout(function(){ window.location = "/cart"; }, 1200);
 });
 
 </script>
