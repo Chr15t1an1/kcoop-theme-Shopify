@@ -224,7 +224,7 @@ Also added margin to bottom
 @media (min-width:1200px) {
 	.live-ce-banner {
 		height:350px;
-		background:url('') no-repeat 50% 50%;
+		background:url() no-repeat 50% 50%;
 		background-size:100%;
 		position: relative
 	margin-bottom: 25px;

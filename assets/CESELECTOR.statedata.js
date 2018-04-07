@@ -40,7 +40,8 @@ const stateMap = {
     OR: 'Oregon',
     PA: 'Pennsylvania',
     RI: 'Rhode Island',
-    SC: 'South Carolina',
+    S2: 'South Carolina-DCA',
+    SC: 'South Carolina-BFI',
     SD: 'South Dakota',
     TN: 'Tennessee',
     TX: 'Texas',
@@ -51,24 +52,25 @@ const stateMap = {
     WV: 'West Virginia',
     WI: 'Wisconsin',
     WY: 'Wyoming',
-    PR:'Puerto Rico',
-    GU:'Guam',
-    VI:'Virgin Islands'
+    PR: 'Puerto Rico',
+    GU: 'Guam',
+    VI: 'Virgin Islands'
 }
 
 
 const requirements = {
     /* stage 1 */
 
-
     // NJ:{stateCE:'2nj',requiredHours:12,require8Hr:true},
-
-
-    NJ: {stateCE:'2nj',requiredHours:12,require8Hr:true},
+    // NJ: {stateCE:'2nj',requiredHours:12,require8Hr:true},
+    NJ: {stateCE:'2nj',requiredHours:12,require8Hr:false},
     NY: {stateCE:'3ny',requiredHours:11,require8Hr:true},
-    OR: {stateCE:'2or',requiredHours:10,require8Hr:true},
-    UT: {stateCE:'2ut',requiredHours:10,require8Hr:true},
-    WA: {stateCE:'1a',requiredHours:9,require8Hr:true},
+    // OR: {stateCE:'2or',requiredHours:10,require8Hr:true},
+    OR: {stateCE:'2or',requiredHours:10,require8Hr:false},
+    // UT: {stateCE:'2ut',requiredHours:10,require8Hr:true},
+    UT: {stateCE:'2ut',requiredHours:10,require8Hr:false},
+    // WA: {stateCE:'1a',requiredHours:9,require8Hr:true},
+    WA: {stateCE:'1wa',requiredHours:9,require8Hr:false},
 
     /* stage 2 */
     AZ: {stateCE:'1az',requiredHours:8,require8Hr:false},
@@ -114,6 +116,7 @@ const requirements = {
     OH: {stateCE:'',requiredHours:8,require8Hr:false},
     OK: {stateCE:'',requiredHours:8,require8Hr:false},
     SC: {stateCE:'1sc',requiredHours:8,require8Hr:false},
+    S2: {stateCE:'1sc',requiredHours:8,require8Hr:false},
     SD: {stateCE:'',requiredHours:8,require8Hr:false},
     TN: {stateCE:'',requiredHours:8,require8Hr:false},
     TX: {stateCE:'',requiredHours:8,require8Hr:false},
@@ -340,6 +343,7 @@ const allCourses = {
         variantId: 6839943495715,
         hours: 1,
     }
+    
 }
 
 // export {stateMap, requirements, allCourses}
