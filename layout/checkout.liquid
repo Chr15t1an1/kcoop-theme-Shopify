@@ -132,8 +132,9 @@ if ($(".product__status--sold-out")[0]){
     padding-bottom: 6px;\
     margin-bottom: 20px;\
     margin-top: 35px;" name="email" type="email" class="" id="email_reminder" placeholder="Email" required="required">\
-    <input id="itemsInCart" type="hidden" name="event" value="549873123363">\
-    <button type="submit" class="btn btn-primary">Notify Me</button>\
+    <input id="itemsInCart" type="hidden" name="cart" value="">\
+    <button style="float: right;margin-top: 25px;\
+    margin-bottom: 40px;" type="submit" class="btn btn-primary">Notify Me</button>\
     </form>\
     </div>' ).appendTo( ".section__text" );
 
@@ -151,6 +152,7 @@ if ($(".product__status--sold-out")[0]){
 // Input your email and we will send you an email with your classes when they go live.
 // <input/>
 // <button>Tell me when my classes are ready</button>
+
 
 
 //Capture Cart Data.
@@ -202,13 +204,12 @@ $(function() {
 	// formInstance = $(form.target);
 d = $("#contact_form").serialize();
 console.log(d);
-$('#contact_form').fadeOut();
+
     //
-		// $.post("https://form.knowledgecoop.com/api/form-process/livece",d, function(data, status){
-				// $('#cc__fancy_notification').css('pointer-events','none');
-				// $('.cc__notif__modal').addClass('fade');
-// console.log("Data: " + data + "\nStatus: " + status);
-		// });
+		$.post("https://form.knowledgecoop.com/api/form-process/save-cart",d, function(data, status){
+			$('#contact_form').fadeOut();
+      console.log("Data: " + data + "\nStatus: " + status);
+		});
 
       return false;
 
