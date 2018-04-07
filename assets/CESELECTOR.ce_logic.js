@@ -133,7 +133,7 @@ hoursInCart = countHoursInCart(cart);
   // console.log(minrequiredHours);
   // console.log(hoursInCart);
   var hoursRemaining = minrequiredHours - hoursInCart;
-console.log(hoursRemaining);
+
       if (hoursInCart >= minrequiredHours) {
         console.log('add products to cart');
       }else if (hoursRemaining === 8) {
@@ -148,29 +148,21 @@ console.log(hoursRemaining);
         console.log('Federal Not in Cart');
         cart.push(allCourses['7hr']);
         addRemainingHours(userRequirements);
-      }else if (hoursRemaining === 3) {
-        console.log('Adding 3 hour NY');
-        cart.push(allCourses['3ny']);
-        addRemainingHours(userRequirements);
-      } else if (hoursRemaining === 2) {
-        console.log('Adding 2hours PA + MD');
+      }else {
+        console.log('More Form | Need '+ hoursRemaining + ' more hours. Adding pensilvanya and Maryland');
         cart.push(allCourses['1pa']);
         cart.push(allCourses['1md']);
         addRemainingHours(userRequirements);
-      } else {
-        console.log('Something wrong');
-
-        addRemainingHours(userRequirements);
       }
   }
-// if (!fedInCart()) {console.log('federal not in cart');}
+
 
 function fedInCart() {
   // console.log(Kart);
   var i, len;
 
   for (i = 0, len = cart.length; i < len; i++) {
-    if (parseInt(cart[i]['hours']) > 6) {
+    if (parseInt(cart[i]['hours']) > 7) {
       return true;
     }
   }
