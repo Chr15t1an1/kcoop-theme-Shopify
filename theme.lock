@@ -356,13 +356,13 @@ templates/page.Banner w Text.liquid:
 templates/page.Consulting w Banner.liquid:
   development: 2018-02-28T01:01:24-08:00   ba23c69a5f9bf6e3894285744dde8a9f
 templates/page.DEV_ce_selector.liquid:
-  development: 2018-04-06T16:04:42-07:00   148dd319e48d5f689811320585f917a7
+  development: 2018-04-10T07:34:24-07:00   5a7aca2357724e92027b549e638b1964
 templates/page.Hubspot form test.liquid:
   development: 2018-02-28T01:01:24-08:00   fd708e6315dd8afc62d46e5305110e2d
 templates/page.LANDING_2018_ken_speaking_triler.liquid:
   development: 2018-03-20T16:38:59-07:00   cadf6c47158d7a7f535d47b4f9a6ec18
 templates/page.LANDING_executive.liquid:
-  development: 2018-02-28T01:01:24-08:00   a79d126bfdf7ad77e0ebdd9ba884a838
+  development: 2018-04-17T10:10:38-07:00   78c032a3c154fafbab7fd901b9f91f86
 templates/page.LANDING_ken_speaking.liquid:
   development: 2018-02-28T01:01:24-08:00   e8df4cef992148e090f62d9ec630e388
 templates/page.LANDING_nate_guild_lp_2_26_20018.liquid:
