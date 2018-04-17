@@ -242,7 +242,7 @@ layout/BACKUP__theme.liquid:
 layout/checkout.liquid:
   development: 2018-04-06T20:49:56-07:00   5ac9562cd896fc134fc56f2b6c21762f
 layout/theme.liquid:
-  development: 2018-03-21T09:01:34-07:00   b151a5da6b3c6b00a51049652a53d333
+  development: 2018-04-17T15:44:41-07:00   e8059332498a092acc3858f25b7e9485
 layout/theme.login.liquid:
   development: 2018-03-01T12:15:45-08:00   e484ca347c865d27037beca7430d908e
 layout/theme.noFastClick.liquid:
@@ -309,8 +309,6 @@ snippets/tags-article.liquid:
   development: 2018-02-28T01:01:23-08:00   52bc59a44a51be2f1745559c2ba514a2
 templates/404.liquid:
   development: 2018-02-28T01:01:23-08:00   6f3f2732d42b286e02f6f70dac09e44e
-templates/2017_online_ce_launch.liquid:
-  development: 2018-02-28T01:01:23-08:00
 templates/article.liquid:
   development: 2018-02-28T01:01:23-08:00   8905b01b0b5a21d682bc0ebaa0bbdb19
 templates/blog.liquid:
@@ -345,12 +343,6 @@ templates/list-collections.liquid:
   development: 2018-02-28T01:01:24-08:00   c2eb3a9dc0080fb073374f7e7c25d217
 templates/online.ce.liquid:
   development: 2018-02-28T01:01:24-08:00   1457b9f8ecec9a7e517713fb7029e3d4
-templates/page.2017_online_ce_launch.liquid:
-  development: 2018-02-28T01:01:24-08:00   6487cc1630ee2854694f51053de70e16
-templates/page.2017Online-Ce-launch-lp-v2.liquid:
-  development: 2018-02-28T01:01:24-08:00   6487cc1630ee2854694f51053de70e16
-templates/page.2018_coop_summit.liquid:
-  development: 2018-02-28T01:01:24-08:00   d3ad836eb9dd064e83a7da3c93a5bab7
 templates/page.Banner w Text.liquid:
   development: 2018-02-28T01:01:24-08:00   8c859de6f5df1ed278ea252bdfd67246
 templates/page.Consulting w Banner.liquid:
@@ -359,6 +351,10 @@ templates/page.DEV_ce_selector.liquid:
   development: 2018-04-10T07:34:24-07:00   5a7aca2357724e92027b549e638b1964
 templates/page.Hubspot form test.liquid:
   development: 2018-02-28T01:01:24-08:00   fd708e6315dd8afc62d46e5305110e2d
+templates/page.LANDING.2018_coop_summit.liquid:
+  development: 2018-04-17T15:58:17-07:00   d3ad836eb9dd064e83a7da3c93a5bab7
+templates/page.LANDING.Regulators_Landing_Page.liquid:
+  development: 2018-04-17T16:22:24-07:00   c9f8907e81daa5d4152147c94fa064cb
 templates/page.LANDING_2018_ken_speaking_triler.liquid:
   development: 2018-03-20T16:38:59-07:00   cadf6c47158d7a7f535d47b4f9a6ec18
 templates/page.LANDING_executive.liquid:
@@ -371,8 +367,6 @@ templates/page.LIVECE.liquid:
   development: 2018-04-06T13:45:16-07:00   e11a1892bc82beb1e356dc1116e62ce3
 templates/page.NO_live-ce-banner.liquid:
   development: 2018-02-28T01:01:24-08:00   c70de7125bfd9d8559a5f0e7c83f7ce9
-templates/page.Regulators_Landing_Page.liquid:
-  development: 2018-02-28T01:01:25-08:00   c9f8907e81daa5d4152147c94fa064cb
 templates/page.Two Column with Header.liquid:
   development: 2018-02-28T01:01:25-08:00   6f8d0daaa22e0137b01e5f08368693ea
 templates/page.about-us.liquid:
