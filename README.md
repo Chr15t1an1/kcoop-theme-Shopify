@@ -23,3 +23,5 @@ The rebuilt CE selector tool is under DEV_ce_selector. Current CE selector is pa
 The first version of the ROI calculator is page.roiinput.liquid  & page.roioutput.liquid
 
 To hide recommended products on private live CE use product.nofollowPLUSnoreccomended.liquid
+
+The notification on the ce selector can be removed by commenting out javascrit at the bottom of the template file. 
