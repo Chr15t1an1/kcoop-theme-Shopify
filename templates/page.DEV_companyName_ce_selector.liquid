@@ -1,0 +1,190 @@
+{% layout 'theme.companyname.ceselector' %}
+<!-- /templates/page.liquid -->
+<!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+<!-- <link href="select.css" rel="stylesheet"> -->
+
+
+ACTIVLY UNDER CONSTRUCTION
+<div class='row'>
+<div class='container col-xs-10 col-xs-offset-1 container'>
+<h1 style='font-size: 3em;'>Mortgage Loan Officer Continuing Education Selector Tool</h1>
+<p>Start by searching the states you are licenced in. After you hit submit, we will calculate the minimum hours required by the NMLS for you to stay licenced.</p>
+</div>
+</div>
+
+
+
+<div style="min-height: 200px;" class="row">
+  <div class='container'>
+  <a id="clearBtn" onclick="location.reload();">Clear</a>
+  </div>
+
+  <div style="" class="container">
+    <form class="col-sm-8 col-sm-offset-2 col-xs-12" id="target" method="POST" enctype="" action="">
+            <select id="select-to" name="select_multiple_numbers" multiple="multiple">
+            </select>
+            <input style="float:right; " id="formSubmit" type="submit">
+   </form>
+  </div>
+</div>
+
+
+
+<div class='row'>
+<div class='container'>
+
+<blockquote>If you got your license or took pre-licensing training this year please consult the NMLS website for requirements as they vary by state.</blockquote>
+</div>
+</div>
+
+<!-- //Select Search -->
+<script>
+
+// Button disabled by default
+$('#formSubmit').prop('disabled',true);
+
+$('#target').on('change', function () {
+    $('#formSubmit').prop('disabled',false);
+});
+
+
+
+
+var REGEX_EMAIL = '([a-z0-9!#$%&\'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&\'*+/=?^_`{|}~-]+)*@' +
+                  '(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)';
+$('#select-to').selectize({
+    persist: false,
+    maxItems: null,
+    valueField: 'state',
+    labelField: 'name',
+    searchField: ['name', 'state'],
+    // options: [
+    //     {email: 'brian@thirdroute.com'},
+    //     {email: 'nikola@tesla.com'},
+    //     {email: 'someone@gmail.com'}
+    // ],
+    options: [
+        {state: 'Alabama'},
+        {state: 'Alaska'},
+        {state: 'Arizona'},
+        {state: 'Arkansas'},
+        {state: 'California'},
+        {state: 'Colorado'},
+        {state: 'Connecticut'},
+        {state: 'Delaware'},
+        {state: 'District Of Columbia'},
+        {state: 'Florida'},
+        {state: 'Georgia'},
+        {state: 'Hawaii'},
+        {state: 'Idaho'},
+        {state: 'Illinois'},
+        {state: 'Indiana'},
+        {state: 'Iowa'},
+        {state: 'Kansas'},
+        {state: 'Kentucky'},
+        {state: 'Louisiana'},
+        {state: 'Maine'},
+        {state: 'Maryland'},
+        {state: 'Massachusetts'},
+        {state: 'Michigan'},
+        {state: 'Minnesota'},
+        {state: 'Mississippi'},
+        {state: 'Missouri'},
+        {state: 'Montana'},
+        {state: 'Nebraska'},
+        {state: 'Nevada'},
+        {state: 'New Hampshire'},
+        {state: 'New Jersey'},
+        {state: 'New Mexico'},
+        {state: 'New York'},
+        {state: 'North Carolina'},
+        {state: 'North Dakota'},
+        {state: 'Ohio'},
+        {state: 'Oklahoma'},
+        {state: 'Oregon'},
+        {state: 'Pennsylvania'},
+        {state: 'Rhode Island'},
+        {state: 'South Carolina-DCA'},
+        {state: 'South Carolina-BFI'},
+        {state: 'South Dakota'},
+        {state: 'Tennessee'},
+        {state: 'Texas'},
+        {state: 'Utah'},
+        {state: 'Vermont'},
+        {state: 'Virginia'},
+        {state: 'Washington'},
+        {state: 'West Virginia'},
+        {state: 'Wisconsin'},
+        {state: 'Wyoming'},
+        {state: 'Puerto Rico'},
+        {state: 'Guam'},
+        {state: 'Virgin Islands'}
+    ],
+    render: {
+        item: function(item, escape) {
+            return '<div>' +
+                (item.name ? '<span class="name">' + escape(item.name) + '</span>' : '') +
+                (item.state ? '<span class="state">' + escape(item.state) + '</span>' : '') +
+            '</div>';
+        },
+        option: function(item, escape) {
+            var label = item.name || item.state;
+            var caption = item.name ? item.state : null;
+            return '<div>' +
+                '<span class="label">' + escape(label) + '</span>' +
+                (caption ? '<span class="caption">' + escape(caption) + '</span>' : '') +
+            '</div>';
+        }
+    },
+    createFilter: function(input) {
+        var match, regex;
+
+        // email@address.com
+        regex = new RegExp('^' + REGEX_EMAIL + '$', 'i');
+        match = input.match(regex);
+        if (match) return !this.options.hasOwnProperty(match[0]);
+
+        // name <email@address.com>
+        regex = new RegExp('^([^<]*)\<' + REGEX_EMAIL + '\>$', 'i');
+        match = input.match(regex);
+        if (match) return !this.options.hasOwnProperty(match[2]);
+
+        return false;
+    },
+    create: function(input) {
+        if ((new RegExp('^' + REGEX_EMAIL + '$', 'i')).test(input)) {
+            return {state: input};
+        }
+        var match = input.match(new RegExp('^([^<]*)\<' + REGEX_EMAIL + '\>$', 'i'));
+        if (match) {
+            return {
+                state : match[2],
+                name  : $.trim(match[1])
+            };
+        }
+        alert('Invalid state');
+        return false;
+    }
+});
+
+</script>
+
+
+
+<script>
+$( "#target" ).submit(function( event ) {
+  event.preventDefault();
+  processForm($('#select-to').val());
+  addStateCE(userRequirements);
+  addRemainingHours(userRequirements);
+  addToCart(cart);
+
+  setTimeout(function(){ window.location = "/cart"; }, 1200);
+});
+
+</script>
+
+
+<!-- END HTML -->
+
+</div>
