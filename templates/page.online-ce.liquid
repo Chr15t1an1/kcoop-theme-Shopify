@@ -1,10 +1,6 @@
-
-
-
-
-
-
 <div id="online-ce">
+
+  
 {% comment %}
 <!-- /templates/page.liquid -->
 <div class="grid">
@@ -21,14 +17,10 @@
 </div>
 {% endcomment %}
 
+  
+{{ page.content | split: '<!-- split -->' | first }}
 
-
-
-
-
-
-  {{ page.content }}
-
+  
 <div class="wrapper online-ce-container">
     <div class="live-ce-schedules">
 		<div class="schedule-heading clearfix">
@@ -46,7 +38,7 @@
             <span class="course">{{ product.title }}</span>
             <span>{{ product.metafields.global.date }}</span>
             <span>
-              <a class="btn" href="{{ product.url | within: collection }}">Purchase</a>
+              <a class="btn" href="{{ product.url | within: collection }}" target="_blank">Purchase</a>
             </span>
           </div>
 
@@ -58,9 +50,15 @@
 		</div>
 	</div>
 </div>
+  
+  
 {% include 'subscribe' %}
 
+{{ page.content | split: '<!-- split -->' | last }}
+  
+  
 </div>
+
 
 <script>
 $(document).ready(function() {

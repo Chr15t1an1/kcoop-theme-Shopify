@@ -173,6 +173,7 @@
 		background-size:100%
 	}
 }
+
 @media (min-width:1000px) {
 	.site-footer .grid__item {
 		width:25%
